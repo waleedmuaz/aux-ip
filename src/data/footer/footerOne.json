@@ -1,0 +1,120 @@
+[
+    {
+        "id": 1,
+        "title": "Create Website By Doob So Quick Download And Make Your Site."
+    },
+
+    {
+        "id": 2,
+        "title": "Services",
+        "quicklink": [
+            {
+                "id": 1,
+                "text": "About",
+                "url": "/about"
+            },
+            {
+                "id": 2,
+                "text": "Portfolio",
+                "url": "/portfolio"
+            },
+            {
+                "id": 3,
+                "text": "Contact",
+                "url": "/contact"
+            },
+            {
+                "id": 4,
+                "text": "Service",
+                "url": "/service"
+            }
+        ]
+    },
+
+    {
+        "id": 3,
+        "title": "Solutions",
+        "quicklink": [
+            {
+                "id": 1,
+                "text": "Gallery",
+                "url": "/gallery"
+            },
+            {
+                "id": 2,
+                "text": "About Us",
+                "url": "/about-us"
+            },
+            {
+                "id": 3,
+                "text": "Testimonial",
+                "url": "/testimonial"
+            },
+            {
+                "id": 4,
+                "text": "Timeline",
+                "url": "/timeline"
+            }
+        ]
+    },
+
+    {
+        "id": 4,
+        "title": "Company",
+        "quicklink": [
+            {
+                "id": 1,
+                "text": "Pricing",
+                "url": "/pricing"
+            },
+            {
+                "id": 2,
+                "text": "Team",
+                "url": "/team"
+            },
+            {
+                "id": 3,
+                "text": "Advance Tab",
+                "url": "/advance-tab"
+            },
+            {
+                "id": 4,
+                "text": "Service",
+                "url": "/service"
+            }
+        ]
+    },
+
+    {
+        "id": 5,
+        "title": "Resources",
+        "quicklink": [
+            {
+                "id": 1,
+                "text": "About",
+                "url": "/about"
+            },
+            {
+                "id": 2,
+                "text": "Portfolio",
+                "url": "/portfolio"
+            },
+            {
+                "id": 3,
+                "text": "Contact",
+                "url": "/contact"
+            },
+            {
+                "id": 4,
+                "text": "Service",
+                "url": "/service"
+            }
+        ]
+    },
+
+    {
+        "id": 6,
+        "title": "Stay With Us.",
+        "subtitle": "2000+ Our clients are subscribe Around the World"
+    }
+]

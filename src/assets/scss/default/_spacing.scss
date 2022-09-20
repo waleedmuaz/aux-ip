@@ -15,7 +15,7 @@
 }
 
 .rn-section-gap {
-    padding: 120px 0 !important;
+    padding-bottom: 66px !important;
     @media #{$md-layout} {
         padding: 80px 0 !important;
     }
@@ -461,3 +461,6 @@
     }
 }
 
+.rwt-about-area{
+    margin-top: 110px !important;
+}

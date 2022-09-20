@@ -168,8 +168,19 @@ img {
     vertical-align: middle;
     max-width: 100%;
     height: auto;
+    margin-top: 23px;
 }
 
+@media only screen and (max-width: 991px) {
+    img {
+        -ms-interpolation-mode: bicubic;
+        border: 0;
+        vertical-align: middle;
+        max-width: 100%;
+        height: auto;
+        margin-top: 0px;
+    }
+  }
 svg:not(:root) {
     overflow: hidden;
 }

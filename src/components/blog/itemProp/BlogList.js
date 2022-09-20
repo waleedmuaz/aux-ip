@@ -8,11 +8,12 @@ const BlogList = ({ data }) => {
    
     console.log(data);
     return (
-        <div className={`rn-card `}>
+       <div className="col-lg-4 col-md-6 col-12 mt--30">
+            <div className={`rn-card `}>
             <div className="inner">
                 <div className="thumbnail">
                     <Link to="/" className="image">
-                        <img src={`${process.env.PUBLIC_URL}/${data.image}`} alt="Blog Image" />
+                        <img src={data.image} alt="Blog Image" />
                     </Link>
                 </div>
                 <div className="content">
@@ -30,6 +31,7 @@ const BlogList = ({ data }) => {
                 </div>
             </div>
         </div>
+       </div>
     )
 }
 BlogList.propTypes = {

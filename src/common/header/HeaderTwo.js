@@ -5,6 +5,8 @@ import Nav from './Nav';
 import MobileMenu from './MobileMenu';
 import Darkmode from "./Darkmode";
 import useStickyHeader from "./useStickyHeader";
+import logo from './logo/doob.svg';
+import './Styles.css'
 
 const HeaderTwo = ({btnStyle, HeaderSTyle}) => {
     const [ofcanvasShow, setOffcanvasShow] = useState(false);
@@ -31,10 +33,13 @@ const HeaderTwo = ({btnStyle, HeaderSTyle}) => {
                     <div className="row align-items-center">
                         <div className="col-lg-9 col-md-6 col-4 position-static">
                             <div className="header-left d-flex">
-                                <Logo 
+                                {/* <Logo 
                                     image={`${process.env.PUBLIC_URL}/images/logo/logo.png`}
                                     image2={`${process.env.PUBLIC_URL}/images/logo/logo-dark.png`}
-                                />
+                                /> */}
+                                <div className="logo">
+                                    <img src={logo} width="100%" alt=""/>
+                                </div>
                                 <nav className="mainmenu-nav d-none d-lg-block">
                                     <Nav />
                                 </nav>

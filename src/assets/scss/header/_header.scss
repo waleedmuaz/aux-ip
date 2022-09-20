@@ -22,6 +22,7 @@
             align-items: center;
             img {
                 max-height: 45px;
+              
             }
         }
     }
@@ -171,3 +172,17 @@
         transform: translateY(0);
     }
 }
+
+@media only screen and (max-width: 991px) {
+    .header-default {
+        max-width: 100%;
+        border-bottom: 1px solid var(--color-border);
+        background-color: var(--color-darker);
+        color: #fff;
+        font-size: 12px;
+        z-index: 99;
+        padding: 13px !important;
+        position: relative;
+    
+    }
+  }

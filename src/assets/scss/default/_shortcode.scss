@@ -603,7 +603,12 @@ textarea:-ms-input-placeholder {
 }
 
 
-
+.slick-slide img {
+    display: block;
+    height: 58px;
+    padding: 12px;
+    width: 100% !important;
+}
 
 /*--------------------
     Contact Form 

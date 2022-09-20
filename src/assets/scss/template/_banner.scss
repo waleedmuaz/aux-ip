@@ -505,7 +505,7 @@
 // Slider Style 4 
 .slider-style-4 {
     .inner {
-        padding-top: 80px;
+        padding-top: 0px;
 
         @media #{$sm-layout} {
             padding-top: 50px;
@@ -880,3 +880,59 @@
 // .top_banner_text > p{
 //     color: aliceblue;
 // }
+
+.sliders::before{
+    width: 100vw; 
+    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
+     background-repeat: no-repeat !important;
+     background-size: cover !important;  
+     background-position: center !important;
+}
+
+// latest_insight css
+.latest_insight{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.latest_insight .full{
+   padding: 23px;
+   height: 250px;
+   border-radius: 7px;
+   overflow: hidden;
+   border: 1px solid rgba(188, 202, 206, 0.3);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.latest_insight .full:hover{
+   padding: 23px;
+   height: 250px;
+   border-radius: 7px;
+   overflow: hidden;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+   border: 1px solid rgba(188, 202, 206, 0.3);
+   transition: 0.7s;
+   transform: translateY(-12px);
+}
+.latest_insight .full .calender{
+   bottom: 0px !important;
+   padding-bottom: 12px !important;
+   position: absolute !important;
+}
+.latest_insight .full h4{
+   font-size: 23px;
+}
+
+// module_banner css
+.module_banner{
+   padding-top: 44px;
+}
+.module_banner .full{
+    padding: 30px;
+    height: 250px;
+    // background-color: antiquewhite;
+}
+.module_banner .full:hover{
+    padding: 30px;
+    height: 250px;
+    transition: 0.7s;
+    transform: translateY(-11px);
+ }

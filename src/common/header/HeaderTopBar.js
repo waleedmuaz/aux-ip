@@ -8,7 +8,7 @@ const HeaderTopBar = () => {
         <div className="header-top-bar">
             <div className="container">
                 <div className="row align-items-center">
-                    <div className="col-lg-4 col-md-12 col-12">
+                    <div className="col-lg-6 col-md-12 col-12">
                         <div className="header-left">
                             <ul className="social-default ">
                                 <li>
@@ -26,7 +26,7 @@ const HeaderTopBar = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="col-lg-8 col-md-12 col-12">
+                    <div className="col-lg-6 col-md-12 col-12">
                         <div className="header-right">
                             <div className="address-content">
                                 <p><FaUser /><span>Login</span></p>

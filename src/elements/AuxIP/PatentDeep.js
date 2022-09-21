@@ -18,12 +18,15 @@ const PatentDeep = () => {
                     <div className="col-lg-7 mt_md--30 mt_sm--30">
                         <div className="content">
                             <div className="section-title">
-
                                 <ScrollAnimation 
                                 animateIn="fadeInUp"
                                 animateOut="fadeInOut"
                                 animateOnce={true}>
-                                    <h3 className="title mt--10">Patent deep search and monitoring tools.</h3>
+                                {/* ========= Edit This Button On Hover Mouse ========= */}
+                                    <div class="mydivouter">
+                                        <button type="button" class="mybuttonoverlap btn btn-primary">Edit</button>
+                                        <h3 className="title mt--10">Patent deep search and monitoring tools.</h3>
+                                </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                 </ScrollAnimation>
 
                                 <ScrollAnimation 

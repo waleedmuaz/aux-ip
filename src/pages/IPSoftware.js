@@ -18,6 +18,9 @@ import ModuleBanner from './AuxIP/ModuleBanner';
 import ConvenientApp from '../elements/AuxIP/ConvenientApp';
 import Modular from './AuxIP/Modular';
 import FooterFour from '../common/footer/FooterFour';
+import FooterOne from '../common/footer/FooterOne';
+import FooterTwo from '../common/footer/FooterTwo';
+import FooterBottom from '../elements/AuxIP/FooterBottom';
 
 
 
@@ -138,12 +141,10 @@ const IPSoftware = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12">
-                                <SectionTitle
+                                <SectionTitle className="mb-4"
                                     textAlign="text-center"
                                     radiusRounded=""
-                                    subtitle="What we can do for you"
                                     title="Services provide for you."
-                                    description="There are many variations of passages of Lorem Ipsum available, <br /> but the majority have suffered alteration."
                                 />
                             </div>
                         </div>
@@ -156,7 +157,7 @@ const IPSoftware = () => {
                 {/* End Service Area  */}
                 <Separator />
 
-                <FooterFour />
+                <FooterBottom />
 
             </main>
         </>

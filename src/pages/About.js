@@ -24,6 +24,7 @@ import aboutLine4 from '../assets/images/about_timeline4.webp';
 import aboutLine5 from '../assets/images/about_timeline5.webp';
 import AboutPara from './AuxIP/AboutPara';
 import TimeLine from './AuxIP/TimeLine';
+import FooterBottom from '../elements/AuxIP/FooterBottom';
 var BlogListData = BlogClassicData.slice(0, 3);
 
 //   Question and parargraph
@@ -193,7 +194,6 @@ const About = () => {
                     </div>
                 </div>  {/* ====== End Luxembourg_section ==== */}
 
-                <FooterTwo />
                 <Copyright />
             </main>
         </>

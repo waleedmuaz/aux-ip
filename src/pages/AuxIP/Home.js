@@ -21,6 +21,7 @@ import LatestInsightData from './LatestInsightData';
 import ModuleBanner from './ModuleBanner';
 import ModuleBannerData from './ModuleBannerData';
 import ConvenientApp from '../../elements/AuxIP/ConvenientApp';
+import EditButton from './EditButton';
 
 // import hero1 from '/aux-ip/src/assets/images/home/hero-quantum-innovation.webp';
 var BlogListData = MainBestAuxIPSection.slice(0, 3);
@@ -68,6 +69,7 @@ const BannerData = [
 const Home = () => {
     return (
         <>
+        
             <SEO title="Home" />
             <main className="page-wrapper">
                 <HeaderTopBar />
@@ -94,6 +96,7 @@ const Home = () => {
                                     <div className="row row--30 align-items-center">
                                         <div className="order-2 order-lg-1 col-lg-7">
                                             <div className="inner text-left">
+                                               <EditButton />
                                                 <h1 className="title" dangerouslySetInnerHTML={{ __html: data.title }}></h1>
                                                 <p className="description" dangerouslySetInnerHTML={{ __html: data.description }}></p>
                                                 <div className="button-group mt--30">

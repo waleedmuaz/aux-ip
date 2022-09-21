@@ -11,7 +11,7 @@
 }
 
 .height-850 {
-    height: 850px;
+    height: 550px;
     display: flex;
     align-items: center;
 
@@ -936,3 +936,72 @@
     transition: 0.7s;
     transform: translateY(-11px);
  }
+// luxembourg_section css
+
+.luxembourg_section .sign h6 {
+    color: #F651D8 !important;
+    font-weight: bold;
+}
+
+// Ipadress css
+  .Ipadress .property{
+      font-size: 55px !important;
+  }
+
+  .slider-style-1 .inner .description {
+    font-family: var(--font-primary);
+    padding: 0 20%;
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 40px;
+    color: var(--color-body);
+}
+
+  .slider-style-1 .inner .description1 {
+    font-family: var(--font-primary);
+    padding: 0 22%;
+    font-size: 21px;
+    line-height: 1.4;
+    margin-bottom: 40px;
+    color: var(--color-body);
+}
+@media only screen and (max-width: 868px) {
+    .slider-style-1 .inner .description1 {
+        font-family: var(--font-primary);
+        padding: 0 22%;
+        font-size: 17px;
+        line-height: 1.4;
+        margin-bottom: 40px;
+        color: var(--color-body);
+    }
+  }
+
+
+//   help_section css
+.help_section{
+    padding: 70px;
+}
+.help_section .btn_help{
+ margin-top: 40px !important;
+}
+.help_section .btn_help .normal-button{
+    background-color: white;
+    padding: 15px 20px !important;
+    border-radius: 29px;
+}
+.help_section {
+    width: 100vw; 
+    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('../../images/hero-about-main.webp');
+     background-repeat: no-repeat !important;
+     background-size: cover !important;  
+     background-position: center !important;
+}
+
+// tabs css
+
+.rwt-advance-tab-area .normal-button{
+    background-color: #a02583;
+    padding: 15px 20px !important;
+    border-radius: 29px;
+    color: white;
+}

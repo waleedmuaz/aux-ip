@@ -13,7 +13,7 @@ const Nav = () => {
                     <li><Link to="/digital-agency">Digital Agency</Link></li>
                     <li><Link to="/finance">Finance</Link></li>
                     <li><Link to="/company">Company</Link></li>
-                    <li><Link to="/marketing">Marketing Agency</Link></li>
+                    <li><Link to="/ip-software">IP Software</Link></li>
                     <li><Link to="/travel-agency">Travel Agency</Link></li>
                     <li><Link to="/consulting">Consulting</Link></li>
                     <li><Link to="/seo-agency">SEO Agency</Link></li>
@@ -21,7 +21,7 @@ const Nav = () => {
                     <li><Link to="/event-conference">Event Conference</Link></li>
                     <li><Link to="/creative-portfolio">Creative Portfolio</Link></li>
                     <li><Link to="/freelancer">Freelancer</Link></li>
-                    <li><Link to="/international-consulting">International Consulting</Link></li>
+                    <li><Link to="/about-us">About Us</Link></li>
                     <li><Link to="/startup">Startup</Link></li>
                     <li><Link to="/web-agency">Web Agency</Link></li>
                 </ul>

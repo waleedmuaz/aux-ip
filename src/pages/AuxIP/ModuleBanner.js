@@ -5,7 +5,7 @@ const ModuleBanner = (props) => {
     return (
         <>
             <div className="col-md-6 col-12 my-3">
-            <NavLink to="/"> <div className="full" style={{ backgroundImage:`url(${props.bg})` ,backgroundRepeat:"no-repeat",backgroundSize:"cover" }}>
+            <NavLink to="#"> <div className="full" style={{ backgroundImage:`url(${props.bg})` ,backgroundRepeat:"no-repeat",backgroundSize:"cover" }}>
                     <div className="title">
                         <h4 className="text-white">{props.title}</h4>
                     </div>

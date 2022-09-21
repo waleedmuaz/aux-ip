@@ -11,7 +11,7 @@ import Business from "./pages/Business";
 import DigitalAgency from "./pages/DigitalAgency";
 import Finance from "./pages/Finance";
 import Company from "./pages/Company";
-import Marketing from "./pages/Marketing";
+import IPSoftware from "./pages/IPSoftware";
 import TravelAgency from "./pages/TravelAgency";
 import Consulting from "./pages/Consulting";
 import SeoAgency from "./pages/SeoAgency";
@@ -19,7 +19,7 @@ import PersonalPortfolio from "./pages/PersonalPortfolio";
 import EventConference from "./pages/EventConference";
 import CreativePortfolio from "./pages/CreativePortfolio";
 import Freelancer from "./pages/Freelancer";
-import InternationalConsulting from "./pages/InternationalConsulting";
+import InternationalConsulting from "./pages/About";
 import Startup from "./pages/Startup";
 import WebAgency from "./pages/WebAgency";
 
@@ -87,7 +87,7 @@ const App = () => {
                     <Route path={`${process.env.PUBLIC_URL + "/digital-agency"}`} exact component={DigitalAgency}/>
                     <Route path={`${process.env.PUBLIC_URL + "/finance"}`} exact component={Finance}/>
                     <Route path={`${process.env.PUBLIC_URL + "/company"}`} exact component={Company}/>
-                    <Route path={`${process.env.PUBLIC_URL + "/marketing"}`} exact component={Marketing}/>
+                    <Route path={`${process.env.PUBLIC_URL + "/ip-software"}`} exact component={IPSoftware}/>
                     <Route path={`${process.env.PUBLIC_URL + "/travel-agency"}`} exact component={TravelAgency}/>
                     <Route path={`${process.env.PUBLIC_URL + "/consulting"}`} exact component={Consulting}/>
                     <Route path={`${process.env.PUBLIC_URL + "/seo-agency"}`} exact component={SeoAgency}/>
@@ -95,7 +95,7 @@ const App = () => {
                     <Route path={`${process.env.PUBLIC_URL + "/event-conference"}`} exact component={EventConference}/>
                     <Route path={`${process.env.PUBLIC_URL + "/creative-portfolio"}`} exact component={CreativePortfolio}/>
                     <Route path={`${process.env.PUBLIC_URL + "/freelancer"}`} exact component={Freelancer}/>
-                    <Route path={`${process.env.PUBLIC_URL + "/international-consulting"}`} exact component={InternationalConsulting}/>
+                    <Route path={`${process.env.PUBLIC_URL + "/about-us"}`} exact component={InternationalConsulting}/>
                     <Route path={`${process.env.PUBLIC_URL + "/startup"}`} exact component={Startup}/>
                     <Route path={`${process.env.PUBLIC_URL + "/web-agency"}`} exact component={WebAgency}/>
 

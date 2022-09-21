@@ -12,15 +12,15 @@
 
         .tab-button {
             cursor: pointer;
-            padding: 47px 27px;
-            border-radius: 10px;
+            padding: 10px 28px;
+            border-radius: 12px;
             position: relative;
             z-index: 2;
 
             &::before {
                 position: absolute;
                 content: "";
-                background: var(--color-blackest);
+               background-color: #4B5D66 !important;
                 width: 100%;
                 height: 100%;
                 left: 0;
@@ -29,6 +29,7 @@
                 opacity: 0;
                 transform: scale(0.9);
                 z-index: -1;
+                color: #fff !important;
                 border-radius: 10px;
             }
 
@@ -36,6 +37,7 @@
                 &::before {
                     opacity: 1;
                     transform: scale(1);
+                    color: #fff !important;
                 }
             }
             
@@ -52,6 +54,7 @@
                 opacity: 0;
                 transition: 0.3s;
                 transform: scale(0.9);
+                color: #fff !important;
                 @media #{$md-layout} {
                     display: none;
                 }

@@ -96,7 +96,7 @@ const Home = () => {
                                     <div className="row row--30 align-items-center">
                                         <div className="order-2 order-lg-1 col-lg-7">
                                             <div className="inner text-left">
-                                               <EditButton />
+                                               {/* <EditButton /> */}
                                                 <h1 className="title" dangerouslySetInnerHTML={{ __html: data.title }}></h1>
                                                 <p className="description" dangerouslySetInnerHTML={{ __html: data.description }}></p>
                                                 <div className="button-group mt--30">
@@ -140,6 +140,7 @@ const Home = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12">
+                            
                                 <SectionTitle
                                     textAlign="text-center"
                                     radiusRounded=""

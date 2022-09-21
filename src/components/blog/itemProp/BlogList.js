@@ -1,19 +1,10 @@
-import React, { useState } from "react";
+import React from 'react';
 import { slugify } from "../../../utils";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 
 const BlogList = ({ data }) => {
-    const [isHovering, setIsHovering] = useState(false);
-
-    const handleMouseOver = () => {
-        setIsHovering(true);
-    };
-
-    const handleMouseOut = () => {
-        setIsHovering(false);
-    };
 
     console.log(data);
     return (
@@ -26,19 +17,21 @@ const BlogList = ({ data }) => {
                         </Link>
                     </div>
                     <div className="content">
-                        <h4 className="title" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-                            <Link to="">
+                        <h4 className="title ">
+                            {/* ========= Edit This Button On Hover Mouse ========= */}
+                            <div class="mydivouter">
+                                <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                <Link to="#">
                                 {data.title}
-                                {/* {isHovering &&  <button className="btn btn-primary hoverButton text-white text-center ">Edit</button>} */}
                             </Link>
+                            </div> {/* ========= Close This Button On Hover Mouse ========= */}
                         </h4>
-                        {isHovering ? <button className="btn btn-primary hoverButton text-white text-center ">Edit</button>: null}
                         <ul className="rn-meta-list">
-                            {/* <li><Link to="">{data.author}</Link></li> */}
-                            <li className="separator">{data.text}</li>
-                            <li>{data.date}</li>
+                        <div class="mydivouter">
+                                <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                <li className="separator">{data.text}</li>
+                            </div>
                         </ul>
-
                     </div>
                 </div>
             </div>
@@ -49,3 +42,4 @@ BlogList.propTypes = {
     data: PropTypes.object
 };
 export default BlogList;
+

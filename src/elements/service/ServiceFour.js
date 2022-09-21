@@ -4,30 +4,30 @@ import ScrollAnimation from "react-animate-on-scroll";
 
 const ServiceList = [
     {
-        icon: '1',
-        title: 'Awarded Design',
-        description: 'There are many variations variations have.'
+        icon: '%',
+        title: '100% cover',
+        description: 'Stay modular and future compatible within a rich landscape of digital tools.'
     },
     {
-        icon: '2',
-        title: 'Design & Creative',
-        description: 'Passages there are many variations have.'
+        icon: 'DL',
+        title: 'Access technology',
+        description: 'Up-to-date technology such as deep learning increases efficiency.'
     },
     {
-        icon: '3',
-        title: 'App Development',
-        description: 'Variations There variations many Lorem Ipsum.'
+        icon: 'o',
+        title: '360° perspective',
+        description: 'Solutions cover the IP life cycle and your global needs.'
     },
     {
-        icon: '4',
-        title: 'Product Designer',
-        description: 'Variations There variations of Lorem Ipsum.'
+        icon: '=',
+        title: 'Results',
+        description: 'Accuracy, stability and timely delivery create the DNA of our legal business'
     },
 ]
 
 const ServiceFour = ({textAlign, serviceStyle}) => {
     return (
-        <div className="row row--15 service-wrapper">
+        <div className="row row--15 service-wrapper mt-4">
               {ServiceList.map( (val , i) => (
                 <div className="col-lg-3 col-md-6 col-sm-6 col-12" key={i}>
                     <ScrollAnimation 

@@ -26,7 +26,7 @@ const Nav = () => {
                     <li><Link to="/web-agency">Web Agency</Link></li>
                 </ul>
             </li>
-            <li><Link to="/about-us">IP Service</Link></li>
+            <li><Link to="/ip-software">IP Service</Link></li>
             <li><Link to="/about-us">Company</Link></li>
 
             {/* <li className="with-megamenu"><Link to="#">Elements</Link>

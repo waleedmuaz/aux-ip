@@ -7,11 +7,24 @@ const LatestCard = (props) => {
             <div className="col-lg-3 col-md-6 col-12 my-3">
                 <div className="full">
                     <div className="title">
-                       <NavLink to="/"> <h4>{props.title}</h4> </NavLink>
+                        {/* ========= Edit This Button On Hover Mouse ========= */}
+                        <div class="mydivouter">
+                            <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            <NavLink to="/">
+                                <h4>{props.title}</h4>
+                            </NavLink>
+                        </div> {/* ========= Close This Button On Hover Mouse ========= */}
+
                     </div>
                     <div className="calender">
-                    <i className="fa fa-calendar" aria-hidden="true"></i>
+                        {/* ========= Edit This Button On Hover Mouse ========= */}
+                        <div class="mydivouter">
+                            <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            <NavLink to="/">
+                                <i className="fa fa-calendar" aria-hidden="true"></i>
                        &nbsp;{props.calender}
+                            </NavLink>
+                        </div> {/* ========= Close This Button On Hover Mouse ========= */}
                     </div>
                 </div>
             </div>

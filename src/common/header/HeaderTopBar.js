@@ -10,7 +10,7 @@ const HeaderTopBar = () => {
                 <div className="row align-items-center">
                     <div className="col-lg-6 col-md-12 col-12">
                         <div className="header-left">
-                            <ul className="social-default ">
+                            {/* <ul className="social-default ">
                                 <li>
                                     <p>IP Group</p>
                                 </li>
@@ -23,7 +23,7 @@ const HeaderTopBar = () => {
                                 <li>
                                     <p>IP Octimine</p>
                                 </li>
-                            </ul>
+                            </ul> */}
                         </div>
                     </div>
                     <div className="col-lg-6 col-md-12 col-12">

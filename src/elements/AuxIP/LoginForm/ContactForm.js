@@ -25,7 +25,7 @@ class ContactForm extends Component {
     const { target } = event;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const { name } = target;
- 
+
     this.setState({
       [name]: value,
     });
@@ -48,9 +48,31 @@ class ContactForm extends Component {
  
   submitForm(e) {
     e.preventDefault();
-    console.log(`Email: ${this.state.email}`);
-    console.log(`Password: ${this.state.password}`);
+    // console.log(`Email: ${this.state.email}`);
+    // console.log(`Password: ${this.state.password}`);
+
+    console.log({email: this.state.email});
+    console.log({password: this.state.password});
   }
+
+
+//   componentDidMount() {
+//     // POST request using fetch with set headers
+//     const requestOptions = {
+//         method: 'POST',
+//         headers: { 
+//             'Content-Type': 'application/json',
+//             'Authorization': 'Bearer my-token',
+//             'My-Custom-Header': 'foobar'
+//         },
+//         body: JSON.stringify({ title: 'React POST Request Example' })
+//     };
+//     fetch('https://reqres.in/api/posts', requestOptions)
+//         .then(response => response.json())
+//         .then(data => this.setState({ postId: data.id }));
+// }
+
+
  
   render() {
     const { email, password } = this.state;
@@ -60,7 +82,7 @@ class ContactForm extends Component {
         <h2>Sign In</h2>
         <Form className="form" onSubmit={(e) => this.submitForm(e)}>
           <FormGroup>
-            <label>Username</label>
+            <label>Email</label>
             <input
               type="email"
               name="email"

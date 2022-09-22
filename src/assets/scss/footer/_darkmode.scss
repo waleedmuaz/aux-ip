@@ -286,7 +286,7 @@ body.light .bg-overlay-solid::before {
 }
 
 body.light .rn-header.sticky {
-    background: #f5f8fa !important;
+    background: #fff !important;
 }
 
 
@@ -469,7 +469,27 @@ body.light .slider-area.bg-transparent .inner a.btn-default.btn-border:hover,
 body.light .slider-area.bg-transparent .inner button.btn-default.btn-border:hover {
     color: var(--color-white);
 }
-
+.react-tabs {
+    li{
+        &:hover{
+            h4{
+                color: #fff !important;
+            }
+            p{
+                color: #fff !important;
+            } 
+        }
+    }
+    .react-tabs__tab--selected{
+       
+        h4{
+            color: #fff !important;
+        }
+        p{
+            color: #fff !important;
+        }
+    }
+}
 
 
 

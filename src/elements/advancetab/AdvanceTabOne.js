@@ -15,7 +15,7 @@ const AdvanceTabOne = () => {
                                         {/* ========= Edit This Button On Hover Mouse ========= */}
                                         <div class="mydivouter">
                                             <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                            <h4 className="title mb-0">Portfolio Management</h4>
+                                            <h4 className="title mb-0 ">Portfolio Management</h4>
                                             <p className="description">Manage renewals and more</p>
                                         </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                     </div>

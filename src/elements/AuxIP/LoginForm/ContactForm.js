@@ -3,10 +3,7 @@ import {
   Form,
   FormGroup,
   FormText,
-  Label,
-  Button,
 }  from 'react-bootstrap';
-// import './App.css';
  
 class ContactForm extends Component {
   constructor(props) {

@@ -72,11 +72,13 @@ import Error from "./pages/Error";
 // Import Css Here 
 import './assets/scss/style.scss';
 import Home from './pages/AuxIP/Home';
+import Dashboard from './elements/AuxIP/Dasboard';
 
 
 const App = () => {
     return (
         <Router>
+      
             <PageScrollTop>
                 <Switch>
                     <Route path={`${process.env.PUBLIC_URL + "/"}`} exact component={Home}/>
@@ -88,6 +90,7 @@ const App = () => {
                     <Route path={`${process.env.PUBLIC_URL + "/digital-agency"}`} exact component={DigitalAgency}/>
                     <Route path={`${process.env.PUBLIC_URL + "/finance"}`} exact component={Finance}/>
                     <Route path={`${process.env.PUBLIC_URL + "/company"}`} exact component={Company}/>
+                    <Route path={`${process.env.PUBLIC_URL + "/dashboard"}`} exact component={Dashboard}/>
                     <Route path={`${process.env.PUBLIC_URL + "/ip-software"}`} exact component={IPSoftware}/>
                     <Route path={`${process.env.PUBLIC_URL + "/travel-agency"}`} exact component={TravelAgency}/>
                     <Route path={`${process.env.PUBLIC_URL + "/consulting"}`} exact component={Consulting}/>

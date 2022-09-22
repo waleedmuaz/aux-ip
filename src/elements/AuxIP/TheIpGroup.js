@@ -3,7 +3,7 @@ import ScrollAnimation from "react-animate-on-scroll";
 import { Link } from "react-router-dom";
 import customer from '../../assets/images/customer.webp';
 
-const ConvenientApp = () => {
+const TheIpGroup = () => {
     return (
         <div className="rwt-about-area about-style-2 mt-0 rn-section-gap">
             <div className="container">
@@ -62,8 +62,8 @@ const ConvenientApp = () => {
                                     </div>
                                     <div className='text-box p-4 pb-5 mb-5'>
                                         <h4>Hello wolrd</h4>
-                                        <p>assadsadsdsaddsd</p>
-                                        <p>dssadsadsadsadsad</p>
+                                        {/* <p>assadsadsdsaddsd</p> */}
+                                        {/* <p>dssadsadsadsadsad</p> */}
                                     </div>
                                     </div>
                                     
@@ -81,4 +81,4 @@ const ConvenientApp = () => {
     )
 }
 
-export default ConvenientApp;
+export default TheIpGroup;

@@ -57,13 +57,17 @@ const IPSoftware = () => {
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="inner text-center">
-                                    <h6 className="title display-one property">
-                                        Intellectual Property Software<br /></h6>
-                                    <p className="description description1">Intellectual Property Management applications centralize and simplify the live administration of IP rights. Tailored to your industry, company size or law firm, and numbers of IP assets.</p>
-                                    {/* <div className="button-group">
-                                        <Link className="btn-default btn-medium btn-icon" to="#">Purchase Now <i className="icon"><FiArrowRight /></i></Link>
-                                        <Link className="btn-default btn-medium btn-border btn-icon" to="#">Contact Us <i className="icon"><FiArrowRight /></i></Link>
-                                    </div> */}
+                                    {/* ========= Edit This Button On Hover Mouse ========= */}
+                                    <div class="mydivouter">
+                                        <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                        <h6 className="title display-one property">
+                                            Intellectual Property Software<br /></h6>
+                                    </div> {/* ========= Close This Button On Hover Mouse ========= */}
+                                    {/* ========= Edit This Button On Hover Mouse ========= */}
+                                    <div class="mydivouter">
+                                        <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                        <p className="description description1">Intellectual Property Management applications centralize and simplify the live administration of IP rights. Tailored to your industry, company size or law firm, and numbers of IP assets.</p>
+                                    </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                 </div>
                             </div>
                         </div>
@@ -99,11 +103,21 @@ const IPSoftware = () => {
                             <div className="col-12">
                                 <div className="full text-center">
                                     <div className="title text-white">
-                                        <h3 className="text-white">How can we help?</h3>
+                                        {/* ========= Edit This Button On Hover Mouse ========= */}
+                                        <div class="mydivouter">
+                                            <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                            <h3 className="text-white">How can we help?</h3>
+                                        </div> {/* ========= Close This Button On Hover Mouse ========= */}
+
                                     </div>
                                     <div className="btn_help">
-                                        <NavLink to="#" class="white-pill-outline-button normal-button  js_hubspotdlg" data-hubspotid="93b8811a-3244-4fa4-9a4d-5b3fa050bf9a">Get an expert analysis
+                                        {/* ========= Edit This Button On Hover Mouse ========= */}
+                                        <div class="mydivouter">
+                                            <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                            <NavLink to="#" class="white-pill-outline-button normal-button  js_hubspotdlg" data-hubspotid="93b8811a-3244-4fa4-9a4d-5b3fa050bf9a">Get an expert analysis
                                         </NavLink>
+                                        </div> {/* ========= Close This Button On Hover Mouse ========= */}
+
                                     </div>
                                 </div>
                             </div>
@@ -116,12 +130,17 @@ const IPSoftware = () => {
                     <div className="container">
                         <div className="row mb--40">
                             <div className="col-lg-12">
-                                <SectionTitle
-                                    textAlign="text-center"
-                                    radiusRounded=""
-                                    subtitle="SERVICE APPS"
-                                    title="Complementary web apps for <br /> IP management"
-                                />
+                                {/* ========= Edit This Button On Hover Mouse ========= */}
+                                <div class="mydivouter">
+                                    <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <SectionTitle
+                                        textAlign="text-center"
+                                        radiusRounded=""
+                                        subtitle="SERVICE APPS"
+                                        title="Complementary web apps for <br /> IP management"
+                                    />
+                                </div> {/* ========= Close This Button On Hover Mouse ========= */}
+
                             </div>
                         </div>
                         <AdvanceTabOne />
@@ -129,7 +148,6 @@ const IPSoftware = () => {
                 </div> {/* End Elements Area  */}
                 <Separator />
                 <br /> <br />
-
 
                 {/* ========= Start ConvenientApp ========= */}
                 <Modular />
@@ -141,11 +159,16 @@ const IPSoftware = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12">
-                                <SectionTitle className="mb-4"
-                                    textAlign="text-center"
-                                    radiusRounded=""
-                                    title="Services provide for you."
-                                />
+                                {/* ========= Edit This Button On Hover Mouse ========= */}
+                                <div class="mydivouter">
+                                    <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <SectionTitle className="mb-4"
+                                        textAlign="text-center"
+                                        radiusRounded=""
+                                        title="Services provide for you."
+                                    />
+                                </div> {/* ========= Close This Button On Hover Mouse ========= */}
+
                             </div>
                         </div>
                         <ServiceFour

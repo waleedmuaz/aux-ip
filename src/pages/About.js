@@ -25,6 +25,7 @@ import aboutLine5 from '../assets/images/about_timeline5.webp';
 import AboutPara from './AuxIP/AboutPara';
 import TimeLine from './AuxIP/TimeLine';
 import FooterBottom from '../elements/AuxIP/FooterBottom';
+import HeaderTopBar from '../common/header/HeaderTopBar';
 var BlogListData = BlogClassicData.slice(0, 3);
 
 //   Question and parargraph
@@ -106,6 +107,7 @@ const About = () => {
         <>
             <SEO title="International Consulting" />
             <main className="page-wrapper">
+            <HeaderTopBar />
                 <HeaderTwo btnStyle="btn-small btn-icon" HeaderSTyle="header-transparent" />
 
                 {/* Start Slider Area  */}

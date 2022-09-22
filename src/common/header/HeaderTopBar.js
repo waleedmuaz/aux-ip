@@ -29,7 +29,7 @@ const HeaderTopBar = () => {
                     <div className="col-lg-6 col-md-12 col-12">
                         <div className="header-right">
                             <div className="address-content">
-                                <p><FaUser /><span>Login</span></p>
+                                <p><FaUser /><Link to="login"><span>Login</span></Link></p>
                                 <p><FaGlobe /><span><a href="#">Language : English</a></span></p>
                                 <p><FaSearch /><span>Search</span></p>
                             </div>

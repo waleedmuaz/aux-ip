@@ -64,6 +64,7 @@ import BlogGridView from "./components/blog/BlogGridView";
 import BlogListView from "./components/blog/BlogListView";
 import BlogGridSidebar from "./components/blog/BlogGridSidebar";
 import BlogListSidebar from "./components/blog/BlogListSidebar";
+import Login from './pages/AuxIP/Auth/Login';
 import BlogDetails from "./pages/BlogDetails";
 import Error from "./pages/Error";
 
@@ -139,6 +140,8 @@ const App = () => {
                     <Route path={`${process.env.PUBLIC_URL + "/portfolio-grid-layout"}`} exact component={PortfolioGrid}/>
                     <Route path={`${process.env.PUBLIC_URL + "/portfolio-box-layout"}`} exact component={PortfolioBoxLayout}/>
                     <Route path={`${process.env.PUBLIC_URL + "/portfolio-details/:id"}`} exact component={PortfolioDetails}/>
+                    {/* Auth */}
+                    <Route path={`${process.env.PUBLIC_URL + "/login"}`} exact component={Login}/>
 
 
                 </Switch>

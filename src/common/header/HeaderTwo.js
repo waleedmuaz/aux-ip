@@ -7,6 +7,7 @@ import Darkmode from "./Darkmode";
 import useStickyHeader from "./useStickyHeader";
 import logo from './logo/doob.svg';
 import './Styles.css'
+import { Link } from "react-router-dom";
 
 const HeaderTwo = ({btnStyle, HeaderSTyle}) => {
     const [ofcanvasShow, setOffcanvasShow] = useState(false);
@@ -38,7 +39,7 @@ const HeaderTwo = ({btnStyle, HeaderSTyle}) => {
                                     image2={`${process.env.PUBLIC_URL}/images/logo/logo-dark.png`}
                                 /> */}
                                 <div className="logo">
-                                    <img src={logo} width="100%" alt=""/>
+                                    <Link to="/"><img src={logo} width="100%" alt=""/></Link>
                                 </div>
                                 <nav className="mainmenu-nav d-none d-lg-block">
                                     <Nav />

@@ -1,17 +1,10 @@
 import React from 'react'
 import SEO from "../../common/SEO";
-import { Link } from "react-router-dom";
 import HeaderTwo from '../../common/header/HeaderTwo';
-import FooterFour from '../../common/footer/FooterFour';
 import HeaderTopBar from '../../common/header/HeaderTopBar';
 import Slider from "react-slick";
 import { BannerActivation } from "../../utils/script";
 import Separator from "../../elements/separator/Separator";
-import ServiceFive from '../../elements/service/ServiceFive';
-import SectionTitle from "../../elements/sectionTitle/SectionTitle";
-import PortfolioOne from "../../elements/portfolio/PortfolioOne";
-import CircleProgress from "../../elements/progressbar/CircleProgress";
-import TestimonialOne from "../../elements/testimonial/TestimonialOne";
 import BlogList from "../../components/blog/itemProp/BlogList";
 import MainBestAuxIPSection from '../../data/AuxIp/MainHomeJson';
 import BrandsBar from '../../common/header/AuxIP/BrandsBar';
@@ -21,11 +14,9 @@ import LatestInsightData from './LatestInsightData';
 import ModuleBanner from './ModuleBanner';
 import ModuleBannerData from './ModuleBannerData';
 import ConvenientApp from '../../elements/AuxIP/ConvenientApp';
-import EditButton from './EditButton';
 import FooterBottom from '../../elements/AuxIP/FooterBottom';
 
 // import hero1 from '/aux-ip/src/assets/images/home/hero-quantum-innovation.webp';
-var BlogListData = MainBestAuxIPSection.slice(0, 3);
 
 
 
@@ -87,20 +78,20 @@ const Home = () => {
                                         <div className="order-2 order-lg-1 col-lg-7">
                                             <div className="inner text-left">
                                                 {/* ========= Edit This Button On Hover Mouse ========= */}
-                                                <div class="mydivouters">
-                                                    <button type="button" class="mybuttonoverlaps btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                                <div className="mydivouters">
+                                                    <button type="button" className="mybuttonoverlaps btn btn-primary"><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                                     <h1 className="title" dangerouslySetInnerHTML={{ __html: data.title }}></h1>
                                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                                 {/* ========= Edit This Button On Hover Mouse ========= */}
-                                                <div class="mydivouter">
-                                                    <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                                <div className="mydivouter">
+                                                    <button type="button" className="mybuttonoverlap btn btn-primary"><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                                     <p className="description" dangerouslySetInnerHTML={{ __html: data.description }}></p>
                                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
                                                 <div className="button-group mt--30">
                                                     {/* ========= Edit This Button On Hover Mouse ========= */}
-                                                    <div class="mydivouter">
-                                                        <button type="button" class="mybuttonoverlap btn btn-primary text-center"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                                    <div className="mydivouter">
+                                                        <button type="button" className="mybuttonoverlap btn btn-primary text-center"><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                                         {data.button.map((buttomData, BTNindex) => (
                                                             <a className="btn-default" target="_blank" href={{ __html: buttomData.link }}>{buttomData.TXT}</a>
                                                         ))}
@@ -137,35 +128,6 @@ const Home = () => {
                     </div>
                 </div>
                 {/* End First Home 3 Div */}
-                <Separator />
-                {/* Start Service Area  */}
-                <div className="rn-service-area rn-section-gap mt-5">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div className="title text-center">
-                                    {/* ========= Edit This Button On Hover Mouse ========= */}
-                                    <div class="mydivouter">
-                                        <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                        <h3>Match the IP solution to your company</h3>
-                                    </div> {/* ========= Close This Button On Hover Mouse ========= */}
-                                </div>
-                                <div className="para text-center">
-                                    {/* ========= Edit This Button On Hover Mouse ========= */}
-                                    <div class="mydivouter">
-                                        <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                        <p>There are many variations of passages of Lorem Ipsum available, <br /> but the majority have suffered alteration</p>
-                                    </div> {/* ========= Close This Button On Hover Mouse ========= */}
-                                </div>
-                            </div>
-                        </div>
-                        <ServiceFive
-                            serviceStyle="gallery-style"
-                            textAlign="text-left"
-                        />
-                    </div>
-                </div>
-                {/* End Service Area  */}
                 <Separator />
                 <BrandsBar />
                 <Separator />

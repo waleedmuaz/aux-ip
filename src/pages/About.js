@@ -108,7 +108,7 @@ const About = () => {
             <SEO title="International Consulting" />
             <main className="page-wrapper">
             <HeaderTopBar />
-                <HeaderTwo btnStyle="btn-small btn-icon" HeaderSTyle="header-transparent" />
+                <HeaderTwo btnStyle="btn-small btn-icon" />
 
                 {/* Start Slider Area  */}
                 <div className="slider-area slider-style-1 variation-default height-850 bg_image" data-black-overlay="7" style={{ backgroundImage: `url(${aboutBg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>

@@ -48,7 +48,7 @@ const IPSoftware = () => {
             <main className="page-wrapper">
 
                 <HeaderTopBar />
-                <HeaderTwo btnStyle="btn-small btn-icon" HeaderSTyle="header-transparent" />
+                <HeaderTwo btnStyle="btn-small btn-icon" />
 
 
                 {/* Start Slider Area  */}

@@ -14,6 +14,7 @@ import LatestInsightData from './LatestInsightData';
 import ModuleBanner from './ModuleBanner';
 import ModuleBannerData from './ModuleBannerData';
 import ConvenientApp from '../../elements/AuxIP/ConvenientApp';
+import TheIpGroup from '../../elements/AuxIP/TheIpGroup';
 import FooterBottom from '../../elements/AuxIP/FooterBottom';
 
 // import hero1 from '/aux-ip/src/assets/images/home/hero-quantum-innovation.webp';
@@ -93,7 +94,7 @@ const Home = () => {
                                                     <div className="mydivouter">
                                                         <button type="button" className="mybuttonoverlap btn btn-primary text-center"><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                                         {data.button.map((buttomData, BTNindex) => (
-                                                            <a className="btn-default" target="_blank" href={{ __html: buttomData.link }}>{buttomData.TXT}</a>
+                                                            <a className="btn-default" target="_blank" href={{ __html: buttomData.link }} rel="noreferrer">{buttomData.TXT}</a>
                                                         ))}
                                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
@@ -178,6 +179,11 @@ const Home = () => {
                 <Separator />
                 {/* ========= End ConvenientApp ========= */}
 
+
+                {/* ========= Slider ========= */}
+                <TheIpGroup />
+                <Separator />
+                {/* ========= Slider End  ========= */}
                 <Separator />
                <FooterBottom />
             </main>

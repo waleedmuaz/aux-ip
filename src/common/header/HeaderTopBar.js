@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaGlobe, FaSearch, FaUser } from 'react-icons/fa';
-import { FiFacebook, FiTwitter, FiInstagram, FiLinkedin, FiChevronRight, FiMapPin, FiPhone, FiLogIn } from "react-icons/fi";
 import {Link} from "react-router-dom";
 
 const HeaderTopBar = () => {

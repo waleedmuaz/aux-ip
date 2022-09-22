@@ -29,18 +29,18 @@ const HeaderTwo = ({btnStyle, HeaderSTyle}) => {
 
     return (
         <>
-            <header ref={ref} className={`rn-header header-default header-left-align ${HeaderSTyle} ${headerClasses}`}>
+            <header ref={ref} className={`rn-header header-default header-left-align bg-white ${HeaderSTyle} ${headerClasses}`}>
                 <div className="container position-relative">
                     <div className="row align-items-center">
                         <div className="col-lg-9 col-md-6 col-4 position-static">
                             <div className="header-left d-flex">
-                                {/* <Logo 
+                                <Logo 
                                     image={`${process.env.PUBLIC_URL}/images/logo/logo.png`}
                                     image2={`${process.env.PUBLIC_URL}/images/logo/logo-dark.png`}
-                                /> */}
-                                <div className="logo">
+                                />
+                                {/* <div className="logo">
                                     <Link to="/"><img src={logo} width="100%" alt=""/></Link>
-                                </div>
+                                </div> */}
                                 <nav className="mainmenu-nav d-none d-lg-block">
                                     <Nav />
                                 </nav>

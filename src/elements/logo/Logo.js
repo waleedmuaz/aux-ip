@@ -6,8 +6,8 @@ const Logo = ({image, image2}) => {
     return(
         <div className="logo">
             <Link to={process.env.PUBLIC_URL + "/"}>
-                <img className="logo-light" src={process.env.PUBLIC_URL + image} alt="Corporate Logo" />
-                <img className="logo-dark" src={process.env.PUBLIC_URL + image2} alt="Corporate Logo" />
+                <img className="logo-light m-0" src={process.env.PUBLIC_URL + image} alt="Corporate Logo" />
+                <img className="logo-dark m-0" src={process.env.PUBLIC_URL + image2} alt="Corporate Logo" />
             </Link>
         </div>
     )

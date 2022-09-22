@@ -17,21 +17,31 @@ const Modular = () => {
                                     animateIn="fadeInUp"
                                     animateOut="fadeInOut"
                                     animateOnce={true}>
-                                    <h3 className="title mt--10">Modular and scalable IP solutions</h3>
+                                    {/* ========= Edit This Button On Hover Mouse ========= */}
+                                    <div class="mydivouter">
+                                        <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                        <h3 className="title mt--10">Modular and scalable IP solutions</h3>
+                                    </div> {/* ========= Close This Button On Hover Mouse ========= */}
+
                                 </ScrollAnimation>
 
                                 <ScrollAnimation
                                     animateIn="fadeInUp"
                                     animateOut="fadeInOut"
                                     animateOnce={true}>
-                                    <p>The IP Group uses the acquired global know-how and network to constantly push the boundaries of its modular tool system for Intellectual Property management. Custom and standardized digital services serve the R&D-driven industry segments, all company or portfolio sizes, budgets and global regions. Application packages can be combined and cover large areas of the Intellectual Property life cycle.</p>
+                                    {/* ========= Edit This Button On Hover Mouse ========= */}
+                                    <div class="mydivouter">
+                                        <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                        <p>The IP Group uses the acquired global know-how and network to constantly push the boundaries of its modular tool system for Intellectual Property management. Custom and standardized digital services serve the R&D-driven industry segments, all company or portfolio sizes, budgets and global regions. Application packages can be combined and cover large areas of the Intellectual Property life cycle.</p>
+                                    </div> {/* ========= Close This Button On Hover Mouse ========= */}
+
                                 </ScrollAnimation>
                             </div>
                         </div>
                     </div>
                     <div className="col-lg-6 my-1">
                         <div className="thumbnail">
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/vyMXy9hW8nQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/vyMXy9hW8nQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>

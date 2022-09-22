@@ -114,12 +114,16 @@ const About = () => {
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="inner text-center">
+                                   {/* ========= Edit This Button On Hover Mouse ========= */}
+                                   <div class="mydivouter">
+                                    <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                     <h6 className="title display-one">Protecting IP for over 60 years<br /></h6>
+                                </div> {/* ========= Close This Button On Hover Mouse ========= */}
+                                    {/* ========= Edit This Button On Hover Mouse ========= */}
+                                    <div class="mydivouter">
+                                    <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                     <p className="description">In the past decades Dennemeyer Group, founded as a patent law firm in Luxembourg, has developed into the leading global full service provider for the IP management.</p>
-                                    {/* <div className="button-group">
-                                        <Link className="btn-default btn-medium btn-icon" to="#">Purchase Now <i className="icon"><FiArrowRight /></i></Link>
-                                        <Link className="btn-default btn-medium btn-border btn-icon" to="#">Contact Us <i className="icon"><FiArrowRight /></i></Link>
-                                    </div> */}
+                                </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                 </div>
                             </div>
                         </div>
@@ -133,7 +137,12 @@ const About = () => {
                         <div className="row">
                             <div className="col-12">
                                 <div className="full">
+                                   {/* ========= Edit This Button On Hover Mouse ========= */}
+                                   <div class="mydivouter">
+                                    <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                     <p>Dennemeyer has a unique position on the global IP market. The combination of our global IP law firm – Dennemeyer & Associates –, the IP management service provider – Dennemeyer IP Solutions –, Dennemeyer Consulting; as well as our state-of-the-art IP management software – DIAMS iQ – makes us the sole “full service provider” for global IP management. Our customers benefit from our broad range of expertise – all within one provider.</p>
+                                </div> {/* ========= Close This Button On Hover Mouse ========= */}
+                               
                                 </div>
                             </div>
                         </div>
@@ -164,9 +173,19 @@ const About = () => {
                             <div className="col-12">
                                 <div className="full">
                                     <div className="title">
-                                        <h4>Our history</h4>
+                                     {/* ========= Edit This Button On Hover Mouse ========= */}
+                                   <div class="mydivouters">
+                                    <button type="button" class="mybuttonoverlaps btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <h4>Our history</h4>
+                                </div> {/* ========= Close This Button On Hover Mouse ========= */}
+                                        
                                     </div>
+                                          {/* ========= Edit This Button On Hover Mouse ========= */}
+                                   <div class="mydivouter">
+                                    <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                     <p>Dennemeyer has a unique position on the global IP market. The combination of our global IP law firm – Dennemeyer & Associates –, the IP management service provider – Dennemeyer IP Solutions –, Dennemeyer Consulting; as well as our state-of-the-art IP management software – DIAMS iQ – makes us the sole “full service provider” for global IP management. Our customers benefit from our broad range of expertise – all within one provider.</p>
+                                </div> {/* ========= Close This Button On Hover Mouse ========= */}
+                                    
                                 </div>
                             </div>
                         </div>

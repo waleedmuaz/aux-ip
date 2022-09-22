@@ -1026,8 +1026,35 @@
     right: 0px;	
     text-align: center;
     font-size: 14px;
-    display:block !important;
+    border-radius: 50%;
 }
 .mydivouter:hover .mybuttonoverlap{ 
+	display:block !important;
+}
+
+
+
+
+// ========= Edit This Button On Hover Mouse Button CSS =========
+
+.mydivouters{
+	position:relative;
+    margin: 0 auto;
+    padding: 4px 1px;
+}
+.mydivoverlaps{
+    position: relative;
+    z-index: 1;
+}
+.mybuttonoverlaps{
+	position: absolute;
+    z-index: 2;
+    top: -32px;
+    display: none;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 50%;
+}
+.mydivouters:hover .mybuttonoverlaps{ 
 	display:block !important;
 }

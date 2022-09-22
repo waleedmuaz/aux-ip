@@ -27,10 +27,11 @@ const BlogList = ({ data }) => {
                             </div> {/* ========= Close This Button On Hover Mouse ========= */}
                         </h4>
                         <ul className="rn-meta-list">
+                        {/* ========= Edit This Button On Hover Mouse ========= */}
                         <div class="mydivouter">
                                 <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                 <li className="separator">{data.text}</li>
-                            </div>
+                            </div> {/* ========= Close This Button On Hover Mouse ========= */}
                         </ul>
                     </div>
                 </div>

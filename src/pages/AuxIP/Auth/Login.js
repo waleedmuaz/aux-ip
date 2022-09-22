@@ -7,35 +7,35 @@ import ContactForm from "../../../elements/AuxIP/LoginForm/ContactForm";
 import FooterBottom from '../../../elements/AuxIP/FooterBottom';
 import Separator from '../../../elements/separator/Separator';
 
-const Login = () => { 
+const Login = () => {
     return (
         <>
-         <SEO title="Home" />
+            <SEO title="Home" />
             <main className="page-wrapper">
                 <HeaderTopBar />
                 <HeaderTwo btnStyle="btn-small" />
                 <Separator />
 
-        <div className="row">
-            <div className='col-md-12'>
-                <div className='row'>
-                    <div className='col-md-4'>
-                    </div>
-                    <div className='col-md-4'>
+                <div className="row">
+                    <div className='col-md-12'>
+                        <div className='row'>
+                            <div className='col-md-4'>
+                            </div>
+                            <div className='col-md-4'>
 
-                        <div className='card-body'>
-                            <ContactForm formStyle="sign" />
+                                <div className='card-body'>
+                                    <ContactForm formStyle="sign" />
+                                </div>
+                            </div>
+                            <div className='col-md-4 top-50 start-50 '>
+                            </div>
                         </div>
                     </div>
-                    <div className='col-md-4 top-50 start-50 '>
-                    </div>
-                </div>
-            </div>
 
-        </div>
-        <Separator />
-        <FooterBottom />
-        </main>
+                </div>
+                <Separator />
+                <FooterBottom />
+            </main>
 
         </>
     )

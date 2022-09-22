@@ -28,6 +28,7 @@ const Nav = () => {
             </li>
             <li><Link to="/ip-software">IP Service</Link></li>
             <li><Link to="/about-us">Company</Link></li>
+            <li><Link to="/dashboard">Dashboard</Link></li>
 
             {/* <li className="with-megamenu"><Link to="#">Elements</Link>
                 <div className="rn-megamenu">

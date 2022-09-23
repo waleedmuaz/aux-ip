@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SEO from "../../common/SEO";
 import HeaderTwo from '../../common/header/HeaderTwo';
 import HeaderTopBar from '../../common/header/HeaderTopBar';
@@ -60,6 +60,17 @@ const BannerData = [
 
 
 const Home = () => {
+
+
+
+    // const modalToggle   =   ()  =>  {
+    //     setModalStatus(true);
+    //     return ModalStatus;
+    // }
+    // 
+    // let [ModalStatus, setModalStatus] = useState(false);
+    
+
     return (
         <>
 
@@ -80,7 +91,10 @@ const Home = () => {
                                             <div className="inner text-left">
                                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                                 <div className="mydivouters">
-                                                    <button type="button" className="mybuttonoverlaps btn btn-primary"><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                    <button type="button"  className="mybuttonoverlaps btn btn-primary" 
+                                                    // onClick={modalToggle(true)}
+                                                    >
+                                                        <i className="fa fa-pencil" aria-hidden="true"></i></button>
                                                     <h1 className="title" dangerouslySetInnerHTML={{ __html: data.title }}></h1>
                                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                                 {/* ========= Edit This Button On Hover Mouse ========= */}

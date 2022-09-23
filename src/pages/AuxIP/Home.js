@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React , {useEffect, useState} from 'react';
 import SEO from "../../common/SEO";
 import HeaderTwo from '../../common/header/HeaderTwo';
 import HeaderTopBar from '../../common/header/HeaderTopBar';
@@ -19,8 +19,6 @@ import FooterBottom from '../../elements/AuxIP/FooterBottom';
 import PopupModel from '../../elements/AuxIP/PopupModel';
 
 // import hero1 from '/aux-ip/src/assets/images/home/hero-quantum-innovation.webp';
-
-
 
 
 const BannerData = [
@@ -58,7 +56,14 @@ const BannerData = [
         }]
     },
 ]
-
+const getHomePageData = async () => {
+    const response = await fetch(`${process.env.REACT_APP_PUBLIC_URL_KEY}content?page=Home`)
+    if (!response.ok) {
+      throw new Error('Data coud not be fetched!')
+    } else {
+      return response.json()
+    }
+  }
 
 const Home = () => {
 
@@ -66,6 +71,21 @@ const Home = () => {
     const getData = () => {
         return setModel(true);
     }
+    const [content,setContent]=useState();
+
+    useEffect(() => {
+        getHomePageData()
+          .then((res) => {
+            setContent(res.data)
+          })
+          .catch((e) => {
+            console.log(e.message)
+          })
+      }, []);
+
+
+
+
     return (
         <>
 
@@ -76,6 +96,9 @@ const Home = () => {
 
                 {/* Start Slider Area  */}
                 <Slider className="slider-area slider-style-4 slider-dot rn-slick-dot rn-slick-arrow" {...BannerActivation}>
+                    {/* {console.log(BannerData)} */}
+                   
+
                     {BannerData.map((data, index) => (
                         <div key={index} className="single-slide">
 

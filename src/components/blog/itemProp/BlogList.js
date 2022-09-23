@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { slugify } from "../../../utils";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import PopupModel from '../../../elements/AuxIP/PopupModel';
 
 
 const BlogList = ({ data }) => {
+
+    const [model, setModel] = useState(false);
+    const getData = () => {
+        return setModel(true);
+    }
 
     console.log(data);
     return (
@@ -20,23 +26,28 @@ const BlogList = ({ data }) => {
                         <h4 className="title ">
                             {/* ========= Edit This Button On Hover Mouse ========= */}
                             <div class="mydivouter">
-                                <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                 <Link to="#">
-                                {data.title}
-                            </Link>
+                                    {data.title}
+                                </Link>
                             </div> {/* ========= Close This Button On Hover Mouse ========= */}
                         </h4>
                         <ul className="rn-meta-list">
-                        {/* ========= Edit This Button On Hover Mouse ========= */}
-                        <div class="mydivouter">
-                                <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            {/* ========= Edit This Button On Hover Mouse ========= */}
+                            <div class="mydivouter">
+                                <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                 <li className="separator">{data.text}</li>
                             </div> {/* ========= Close This Button On Hover Mouse ========= */}
                         </ul>
                     </div>
+                    {
+                        model === true ? <PopupModel hide={() => setModel(false)} /> : ""
+                    }
                 </div>
             </div>
         </div>
+
+
     )
 }
 BlogList.propTypes = {

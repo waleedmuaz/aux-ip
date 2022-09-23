@@ -38,7 +38,7 @@ const AdvanceTab = () => {
                                     />
                                 </div>
                             </div>
-                            <AdvanceTabOne />
+                            <AdvanceTabOne  />
                         </div>
                     </div>
                     {/* End Elements Area  */}

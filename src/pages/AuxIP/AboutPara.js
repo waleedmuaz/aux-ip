@@ -1,6 +1,13 @@
-import React from 'react';
+import React,{useState} from 'react';
+import PopupModel from '../../elements/AuxIP/PopupModel';
 
 const AboutPara = (props) => {
+
+    const [model, setModel] = useState(false);
+    const getData = () => {
+        return setModel(true);
+    }
+    
     return (
         <>
             <div className="col-md-6 col-12 my-2">
@@ -8,20 +15,22 @@ const AboutPara = (props) => {
                     <div className="title">
                         {/* ========= Edit This Button On Hover Mouse ========= */}
                         <div class="mydivouter">
-                            <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
                             <h4>{props.question}</h4>
                         </div> {/* ========= Close This Button On Hover Mouse ========= */}
                     </div>
                     <div className="para">
                         {/* ========= Edit This Button On Hover Mouse ========= */}
                         <div class="mydivouter">
-                            <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true" ></i></button>
                             <p>{props.para}</p>
                         </div> {/* ========= Close This Button On Hover Mouse ========= */}
-
                     </div>
                 </div>
             </div>
+            {
+                model === true ?   <PopupModel hide={()=> setModel(false)} /> : ""
+            }
         </>
     )
 }

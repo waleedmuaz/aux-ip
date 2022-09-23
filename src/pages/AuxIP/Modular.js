@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ScrollAnimation from "react-animate-on-scroll";
 import { Link } from "react-router-dom";
 import { FiArrowRight, FiCheck } from "react-icons/fi";
 import customer from '../../assets/images/customer.webp';
+import PopupModel from '../../elements/AuxIP/PopupModel';
 
 const Modular = () => {
+
+    const [model, setModel] = useState(false);
+    const getData = () => {
+        return setModel(true);
+    }
+
     return (
+        
         <div className="rwt-about-area about-style-2 mt-0 rn-section-gap">
             <div className="container">
                 <div className="row row--30 align-items-center">
@@ -19,7 +27,7 @@ const Modular = () => {
                                     animateOnce={true}>
                                     {/* ========= Edit This Button On Hover Mouse ========= */}
                                     <div class="mydivouter">
-                                        <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                        <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         <h3 className="title mt--10">Modular and scalable IP solutions</h3>
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
@@ -31,7 +39,7 @@ const Modular = () => {
                                     animateOnce={true}>
                                     {/* ========= Edit This Button On Hover Mouse ========= */}
                                     <div class="mydivouter">
-                                        <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                        <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         <p>The IP Group uses the acquired global know-how and network to constantly push the boundaries of its modular tool system for Intellectual Property management. Custom and standardized digital services serve the R&D-driven industry segments, all company or portfolio sizes, budgets and global regions. Application packages can be combined and cover large areas of the Intellectual Property life cycle.</p>
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
@@ -45,6 +53,9 @@ const Modular = () => {
                         </div>
                     </div>
                 </div>
+                {
+                        model === true ? <PopupModel hide={() => setModel(false)} /> : ""
+                    }
             </div>
         </div>
     )

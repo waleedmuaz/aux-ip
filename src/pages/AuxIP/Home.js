@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React , {useState} from 'react';
 import SEO from "../../common/SEO";
 import HeaderTwo from '../../common/header/HeaderTwo';
 import HeaderTopBar from '../../common/header/HeaderTopBar';
@@ -16,6 +16,7 @@ import ModuleBannerData from './ModuleBannerData';
 import ConvenientApp from '../../elements/AuxIP/ConvenientApp';
 import TheIpGroup from '../../elements/AuxIP/TheIpGroup';
 import FooterBottom from '../../elements/AuxIP/FooterBottom';
+import PopupModel from '../../elements/AuxIP/PopupModel';
 
 // import hero1 from '/aux-ip/src/assets/images/home/hero-quantum-innovation.webp';
 
@@ -61,16 +62,10 @@ const BannerData = [
 
 const Home = () => {
 
-
-
-    // const modalToggle   =   ()  =>  {
-    //     setModalStatus(true);
-    //     return ModalStatus;
-    // }
-    // 
-    // let [ModalStatus, setModalStatus] = useState(false);
-    
-
+    const [model, setModel] = useState(false);
+    const getData = () => {
+        return setModel(true);
+    }
     return (
         <>
 
@@ -90,23 +85,20 @@ const Home = () => {
                                         <div className="order-2 order-lg-1 col-lg-7">
                                             <div className="inner text-left">
                                                 {/* ========= Edit This Button On Hover Mouse ========= */}
-                                                <div className="mydivouters">
-                                                    <button type="button"  className="mybuttonoverlaps btn btn-primary" 
-                                                    // onClick={modalToggle(true)}
-                                                    >
-                                                        <i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                <div className="mydivouter">
+                                                    <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                                     <h1 className="title" dangerouslySetInnerHTML={{ __html: data.title }}></h1>
                                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                                 <div className="mydivouter">
-                                                    <button type="button" className="mybuttonoverlap btn btn-primary"><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                    <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                                     <p className="description" dangerouslySetInnerHTML={{ __html: data.description }}></p>
                                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
                                                 <div className="button-group mt--30">
                                                     {/* ========= Edit This Button On Hover Mouse ========= */}
                                                     <div className="mydivouter">
-                                                        <button type="button" className="mybuttonoverlap btn btn-primary text-center"><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                        <button type="button" className="mybuttonoverlap btn btn-primary  text-center" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                                         {data.button.map((buttomData, BTNindex) => (
                                                             <a className="btn-default" target="_blank" href={{ __html: buttomData.link }} rel="noreferrer">{buttomData.TXT}</a>
                                                         ))}
@@ -201,6 +193,10 @@ const Home = () => {
                 <Separator />
                <FooterBottom />
             </main>
+
+            {
+                model === true ?   <PopupModel hide={()=> setModel(false)} /> : ""
+            }
         </>
     )
 }

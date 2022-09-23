@@ -26,8 +26,8 @@ const Modular = () => {
                                     animateOut="fadeInOut"
                                     animateOnce={true}>
                                     {/* ========= Edit This Button On Hover Mouse ========= */}
-                                    <div class="mydivouter">
-                                        <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <div className="mydivouter">
+                                        <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                         <h3 className="title mt--10">Modular and scalable IP solutions</h3>
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
@@ -38,8 +38,8 @@ const Modular = () => {
                                     animateOut="fadeInOut"
                                     animateOnce={true}>
                                     {/* ========= Edit This Button On Hover Mouse ========= */}
-                                    <div class="mydivouter">
-                                        <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <div className="mydivouter">
+                                        <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                         <p>The IP Group uses the acquired global know-how and network to constantly push the boundaries of its modular tool system for Intellectual Property management. Custom and standardized digital services serve the R&D-driven industry segments, all company or portfolio sizes, budgets and global regions. Application packages can be combined and cover large areas of the Intellectual Property life cycle.</p>
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
 

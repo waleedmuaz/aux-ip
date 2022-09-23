@@ -14,24 +14,24 @@ const TimeLine = (props) => {
                 <div className="full">
                     <div className="sign mt-4">
                         {/* ========= Edit This Button On Hover Mouse ========= */}
-                        <div class="mydivouters">
-                            <button type="button" class="mybuttonoverlaps btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                        <div className="mydivouters">
+                            <button type="button" className="mybuttonoverlaps btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                             <h6 className="mb-0">{props.sign}</h6>
                         </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
                     </div>
                     <div className="title">
                         {/* ========= Edit This Button On Hover Mouse ========= */}
-                        <div class="mydivouter">
-                            <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                        <div className="mydivouter">
+                            <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                             <h3>{props.title}</h3>
                         </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
                     </div>
                     <div className="para">
                         {/* ========= Edit This Button On Hover Mouse ========= */}
-                        <div class="mydivouter">
-                            <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                        <div className="mydivouter">
+                            <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                             <p dangerouslySetInnerHTML={{ __html: props.para }}></p>
                         </div> {/* ========= Close This Button On Hover Mouse ========= */}
 

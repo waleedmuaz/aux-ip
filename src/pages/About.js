@@ -130,7 +130,7 @@ const About = () => {
                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                     {/* ========= Edit This Button On Hover Mouse ========= */}
                                     <div className="mydivouter">
-                                    <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                     <p className="description">In the past decades Dennemeyer Group, founded as a patent law firm in Luxembourg, has developed into the leading global full service provider for the IP management.</p>
                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
                               
@@ -148,8 +148,8 @@ const About = () => {
                             <div className="col-12">
                                 <div className="full">
                                    {/* ========= Edit This Button On Hover Mouse ========= */}
-                                   <div class="mydivouter">
-                                    <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                   <div className="mydivouter">
+                                    <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                     <p>Dennemeyer has a unique position on the global IP market. The combination of our global IP law firm – Dennemeyer & Associates –, the IP management service provider – Dennemeyer IP Solutions –, Dennemeyer Consulting; as well as our state-of-the-art IP management software – DIAMS iQ – makes us the sole “full service provider” for global IP management. Our customers benefit from our broad range of expertise – all within one provider.</p>
                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                
@@ -184,15 +184,15 @@ const About = () => {
                                 <div className="full">
                                     <div className="title">
                                      {/* ========= Edit This Button On Hover Mouse ========= */}
-                                   <div class="mydivouters">
-                                    <button type="button" class="mybuttonoverlaps btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                   <div className="mydivouters">
+                                    <button type="button" className="mybuttonoverlaps btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                     <h4>Our history</h4>
                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                         
                                     </div>
                                           {/* ========= Edit This Button On Hover Mouse ========= */}
-                                   <div class="mydivouter">
-                                    <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                   <div className="mydivouter">
+                                    <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                     <p>Dennemeyer has a unique position on the global IP market. The combination of our global IP law firm – Dennemeyer & Associates –, the IP management service provider – Dennemeyer IP Solutions –, Dennemeyer Consulting; as well as our state-of-the-art IP management software – DIAMS iQ – makes us the sole “full service provider” for global IP management. Our customers benefit from our broad range of expertise – all within one provider.</p>
                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                     

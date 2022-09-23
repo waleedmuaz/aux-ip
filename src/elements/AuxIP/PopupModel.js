@@ -16,7 +16,7 @@ export class PopupModel extends Component {
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title">Global IP Market</h5>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={this.props.hide}> <i class="fa fa-times" aria-hidden="true"></i></button>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={this.props.hide}> <i className="fa fa-times" aria-hidden="true"></i></button>
 
                             </div>
                             <div className="modal-body">

@@ -100,7 +100,7 @@ const Home = () => {
                                                     <div className="mydivouter">
                                                         <button type="button" className="mybuttonoverlap btn btn-primary  text-center" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                                         {data.button.map((buttomData, BTNindex) => (
-                                                            <a className="btn-default" target="_blank" href={{ __html: buttomData.link }} rel="noreferrer">{buttomData.TXT}</a>
+                                                            <a key={BTNindex} className="btn-default" target="_blank" href={{ __html: buttomData.link }} rel="noreferrer">{buttomData.TXT}</a>
                                                         ))}
                                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
 

@@ -15,8 +15,8 @@ const LatestCard = (props) => {
                 <div className="full">
                     <div className="title">
                         {/* ========= Edit This Button On Hover Mouse ========= */}
-                        <div class="mydivouter">
-                            <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                        <div className="mydivouter">
+                            <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                             <NavLink to="/">
                                 <h4>{props.title}</h4>
                             </NavLink>
@@ -25,8 +25,8 @@ const LatestCard = (props) => {
                     </div>
                     <div className="calender">
                         {/* ========= Edit This Button On Hover Mouse ========= */}
-                        <div class="mydivouter">
-                            <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                        <div className="mydivouter">
+                            <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                             <NavLink to="/">
                                 <i className="fa fa-calendar" aria-hidden="true"></i>
                        &nbsp;{props.calender}

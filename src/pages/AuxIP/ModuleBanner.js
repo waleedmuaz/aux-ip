@@ -15,16 +15,16 @@ const ModuleBanner = (props) => {
                 <NavLink to="#"> <div className="full" style={{ backgroundImage: `url(${props.bg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
                     <div className="title">
                         {/* ========= Edit This Button On Hover Mouse ========= */}
-                        <div class="mydivouter">
-                            <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                        <div className="mydivouter">
+                            <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                             <h4 className="text-white">{props.title}</h4>
                         </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
                     </div>
                     <div className="des text-white">
                         {/* ========= Edit This Button On Hover Mouse ========= */}
-                        <div class="mydivouter">
-                            <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                        <div className="mydivouter">
+                            <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                             <p className="text-white">{props.des}</p>
                         </div> {/* ========= Close This Button On Hover Mouse ========= */}
 

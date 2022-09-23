@@ -25,8 +25,8 @@ const BlogList = ({ data }) => {
                     <div className="content">
                         <h4 className="title ">
                             {/* ========= Edit This Button On Hover Mouse ========= */}
-                            <div class="mydivouter">
-                                <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            <div className="mydivouter">
+                                <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                 <Link to="#">
                                     {data.title}
                                 </Link>
@@ -34,8 +34,8 @@ const BlogList = ({ data }) => {
                         </h4>
                         <ul className="rn-meta-list">
                             {/* ========= Edit This Button On Hover Mouse ========= */}
-                            <div class="mydivouter">
-                                <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            <div className="mydivouter">
+                                <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                 <li className="separator">{data.text}</li>
                             </div> {/* ========= Close This Button On Hover Mouse ========= */}
                         </ul>

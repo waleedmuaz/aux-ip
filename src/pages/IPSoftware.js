@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SEO from "../common/SEO";
 import HeaderOne from '../common/header/HeaderOne';
 import HeaderTopBar from '../common/header/HeaderTopBar';
@@ -21,6 +21,7 @@ import FooterFour from '../common/footer/FooterFour';
 import FooterOne from '../common/footer/FooterOne';
 import FooterTwo from '../common/footer/FooterTwo';
 import FooterBottom from '../elements/AuxIP/FooterBottom';
+import PopupModel from '../elements/AuxIP/PopupModel';
 
 
 
@@ -41,7 +42,13 @@ const IpSoftwareData = [
 
 
 
-const IPSoftware = () => {
+const IPSoftware = (props) => {
+
+    const [model, setModel] = useState(false);
+    const getData = () => {
+        return setModel(true);
+    }
+
     return (
         <>
             <SEO title="IPSoftware" />
@@ -59,13 +66,13 @@ const IPSoftware = () => {
                                 <div className="inner text-center">
                                     {/* ========= Edit This Button On Hover Mouse ========= */}
                                     <div class="mydivouter">
-                                        <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                        <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         <h6 className="title display-one property">
                                             Intellectual Property Software<br /></h6>
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                     {/* ========= Edit This Button On Hover Mouse ========= */}
                                     <div class="mydivouter">
-                                        <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                        <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         <p className="description description1">Intellectual Property Management applications centralize and simplify the live administration of IP rights. Tailored to your industry, company size or law firm, and numbers of IP assets.</p>
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                 </div>
@@ -105,7 +112,7 @@ const IPSoftware = () => {
                                     <div className="title text-white">
                                         {/* ========= Edit This Button On Hover Mouse ========= */}
                                         <div class="mydivouter">
-                                            <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                            <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                             <h3 className="text-white">How can we help?</h3>
                                         </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
@@ -113,7 +120,7 @@ const IPSoftware = () => {
                                     <div className="btn_help">
                                         {/* ========= Edit This Button On Hover Mouse ========= */}
                                         <div class="mydivouter">
-                                            <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                            <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                             <NavLink to="#" class="white-pill-outline-button normal-button  js_hubspotdlg" data-hubspotid="93b8811a-3244-4fa4-9a4d-5b3fa050bf9a">Get an expert analysis
                                         </NavLink>
                                         </div> {/* ========= Close This Button On Hover Mouse ========= */}
@@ -132,7 +139,7 @@ const IPSoftware = () => {
                             <div className="col-lg-12">
                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                 <div class="mydivouter">
-                                    <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                     <SectionTitle
                                         textAlign="text-center"
                                         radiusRounded=""
@@ -161,17 +168,17 @@ const IPSoftware = () => {
                             <div className="col-lg-12">
                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                 <div class="mydivouter">
-                                    <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                     <SectionTitle className="mb-4"
                                         textAlign="text-center"
                                         radiusRounded=""
                                         title="Services provide for you."
                                     />
                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
-
                             </div>
                         </div>
-                        <ServiceFour
+                        <ServiceFour 
+                            getData={getData} 
                             serviceStyle="service__style--1 icon-circle-style with-working-process"
                             textAlign="text-center"
                         />
@@ -183,6 +190,11 @@ const IPSoftware = () => {
                 <FooterBottom />
 
             </main>
+
+
+            {
+                model === true ? <PopupModel hide={() => setModel(false)} /> : ""
+            }
         </>
     )
 }

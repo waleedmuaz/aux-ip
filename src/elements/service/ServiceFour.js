@@ -25,7 +25,7 @@ const ServiceList = [
     },
 ]
 
-const ServiceFour = ({ textAlign, serviceStyle }) => {
+const ServiceFour = ({ textAlign, serviceStyle, getData }) => {
     return (
         <div className="row row--15 service-wrapper mt-4">
             {ServiceList.map((val, i) => (
@@ -39,7 +39,7 @@ const ServiceFour = ({ textAlign, serviceStyle }) => {
                                 <div className="line"></div>
                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                 <div class="mydivouter">
-                                    <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                     {val.icon}
                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
@@ -47,12 +47,12 @@ const ServiceFour = ({ textAlign, serviceStyle }) => {
                             <div className="content">
                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                 <div class="mydivouter">
-                                    <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                     <h4 className="title"><Link to="#service" dangerouslySetInnerHTML={{ __html: val.title }}></Link></h4>
                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                 <div class="mydivouter">
-                                    <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <button type="button" class="mybuttonoverlap btn btn-primary" onClick={getData}><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                     <p className="description b1 color-gray mb--0" dangerouslySetInnerHTML={{ __html: val.description }}></p>
                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
 

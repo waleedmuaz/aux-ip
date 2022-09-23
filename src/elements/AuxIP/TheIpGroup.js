@@ -4,13 +4,12 @@ import { Link } from "react-router-dom";
 import customer from '../../assets/images/customer.webp';
 import PopupModel from './PopupModel';
 
-const ConvenientApp = () => {
+const TheIpGroup = () => {
 
     const [model, setModel] = useState(false);
     const getData = () => {
         return setModel(true);
     }
-
     return (
 
         <div className="rwt-about-area about-style-2 mt-0 rn-section-gap">
@@ -70,30 +69,16 @@ const ConvenientApp = () => {
                             <div className='row justify-content-center'>
                                 <div className='col-8'>
                                     <div className='card shadow-lg rounded'>
-                                        <div className='img-box'>
-                                            <img className="w-100 mt-0" src={customer} alt="About Images" />
-                                        </div>
-                                        <div className='text-box p-4 pb-5 mb-5'>
-                                            {/* ========= Edit This Button On Hover Mouse ========= */}
-                                            <div className="mydivouter">
-                                                <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
-                                                <h4>Hello wolrd</h4>
-                                            </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
-                                            {/* ========= Edit This Button On Hover Mouse ========= */}
-                                            <div className="mydivouter">
-                                                <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
-                                                <p>assadsadsdsaddsd</p>
-                                            </div> {/* ========= Close This Button On Hover Mouse ========= */}
-
-                                            {/* ========= Edit This Button On Hover Mouse ========= */}
-                                            <div className="mydivouter">
-                                                <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
-                                                <p>dssadsadsadsadsad</p>
-                                            </div> {/* ========= Close This Button On Hover Mouse ========= */}
-
-                                        </div>
+                                    <div className='img-box'>
+                                    <img className="w-100 mt-0" src={customer} alt="About Images" />
                                     </div>
+                                    <div className='text-box p-4 pb-5 mb-5'>
+                                        <h4>Hello wolrd</h4>
+                                        {/* <p>assadsadsdsaddsd</p> */}
+                                        {/* <p>dssadsadsadsadsad</p> */}
+                                    </div>
+                                </div>
 
                                 </div>
 
@@ -112,4 +97,4 @@ const ConvenientApp = () => {
     )
 }
 
-export default ConvenientApp;
+export default TheIpGroup;

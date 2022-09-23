@@ -66,7 +66,6 @@ const Home = () => {
     const getData = () => {
         return setModel(true);
     }
-
     return (
         <>
 

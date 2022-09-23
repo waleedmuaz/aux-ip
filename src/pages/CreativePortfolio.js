@@ -28,7 +28,7 @@ const CreativePortfolio = () => {
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="inner text-center">
-                                    <h4 class="subtitle rn-sub-badge"><span class="theme-gradient">Portfolio Box Layout</span></h4>
+                                    <h4 className="subtitle rn-sub-badge"><span className="theme-gradient">Portfolio Box Layout</span></h4>
                                     <h1 className="title">Doob Creative Portfolio <br /> For Build Website.</h1>
                                     <div className="button-group mt--40 mt_sm--20">
                                         <a className="btn-default btn-icon round btn-large" target="_blank" href="https://themeforest.net/checkout/from_item/33571911?license=regular">Purchase Now <i className="icon"><FiArrowRight /></i></a>

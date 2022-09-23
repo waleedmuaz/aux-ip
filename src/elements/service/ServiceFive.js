@@ -33,15 +33,15 @@ const ServiceFive = ({ textAlign, serviceStyle }) => {
                                 <div className="content">
                                     <h4 className="title">
                                         {/* ========= Edit This Button On Hover Mouse ========= */}
-                                        <div class="mydivouter">
-                                            <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                        <div className="mydivouter">
+                                            <button type="button" className="mybuttonoverlap btn btn-primary"><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                             <Link to="#service" dangerouslySetInnerHTML={{ __html: val.title }}></Link>
                                         </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
                                     </h4>
                                     {/* ========= Edit This Button On Hover Mouse ========= */}
-                                    <div class="mydivouter">
-                                        <button type="button" class="mybuttonoverlap btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <div className="mydivouter">
+                                        <button type="button" className="mybuttonoverlap btn btn-primary"><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                         <p className="description" dangerouslySetInnerHTML={{ __html: val.description }}></p>
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
 

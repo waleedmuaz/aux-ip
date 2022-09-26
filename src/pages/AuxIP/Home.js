@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React , {useState , useEffect} from 'react';
 import SEO from "../../common/SEO";
 import HeaderTwo from '../../common/header/HeaderTwo';
 import HeaderTopBar from '../../common/header/HeaderTopBar';
@@ -17,6 +17,9 @@ import ConvenientApp from '../../elements/AuxIP/ConvenientApp';
 import TheIpGroup from '../../elements/AuxIP/TheIpGroup';
 import FooterBottom from '../../elements/AuxIP/FooterBottom';
 import PopupModel from '../../elements/AuxIP/PopupModel';
+import axios from 'axios';
+import Card from '../../elements/AuxIP/Card';
+
 
 // import hero1 from '/aux-ip/src/assets/images/home/hero-quantum-innovation.webp';
 
@@ -62,13 +65,43 @@ const BannerData = [
 
 const Home = () => {
 
+
+    const [content, setContent] = useState([]);
+
     const [model, setModel] = useState(false);
     const getData = () => {
         return setModel(true);
     }
 
+
+
+    useEffect(() => {         // create .env file
+        fetch(`${process.env.REACT_APP_SLIDERURL}`).then((result) => {
+            result.json().then((response) => {
+                console.log("🚀 ~ file: Home.jsx ~ line 81 ~ result.json ~ response", response.data.data.context)
+                setContent(response);
+            })
+        })
+
+    }, []);
+
+
+    // useEffect(() => {         // create .env file
+    //     fetch(`https://fakestoreapi.com/products`).then((result) => {
+    //         result.json().then((response) => {
+    //             console.log("🚀 ~ file: Home.jsx ~ line 22 ~ result.json ~ response", response)
+    //             setContent(response);
+    //         })
+    //     })
+
+    // }, []);
+
+
+
+
     return (
         <>
+
 
             <SEO title="Home" />
             <main className="page-wrapper">
@@ -114,6 +147,33 @@ const Home = () => {
                         </div>
                     ))}
                 </Slider>
+
+
+
+             {/* 
+
+            <div className="work-section py-5">
+                <div className="container">
+                    <div className="title text-center">
+                        <h2> All PRODUCTS </h2>
+                    </div>
+                    { <div className="row">
+                        {
+                            content.map((currData, index) => {
+                                console.log("🚀 ~ file: Home.js ~ line 197 ~ content.map ~ currData", currData)
+                                return (
+                                    <Card
+                                        key={index}
+                                        content_detail={currData.content_detail}
+                                    />
+                                )
+                            })
+                        }
+                    </div> }
+                </div>
+            </div> */}
+
+
                 {/* End Slider Area  */}
                 {/* First Home 3 Div */}
                 <div className="blog-area my-5">

@@ -5,7 +5,7 @@ import HeaderTopBar from '../../common/header/HeaderTopBar';
 import Separator from "../../elements/separator/Separator";
 import FooterBottom from '../../elements/AuxIP/FooterBottom';
 import Table from 'react-bootstrap/Table';
-import Container from 'react-bootstrap/Container';
+import SideBar from './Bar/SideBar'
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { TableData } from './TableData';
@@ -15,17 +15,6 @@ const Dashboard = () => {
     const [contacts, setContacts] = useState(TableData);
     const [search, setSearch] = useState('');
 
-    // const sortName = () => {
-    //   setContacts(
-    //     data.sort((a, b) => {
-    //       return a.first_name.toLowerCase() < a.first_name.toLowerCase()
-    //         ? -1
-    //         : a.first_name.toLowerCase() > a.first_name.toLowerCase()
-    //         ? 1
-    //         : 0;
-    //     })
-    //   );
-    // };
 
     return (
         <>
@@ -33,6 +22,7 @@ const Dashboard = () => {
             <main className="page-wrapper">
                 <HeaderTopBar />
                 <HeaderTwo btnStyle="btn-small" />
+                <SideBar/>
                 <Separator />
                 <div className="dashboard_section my-5">
                     <div className="container">

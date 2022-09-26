@@ -73,6 +73,9 @@ import Error from "./pages/Error";
 import './assets/scss/style.scss';
 import Home from './pages/AuxIP/Home';
 import Dashboard from './elements/AuxIP/Dasboard';
+import Role from './elements/AuxIP/RolePermission/Role';
+import AddEditRole from './elements/AuxIP/Role/AddEditRole';
+import User from './pages/AuxIP/Auth/User';
 
 
 const App = () => {
@@ -145,7 +148,9 @@ const App = () => {
                     <Route path={`${process.env.PUBLIC_URL + "/portfolio-details/:id"}`} exact component={PortfolioDetails}/>
                     {/* Auth */}
                     <Route path={`${process.env.PUBLIC_URL + "/login"}`} exact component={Login}/>
-
+                    <Route path={`${process.env.PUBLIC_URL + "/role"}`} exact component={Role}/>
+                    <Route path={`${process.env.PUBLIC_URL + "/role/edit_create/:id"}`} exact component={AddEditRole}/>
+                    <Route path={`${process.env.PUBLIC_URL + "/user"}`} exact component={User}/>
 
                 </Switch>
             </PageScrollTop>

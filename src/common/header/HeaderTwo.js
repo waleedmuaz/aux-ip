@@ -48,9 +48,9 @@ const HeaderTwo = ({btnStyle, HeaderSTyle}) => {
                         </div>
                         <div className="col-lg-3 col-md-6 col-8">
                             <div className="header-right">
-                                <div className="header-btn">
+                                {/* <div className="header-btn">
                                     <a className={`btn-default ${btnStyle}`} target="_blank" href="#">Contact Us</a>
-                                </div>
+                                </div> */}
                                 <div className="mobile-menu-bar ml--5 d-block d-lg-none">
                                     <div className="hamberger">
                                         <span className="hamberger-button" onClick={onCanvasHandler}><FiMenu /></span>

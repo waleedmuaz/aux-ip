@@ -14,6 +14,7 @@ const AddEditRole = () => {
     const [isLoader, setIsLoader] = useState(true);
 
     useEffect(() => {
+        // setIsLoader(false);
       }, []);
 
       

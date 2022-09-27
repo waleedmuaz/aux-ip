@@ -26,7 +26,7 @@ const Dashboard = () => {
                     <section>
                         <div className="container">
                         <div className="row">
-                            <div className="col-md-3">
+                            <div className="col-md-3 sideBarLine">
                                 <SideBar/>
                             </div>
                             <div className="col-md-9">

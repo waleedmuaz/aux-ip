@@ -1098,3 +1098,22 @@ table.dataTable thead .sorting_desc_disabled:before {
     border: none !important;
     background-color: transparent !important;
 }
+
+
+.sidebar-wrapper ul li{
+    line-height: 44px;
+}
+.sidebar-wrapper ul li a{
+   color: black;
+   font-family: sans-serif;
+}
+.sidebar-wrapper ul  .active_class{
+   color: red !important;
+}
+.dashboard_section .role .btn{
+    padding: 6px 18px;
+    font-size: 15px;
+}
+.sideBarLine{
+  border-right: 2px solid #eee !important;
+}

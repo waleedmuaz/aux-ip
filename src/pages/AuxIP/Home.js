@@ -66,7 +66,7 @@ const BannerData = [
 const Home = () => {
 
 
-    const [content, setContent] = useState([]);
+    const [sliderContent, setSliderContent] = useState([]);
 
     const [model, setModel] = useState(false);
     const getData = () => {
@@ -78,8 +78,9 @@ const Home = () => {
     useEffect(() => {         // create .env file
         fetch(`${process.env.REACT_APP_SLIDERURL}`).then((result) => {
             result.json().then((response) => {
-                console.log("🚀 ~ file: Home.jsx ~ line 81 ~ result.json ~ response", response.data.data.context)
-                setContent(response);
+
+                console.log("🚀 ~ file: Home.jsx ~ line 81 ~ result.json ~ response", response.data.context)
+                setSliderContent(response);
             })
         })
 
@@ -90,7 +91,7 @@ const Home = () => {
     //     fetch(`https://fakestoreapi.com/products`).then((result) => {
     //         result.json().then((response) => {
     //             console.log("🚀 ~ file: Home.jsx ~ line 22 ~ result.json ~ response", response)
-    //             setContent(response);
+    //             setSliderContent(response);
     //         })
     //     })
 
@@ -107,7 +108,7 @@ const Home = () => {
             <main className="page-wrapper">
                 <HeaderTopBar />
                 <HeaderTwo btnStyle="btn-small" />
-
+                {/* {console.log("sliderContent" , sliderContent)} */}
                 {/* Start Slider Area  */}
                 <Slider className="slider-area slider-style-4 slider-dot rn-slick-dot rn-slick-arrow" {...BannerActivation}>
                     {BannerData.map((data, index) => (
@@ -121,7 +122,8 @@ const Home = () => {
                                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                                 <div className="mydivouter">
                                                     <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
-                                                    <h1 className="title" dangerouslySetInnerHTML={{ __html: data.title }}></h1>
+                                                    <h1 className="title" dangerouslySetInnerHTML={{ __html: 
+                                                    data.title }}></h1>
                                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                                 <div className="mydivouter">
@@ -159,7 +161,7 @@ const Home = () => {
                     </div>
                     { <div className="row">
                         {
-                            content.map((currData, index) => {
+                            sliderContent.map((currData, index) => {
                                 console.log("🚀 ~ file: Home.js ~ line 197 ~ content.map ~ currData", currData)
                                 return (
                                     <Card

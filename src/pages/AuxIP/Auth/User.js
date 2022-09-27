@@ -6,6 +6,7 @@ import SEO from '../../../common/SEO';
 import FooterBottom from '../../../elements/AuxIP/FooterBottom';
 import Separator from '../../../elements/separator/Separator';
 import UserForm from '../../../elements/AuxIP/User/UserForm';
+import SideBar from '../../../elements/AuxIP/Bar/SideBar';
 
 const User = () => {
     return (
@@ -15,24 +16,40 @@ const User = () => {
                 <HeaderTopBar />
                 <HeaderTwo btnStyle="btn-small" />
                 <Separator />
+                <main id="mian">
+                    <section>
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-md-3 sideBarLine">                 
+                                   <SideBar />
+                                </div>
+                                <div className="col-md-9">
+                                    <Separator />
+                                    <div className="row mb-5">
+                                        <div className='col-md-12'>
+                                            {/* <div className='row'> */}
+                                                {/* <div className='col-md-4'>
+                                                </div> */}
+                                                {/* <div className='col-md-4'> */}
 
-                <div className="row">
-                    <div className='col-md-12'>
-                        <div className='row'>
-                            <div className='col-md-4'>
-                            </div>
-                            <div className='col-md-4'>
+                                                    <div className='card-body'>
+                                                        <UserForm formStyle="formRegister" />
+                                                    </div>
+                                                {/* </div> */}
+                                                <div className='col-md-4 top-50 start-50 '>
+                                                </div>
+                                            {/* </div> */}
+                                        </div>
 
-                                <div className='card-body'>
-                                    <UserForm formStyle="formRegister" />
+                                    </div>
+                                    <Separator />
                                 </div>
                             </div>
-                            <div className='col-md-4 top-50 start-50 '>
-                            </div>
                         </div>
-                    </div>
 
-                </div>
+
+                    </section>
+                </main>
                 <Separator />
                 <FooterBottom />
             </main>
@@ -41,3 +58,7 @@ const User = () => {
     )
 }
 export default User;
+
+
+
+

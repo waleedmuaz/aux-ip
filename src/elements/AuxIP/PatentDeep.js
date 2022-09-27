@@ -5,20 +5,26 @@ import { FiArrowRight, FiCheck } from "react-icons/fi";
 import secondary from '../../assets/images/secondary-transformed1.png';
 import PopupModel from './PopupModel';
 
-const PatentDeep = () => {
-
-    const [model, setModel] = useState(false);
-    const getData = () => {
-        return setModel(true);
+const PatentDeep = (props) => {
+    const setPatentData = (sliderList) => {
+        let slider_key =  Object.keys(sliderList);
+        let arrayList=[];
+        for(let i=0; i<slider_key.length;i++){
+            arrayList[i]=sliderList[slider_key[i]]
+        }
+        return arrayList;
     }
-
+    
     return (
+        <>
+        {setPatentData(props.content.PatentDeep).map((data, index) => (
+
         <div className="rwt-about-area about-style-2  rn-section-gap">
             <div className="container">
                 <div className="row row--30 align-items-cente">
                     <div className="col-lg-5">
                         <div className="thumbnail">
-                            <img className="w-100" src={secondary} alt="About Images" />
+                            <img className="w-100" src={data.patent_deep_img[0].content_detail} alt="About Images" />
                         </div>
                     </div>
 
@@ -31,8 +37,8 @@ const PatentDeep = () => {
                                     animateOnce={true}>
                                     {/* ========= Edit This Button On Hover Mouse ========= */}
                                     <div className="mydivouter">
-                                        <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
-                                        <h3 className="title mt--10">Patent deep search and monitoring tools.</h3>
+                                        <button type="button" className="mybuttonoverlap btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                        <h3 className="title mt--10">{ data.patent_deep_title[0].content_detail }</h3>
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                 </ScrollAnimation>
 
@@ -42,8 +48,8 @@ const PatentDeep = () => {
                                     animateOnce={true}>
                                     {/* ========= Edit This Button On Hover Mouse ========= */}
                                     <div className="mydivouter">
-                                        <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
-                                        <p>Automated <strong> patent analysis and monitoring tools </strong>based on Deep Learning improve sharpness and quality of patent searches. Octimine also features patent landscaping, regular checks help you staying on top of trends and budget for your <strong> Intellectual Property assets. </strong></p>
+                                        <button type="button" className="mybuttonoverlap btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                        {data.patent_deep_description[0].content_detail}
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
                                 </ScrollAnimation>
@@ -54,8 +60,8 @@ const PatentDeep = () => {
                                     <div className="read-more-btn mt--40">
                                         {/* ========= Edit This Button On Hover Mouse ========= */}
                                         <div className="mydivouters">
-                                            <button type="button" className="mybuttonoverlaps btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
-                                            <Link className="btn-default btn-icon" to="#">Explore Octimine Search</Link>
+                                            <button type="button" className="mybuttonoverlaps btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                            <Link className="btn-default btn-icon" to="#">{data.patent_deep_btn[0].content_detail}</Link>
                                         </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
                                     </div>
@@ -64,11 +70,11 @@ const PatentDeep = () => {
                         </div>
                     </div>
                 </div>
-                {
-                model === true ?   <PopupModel hide={()=> setModel(false)} /> : ""
-            }
             </div>
         </div>
+        ))}
+
+        </>
     )
 }
 

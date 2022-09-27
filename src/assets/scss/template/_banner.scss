@@ -1269,3 +1269,37 @@ table.dataTable thead .sorting_desc_disabled:before {
 .header-class{
     font-size: 14px;
 }
+
+// admin_section
+
+.admin_section{
+    width: 100%;
+    height: 100vh;
+    background-color: #F3F6F9;
+}
+.admin_section .full{
+    max-width: 550px;
+    margin: auto;
+    padding-top: 40px;
+    padding-bottom: 140px;
+}
+.admin_section  .card-body {
+        flex: 1 1 auto;
+        min-height: 1px;
+        padding: 2.30rem !important;
+    }
+.admin_section  .card-body .sub_btn .btn-default{
+       width: 100% !important;
+       font-size: 17px !important;
+    //    padding: 7px !important;
+    //    height: 22px !important;
+    }
+    .admin_section  .logo img{
+     top: 0px;
+     width: 45%;
+     text-align: center;
+     margin: auto;
+    }
+    .admin_section  .card-header{
+     border-top: 2px solid #3F32F5;
+    }

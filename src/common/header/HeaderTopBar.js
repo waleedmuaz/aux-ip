@@ -42,8 +42,6 @@ const deleteItem = () => {
                                 {
                                         (!localStorage.getItem('auth'))?"":<p><Link to="/dashboard" ><span>Dashboard</span></Link></p>
                                 }
-                                <p><FaGlobe /><span><a href="#">Language : English</a></span></p>
-                                <p><FaSearch /><span>Search</span></p>
                             </div>
                         </div>
                     </div>

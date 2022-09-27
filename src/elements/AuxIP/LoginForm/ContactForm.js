@@ -5,15 +5,22 @@ import {
   FormGroup,
   FormText,
 } from 'react-bootstrap';
+import Dashboard from '../Dasboard';
+import Home from '../../../pages/AuxIP/Home';
+import { Navigate } from "react-router-dom";
+import {Redirect, Route} from 'react-router-dom';
+
 
 
 class ContactForm extends Component {
+
   constructor(props) {
 
     super(props);
     this.state = {
       email: '',
       password: '',
+      login: true,
       validate: {
         emailState: '',
       },
@@ -21,6 +28,8 @@ class ContactForm extends Component {
     this.handleChange = this.handleChange.bind(this);
     console.log();
   }
+
+ 
 
   handleChange = (event) => {
     const { target } = event;
@@ -62,6 +71,13 @@ class ContactForm extends Component {
           console.log("🚀 ~ file: ContactForm.js ~ line 62 ~ ContactForm ~ .then ~ response", response.data)
           // storing input name
            localStorage.setItem("auth", JSON.stringify(response.data.data));
+           this.navigate("../LoginForm", { replace: true });
+          //  if(this.login == true){
+          //   <Route path={`${process.env.PUBLIC_URL + "/dashboard"}`} exact component={Dashboard}/>
+          //  } else{
+          //   return <Redirect to='/ContactForm'  />
+          //  }
+          // window.location.replace("/dashboard");
       })
       .catch((error) => {
         console.log("🚀 ~ file: ContactForm.js ~ line 64 ~ ContactForm ~ submitForm ~ error", error);
@@ -69,13 +85,13 @@ class ContactForm extends Component {
   }
 
 
-
-
   render() {
+  
     const { email, password } = this.state;
 
     return (
       <div className="App">
+    
         <h2>Sign In</h2>
         <Form className="form" onSubmit={(e) => this.submitForm(e)}>
           <FormGroup>
@@ -88,6 +104,7 @@ class ContactForm extends Component {
               valid={this.state.validate.emailState === "has-success"}
               invalid={this.state.validate.emailState === "has-danger"}
               value={email}
+              required
               onChange={(e) => {
                 this.validateEmail(e);
                 this.handleChange(e);
@@ -102,6 +119,7 @@ class ContactForm extends Component {
               type="password"
               name="password"
               id="passwordId"
+              required
               placeholder="********"
               value={password}
               onChange={(e) => this.handleChange(e)}

@@ -1,4 +1,4 @@
-import React , {useEffect, useState} from 'react';
+import React , {useState , useEffect} from 'react';
 import SEO from "../../common/SEO";
 import HeaderTwo from '../../common/header/HeaderTwo';
 import HeaderTopBar from '../../common/header/HeaderTopBar';
@@ -17,6 +17,9 @@ import ConvenientApp from '../../elements/AuxIP/ConvenientApp';
 import TheIpGroup from '../../elements/AuxIP/TheIpGroup';
 import FooterBottom from '../../elements/AuxIP/FooterBottom';
 import PopupModel from '../../elements/AuxIP/PopupModel';
+import axios from 'axios';
+import Card from '../../elements/AuxIP/Card';
+
 
 // import hero1 from '/aux-ip/src/assets/images/home/hero-quantum-innovation.webp';
 
@@ -67,6 +70,9 @@ const getHomePageData = async () => {
 
 const Home = () => {
 
+
+    const [sliderContent, setSliderContent] = useState([]);
+
     const [model, setModel] = useState(false);
     const getData = () => {
         return setModel(true);
@@ -86,14 +92,42 @@ const Home = () => {
 
 
 
+
+
+    useEffect(() => {         // create .env file
+        fetch(`${process.env.REACT_APP_SLIDERURL}`).then((result) => {
+            result.json().then((response) => {
+
+                console.log("🚀 ~ file: Home.jsx ~ line 81 ~ result.json ~ response", response.data.context)
+                setSliderContent(response);
+            })
+        })
+
+    }, []);
+
+
+    // useEffect(() => {         // create .env file
+    //     fetch(`https://fakestoreapi.com/products`).then((result) => {
+    //         result.json().then((response) => {
+    //             console.log("🚀 ~ file: Home.jsx ~ line 22 ~ result.json ~ response", response)
+    //             setSliderContent(response);
+    //         })
+    //     })
+
+    // }, []);
+
+
+
+
     return (
         <>
+
 
             <SEO title="Home" />
             <main className="page-wrapper">
                 <HeaderTopBar />
                 <HeaderTwo btnStyle="btn-small" />
-
+                {/* {console.log("sliderContent" , sliderContent)} */}
                 {/* Start Slider Area  */}
                 <Slider className="slider-area slider-style-4 slider-dot rn-slick-dot rn-slick-arrow" {...BannerActivation}>
                     {/* {console.log(BannerData)} */}
@@ -110,7 +144,8 @@ const Home = () => {
                                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                                 <div className="mydivouter">
                                                     <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
-                                                    <h1 className="title" dangerouslySetInnerHTML={{ __html: data.title }}></h1>
+                                                    <h1 className="title" dangerouslySetInnerHTML={{ __html: 
+                                                    data.title }}></h1>
                                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                                 <div className="mydivouter">
@@ -136,6 +171,33 @@ const Home = () => {
                         </div>
                     ))}
                 </Slider>
+
+
+
+             {/* 
+
+            <div className="work-section py-5">
+                <div className="container">
+                    <div className="title text-center">
+                        <h2> All PRODUCTS </h2>
+                    </div>
+                    { <div className="row">
+                        {
+                            sliderContent.map((currData, index) => {
+                                console.log("🚀 ~ file: Home.js ~ line 197 ~ content.map ~ currData", currData)
+                                return (
+                                    <Card
+                                        key={index}
+                                        content_detail={currData.content_detail}
+                                    />
+                                )
+                            })
+                        }
+                    </div> }
+                </div>
+            </div> */}
+
+
                 {/* End Slider Area  */}
                 {/* First Home 3 Div */}
                 <div className="blog-area my-5">

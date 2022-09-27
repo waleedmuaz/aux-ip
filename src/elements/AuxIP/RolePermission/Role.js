@@ -68,7 +68,7 @@ const Role = () => {
                         <div className="row">
                             <div className="col-12">
                                 <div className="full">
-                                    <Button type="submit" className="btn btn-primary">Add Role</Button>
+                                    <Link to="role/edit_create"><Button type="submit" className="btn btn-primary">Add Role</Button></Link>
                                     <Table striped bordered hover>
                                         <thead>
                                             <tr>

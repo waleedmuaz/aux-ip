@@ -57,7 +57,7 @@ const BannerData = [
     },
 ]
 const getHomePageData = async () => {
-    const response = await fetch(`${process.env.REACT_APP_PUBLIC_URL_KEY}content?page=Home`)
+    const response = await fetch(`${process.env.REACT_APP_BASEURL}content?page=Home`)
     if (!response.ok) {
       throw new Error('Data coud not be fetched!')
     } else {
@@ -66,7 +66,7 @@ const getHomePageData = async () => {
   }
 
 const Home = () => {
-
+    const [isLoader, setIsLoader] = useState(false);
     const [model, setModel] = useState(false);
     const getData = () => {
         return setModel(true);
@@ -77,6 +77,7 @@ const Home = () => {
         getHomePageData()
           .then((res) => {
             setContent(res.data)
+            setIsLoader(true);
           })
           .catch((e) => {
             console.log(e.message)
@@ -84,7 +85,9 @@ const Home = () => {
       }, []);
 
 
-
+      if(!isLoader){
+        return <div>loading data...</div>;
+    }
 
     return (
         <>
@@ -96,7 +99,6 @@ const Home = () => {
 
                 {/* Start Slider Area  */}
                 <Slider className="slider-area slider-style-4 slider-dot rn-slick-dot rn-slick-arrow" {...BannerActivation}>
-                    {/* {console.log(BannerData)} */}
                    
 
                     {BannerData.map((data, index) => (
@@ -110,12 +112,12 @@ const Home = () => {
                                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                                 <div className="mydivouter">
                                                     <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
-                                                    <h1 className="title" dangerouslySetInnerHTML={{ __html: data.title }}></h1>
+                                                    <h1 className="title" dangerouslySetInnerHTML={{ __html: content.context[0].content_detail }}></h1>
                                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                                 <div className="mydivouter">
                                                     <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
-                                                    <p className="description" dangerouslySetInnerHTML={{ __html: data.description }}></p>
+                                                    <p className="description" dangerouslySetInnerHTML={{ __html: content.context[1].content_detail }}></p>
                                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
                                                 <div className="button-group mt--30">

@@ -16,18 +16,7 @@ const AddEditRole = () => {
     useEffect(() => {
       }, []);
 
-
-      let handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log(123);
-
-
-
-      };
-
-
-
-
+      
     if(!isLoader){
         return <div>loading data...</div>;
     }

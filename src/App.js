@@ -150,6 +150,7 @@ const App = () => {
                     <Route path={`${process.env.PUBLIC_URL + "/login"}`} exact component={Login}/>
                     <Route path={`${process.env.PUBLIC_URL + "/role"}`} exact component={Role}/>
                     <Route path={`${process.env.PUBLIC_URL + "/role/edit_create/:id"}`} exact component={AddEditRole}/>
+                    <Route path={`${process.env.PUBLIC_URL + "/role/edit_create"}`} exact component={AddEditRole}/>
                     <Route path={`${process.env.PUBLIC_URL + "/user"}`} exact component={User}/>
 
                 </Switch>

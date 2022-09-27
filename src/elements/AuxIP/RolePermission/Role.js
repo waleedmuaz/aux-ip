@@ -8,26 +8,27 @@ import Separator from '../../../elements/separator/Separator';
 import { Button, Form, InputGroup, Table } from 'react-bootstrap';
 import { TableData } from './TableData';
 import { Link } from 'react-router-dom';
+import SideBar from '../Bar/SideBar';
 
 const Role = () => {
 
-    const [content,setContent]=useState();
+    const [content, setContent] = useState();
     const [isLoader, setIsLoader] = useState(false);
 
     const getRolePageData = async () => {
         const response = await fetch(`${process.env.REACT_APP_BASEURL}user/roles`,
-        {
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              'Authorization': 'Bearer 29|TJ9x4T0FndtUmt8Z9xBu6J9vjF7xgTG7J5WdTUuC'
-            },
-            method: "GET",
+            {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer 29|TJ9x4T0FndtUmt8Z9xBu6J9vjF7xgTG7J5WdTUuC'
+                },
+                method: "GET",
             })
         if (!response.ok) {
-          throw new Error('Data coud not be fetched!')
+            throw new Error('Data coud not be fetched!')
         } else {
-          return await response.json()
+            return await response.json()
         }
     }
 
@@ -36,18 +37,18 @@ const Role = () => {
 
     useEffect(() => {
         getRolePageData()
-          .then((res) => {
-            setContent(res.data);
-            setIsLoader(true);
-          })
-          .catch((e) => {
-            console.log(e.message)
-          })
-      }, []);
+            .then((res) => {
+                setContent(res.data);
+                setIsLoader(true);
+            })
+            .catch((e) => {
+                console.log(e.message)
+            })
+    }, []);
 
 
 
-    if(!isLoader){
+    if (!isLoader) {
         return <div>loading data...</div>;
     }
 
@@ -56,47 +57,63 @@ const Role = () => {
 
 
     return (
-        
+
         <>
             <SEO title="Home" />
             <main className="page-wrapper">
                 <HeaderTopBar />
                 <HeaderTwo btnStyle="btn-small" />
                 <Separator />
-                <div className="dashboard_section my-5">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-12">
-                                <div className="full">
-                                    <Link to="role/edit_create"><Button type="submit" className="btn btn-primary">Add Role</Button></Link>
-                                    <Table striped bordered hover>
-                                        <thead>
-                                            <tr>
-                                                <th>Id</th>
-                                                <th>Role</th>
-                                                <th>Guard Name</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {content.map((item, index) => (
-                                                    <tr key={index}>
-                                                        <td>{item.id}</td>
-                                                        <td>{item.name}</td>
-                                                        <td>{item.guard_name}</td>
-                                                        <td>
-                                                            <Link to={`/role/edit_create/${item.id}`} className='btn btn-success'>Edit</Link>
-                                                        </td>
-                                                    </tr>
-                                                ))}
-                                        </tbody>
-                                    </Table>
+                <main id="mian">
+                    <section>
+                        <div className="container">
+                            <div className="row mb-5">
+                                <div className="col-md-3 sideBarLine">
+                                   <SideBar />  
+                                </div>
+                                <div className="col-md-9">
+                                    <Separator />
+                                    <div className="dashboard_section my-5">
+                                        <div className="container">
+                                            <div className="row mb-4">
+                                                <div className="col-12">
+                                                    <div className="full role">
+                                                        <Link to="role/edit_create"><Button type="submit" className="btn my-3 btn-primary">Add Role</Button></Link>
+                                                        <Table striped bordered hover>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Id</th>
+                                                                    <th>Role</th>
+                                                                    <th>Guard Name</th>
+                                                                    <th>Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {content.map((item, index) => (
+                                                                    <tr key={index}>
+                                                                        <td>{item.id}</td>
+                                                                        <td>{item.name}</td>
+                                                                        <td>{item.guard_name}</td>
+                                                                        <td>
+                                                                            <Link to={`/role/edit_create/${item.id}`} className='btn btn-success'>Edit</Link>
+                                                                        </td>
+                                                                    </tr>
+                                                                ))}
+                                                            </tbody>
+                                                        </Table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <Separator />
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
+
+                    </section>
+                </main>
                 <Separator />
                 <FooterBottom />
             </main>
@@ -105,3 +122,4 @@ const Role = () => {
     )
 }
 export default Role;
+

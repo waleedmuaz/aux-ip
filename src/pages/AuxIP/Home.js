@@ -19,7 +19,6 @@ import SliderData from '../../pages/AuxIP/SliderData';
 
 // import hero1 from '/aux-ip/src/assets/images/home/hero-quantum-innovation.webp';
 
-
 const Home = () => {
 
     const [model, setModel] = useState(false);
@@ -58,7 +57,6 @@ const Home = () => {
 
 
 
-
     return (
         <>
 
@@ -74,6 +72,7 @@ const Home = () => {
                 <div className="blog-area my-5">
                     <div className="container">
                         <div className="row row--15">
+
                             <ImageTextSlider  content={content} getData={getData} StyleVar="box-card-style-default"
                             />
                         </div>

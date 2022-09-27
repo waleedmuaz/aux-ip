@@ -50,7 +50,7 @@ if(!isLoader){
   }
     return (
     <div className="">
-        <h2>Create User</h2>
+        <h3>Create User</h3>
         <Form className="form" >
           <FormGroup>
             <label>Name</label>

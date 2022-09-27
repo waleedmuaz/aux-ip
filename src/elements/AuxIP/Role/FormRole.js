@@ -10,12 +10,15 @@ const FormRole = () => {
     'name':'',
     'permission':''
   });
- const [permisionList,setpermisionList]=useState() 
+ const [permisionList , setpermisionList]=useState() 
  const [isLoader, setIsLoader] = useState(false);
  const { id } = useParams();
+//  console.log("🚀 ~ file: FormRole.js ~ line 16 ~ FormRole ~ id", id)
+
+ 
  const getRolePageDataById= async ()=> {
 
-    const response = await fetch(`${process.env.REACT_APP_BASEURL}user/role/${id}`,
+    const response = await fetch(`${process.env.REACT_APP_BASEURL}user/role/${1}`,
     {
         headers: {
           'Accept': 'application/json',
@@ -84,10 +87,12 @@ if(!isLoader){
           <FormGroup>
             <label for="permission">Permission</label>
             <select  multiple id="permission" name='permission[]'>
-              <option selected disabled>Selected</option>              
+              <option selected disabled>Selected</option> 
+
               {permisionList.permission.map((item, index) => (
                 <option selected={item.selected} value={item.id}>{item.name}</option>
               ))}
+              
             </select>
             </FormGroup>
           <div className="header-btn">

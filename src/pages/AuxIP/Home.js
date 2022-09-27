@@ -121,44 +121,53 @@ const Home = () => {
                 {/* {console.log("sliderContent" , sliderContent)} */}
                 {/* Start Slider Area  */}
                 <Slider className="slider-area slider-style-4 slider-dot rn-slick-dot rn-slick-arrow" {...BannerActivation}>
-                   
+                
+                    
+                    {Object.keys(content.Slider).map(function(d, idx){
+                        {console.log(content.Slider[idx])}
+                    // <div key={content.Slider[idx]} className="single-slide">
 
-                    {BannerData.map((data, index) => (
-                        <div key={index} className="single-slide">
+                    //     Object.keys(content.Slider[d]).map(function(data,index){
+                    //         Object.keys(content.Slider[d][data]).map(function(da,i){
 
-                            <div className="sliders height-950 bg-overlay bg_image" style={{ backgroundImage: `url(${data.image})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
-                                <div className="container">
-                                    <div className="row row--30 align-items-center">
-                                        <div className="order-2 order-lg-1 col-lg-7">
-                                            <div className="inner text-left">
-                                                {/* ========= Edit This Button On Hover Mouse ========= */}
-                                                <div className="mydivouter">
-                                                    <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
-                                                    <h1 className="title" dangerouslySetInnerHTML={{ __html: content.context[0].content_detail }}></h1>
-                                                </div> {/* ========= Close This Button On Hover Mouse ========= */}
-                                                {/* ========= Edit This Button On Hover Mouse ========= */}
-                                                <div className="mydivouter">
-                                                    <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
-                                                    <p className="description" dangerouslySetInnerHTML={{ __html: content.context[1].content_detail }}></p>
-                                                </div> {/* ========= Close This Button On Hover Mouse ========= */}
+                                
+                    //         <div className="sliders height-950 bg-overlay bg_image" 
+                    //             style={{ backgroundImage: content.Slider[d][data][i].slider_slider_img, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}
+                    //         >
+                    //             <div className="container">
+                    //                 <div className="row row--30 align-items-center">
+                    //                     <div className="order-2 order-lg-1 col-lg-7">
+                    //                         <div className="inner text-left">
+                    //                             {/* ========= Edit This Button On Hover Mouse ========= */}
+                    //                             <div className="mydivouter">
+                    //                                 <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                    //                                 {/* <h1 className="title" dangerouslySetInnerHTML={{ __html: content.Slider[d][data][i].key}}></h1> */}
+                    //                             </div> {/* ========= Close This Button On Hover Mouse ========= */}
+                    //                             {/* ========= Edit This Button On Hover Mouse ========= */}
+                    //                             <div className="mydivouter">
+                    //                                 <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                    //                                 {/* <p className="description" dangerouslySetInnerHTML={{ __html: content.context[1].content_detail }}></p> */}
+                    //                             </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
-                                                <div className="button-group mt--30">
-                                                    {/* ========= Edit This Button On Hover Mouse ========= */}
-                                                    <div className="mydivouter">
-                                                        <button type="button" className="mybuttonoverlap btn btn-primary  text-center" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
-                                                        {data.button.map((buttomData, BTNindex) => (
-                                                            <a key={BTNindex} className="btn-default" target="_blank" href={{ __html: buttomData.link }} rel="noreferrer">{buttomData.TXT}</a>
-                                                        ))}
-                                                    </div> {/* ========= Close This Button On Hover Mouse ========= */}
+                    //                             <div className="button-group mt--30">
+                    //                                 {/* ========= Edit This Button On Hover Mouse ========= */}
+                    //                                 <div className="mydivouter">
+                    //                                     <button type="button" className="mybuttonoverlap btn btn-primary  text-center" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                    //                                     {/* {data.button.map((buttomData, BTNindex) => (
+                    //                                         <a key={BTNindex} className="btn-default" target="_blank" href={{ __html: buttomData.link }} rel="noreferrer">{buttomData.TXT}</a>
+                    //                                     ))} */}
+                    //                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+                    //                             </div>
+                    //                         </div>
+                    //                     </div>
+                    //                 </div>
+                    //             </div>
+                    //         </div>
+                            // })
+                        // });
+                        // </div>
+                    })} 
                 </Slider>
 
 

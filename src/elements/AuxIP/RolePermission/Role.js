@@ -91,6 +91,7 @@ const Role = () => {
                                    <SideBar />  
                                 </div>
                                 <div className="col-md-10">
+
                                     <Separator />
                                     <div className="dashboard_section my-5">
                                         <div className="container">

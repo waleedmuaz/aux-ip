@@ -1103,8 +1103,11 @@ table.dataTable thead .sorting_desc_disabled:before {
 .sidebar-wrapper ul li{
     line-height: 44px;
 }
+.sidebar-wrapper ul{
+   margin-top: 44px;
+}
 .sidebar-wrapper ul li a{
-   color: black;
+   color: white;
    font-family: sans-serif;
 }
 .sidebar-wrapper ul  .active_class{
@@ -1116,4 +1119,21 @@ table.dataTable thead .sorting_desc_disabled:before {
 }
 .sideBarLine{
   border-right: 2px solid #eee !important;
+  background-color: #283341 !important;
+  margin-top: -2px !important;
+  height: 100vh !important;
+
 }
+@media only screen and (max-width: 767px) {
+    .sideBarLine{
+        border-right: 2px solid #eee !important;
+        background-color: #283341 !important;
+        margin-top: -2px !important;
+        height: 50vh !important;
+      
+      }
+  }
+// .header-left-align{
+//     color: white !important;
+//     background-color: #283341 !important;
+// }

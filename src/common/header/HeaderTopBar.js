@@ -1,8 +1,16 @@
 import React from 'react';
 import { FaGlobe, FaSearch, FaUser } from 'react-icons/fa';
 import {Link} from "react-router-dom";
+import {Redirect} from 'react-router-dom';
 
 const HeaderTopBar = () => {
+
+const deleteItem = () => {
+    localStorage.removeItem("auth");
+    console.log("🚀 ~ file: HeaderTopBar.js ~ line 9 ~ deleteItem ~ localStorage", localStorage);
+    <Redirect to="/login" />
+};
+
     return (
         <div className="header-top-bar">
             <div className="container">
@@ -29,6 +37,7 @@ const HeaderTopBar = () => {
                         <div className="header-right">
                             <div className="address-content">
                                 <p><FaUser /><Link to="login"><span>Login</span></Link></p>
+                                <p><i className="fa fa-sign-out" aria-hidden="true"></i><Link to="/login" onClick={deleteItem}><span>Logout</span></Link></p>
                                 <p><FaGlobe /><span><a href="#">Language : English</a></span></p>
                                 <p><FaSearch /><span>Search</span></p>
                             </div>

@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React ,{useEffect} from 'react';
+import { Redirect, Route, Switch, Link, useHistory } from 'react-router-dom';
 import HeaderTopBar from '../../../common/header/HeaderTopBar';
 import HeaderTwo from '../../../common/header/HeaderTwo';
 import SEO from '../../../common/SEO';
@@ -8,6 +8,15 @@ import FooterBottom from '../../../elements/AuxIP/FooterBottom';
 import Separator from '../../../elements/separator/Separator';
 
 const Login = () => {
+
+let history = useHistory();
+
+ useEffect(() => {
+    if(localStorage.getItem("auth")){
+        history.push("/dashboard");
+      }
+ }, [])
+ 
     return (
         <>
             <SEO title="Home" />

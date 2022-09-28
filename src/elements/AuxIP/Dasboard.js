@@ -24,12 +24,12 @@ const Dashboard = () => {
                 <HeaderTwo btnStyle="btn-small" />
                 <main id="mian">
                     <section>
-                        <div className="container">
+                        <div className="container-fluid">
                         <div className="row">
-                            <div className="col-md-3 sideBarLine">
+                            <div className="col-md-2 sideBarLine">
                                 <SideBar/>
                             </div>
-                            <div className="col-md-9">
+                            <div className="col-md-10">
                                 <Separator />
                                 <div className="dashboard_section my-5">
                                     <div className="full">

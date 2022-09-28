@@ -9,11 +9,13 @@ import { Button, Form, InputGroup, Table } from 'react-bootstrap';
 import { TableData } from './TableData';
 import { Link } from 'react-router-dom';
 import SideBar from '../Bar/SideBar';
+import axios from 'axios';
 
 const Role = () => {
 
     const [content, setContent] = useState();
     const [isLoader, setIsLoader] = useState(false);
+    const [user, setUser] = useState([]);
 
     const getRolePageData = async () => {
         const response = await fetch(`${process.env.REACT_APP_BASEURL}user/roles`,
@@ -31,6 +33,23 @@ const Role = () => {
             return await response.json()
         }
     }
+
+
+    // const checkUser = async () => {
+    //     const result = await axios.post(`${process.env.REACT_APP_BASEURL}login`);
+    //     console.log("🚀 ~ file: Home.jsx ~ line 16 ~ loadUsers ~ result", result.data);
+    //     setUser(result.data);
+    // }
+
+    // useEffect(() => {
+    //     checkUser();
+    // }, [])
+
+    
+
+    // if(){
+    //    return  
+    // }
 
 
 
@@ -66,12 +85,12 @@ const Role = () => {
                 <Separator />
                 <main id="mian">
                     <section>
-                        <div className="container">
+                        <div className="container-fluid">
                             <div className="row mb-5">
-                                <div className="col-md-3 sideBarLine">
+                                <div className="col-md-2 sideBarLine">
                                    <SideBar />  
                                 </div>
-                                <div className="col-md-9">
+                                <div className="col-md-10">
                                     <Separator />
                                     <div className="dashboard_section my-5">
                                         <div className="container">

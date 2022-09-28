@@ -1,4 +1,4 @@
-import React , {useState} from 'react'
+import React , {useState , useEffect} from 'react'
 import SEO from "../../common/SEO";
 import HeaderTwo from '../../common/header/HeaderTwo';
 import HeaderTopBar from '../../common/header/HeaderTopBar';
@@ -9,12 +9,21 @@ import SideBar from './Bar/SideBar'
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { TableData } from './TableData';
+import { Redirect, Route, Switch, Link, useHistory } from 'react-router-dom';
 
 const Dashboard = () => {
 
     const [contacts, setContacts] = useState(TableData);
     const [search, setSearch] = useState('');
 
+
+    let history = useHistory();
+
+    useEffect(() => {
+       if(!localStorage.getItem("auth")){
+           history.push("/login");
+         }
+    }, [])
 
     return (
         <>

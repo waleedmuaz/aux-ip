@@ -73,7 +73,6 @@ class ContactForm extends Component {
       password: this.state.password,
     })
       .then((response) => {
-        console.log("🚀 ~ file: ContactForm.js ~ line 62 ~ ContactForm ~ .then ~ response", response.data)
         if (response.data.status == 419) {
           toast.error('Oppes! You have entered invalid credentials!', {
             position: "bottom-right",
@@ -91,7 +90,7 @@ class ContactForm extends Component {
         }
       })
       .catch((error) => {
-        console.log("🚀 ~ file: ContactForm.js ~ line 64 ~ ContactForm ~ submitForm ~ error", error);
+        console.log(error);
       })
   }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useEffect} from 'react';
 
 import HeaderTopBar from '../../../common/header/HeaderTopBar';
 import HeaderTwo from '../../../common/header/HeaderTwo';
@@ -7,8 +7,18 @@ import FooterBottom from '../../../elements/AuxIP/FooterBottom';
 import Separator from '../../../elements/separator/Separator';
 import UserForm from '../../../elements/AuxIP/User/UserForm';
 import SideBar from '../../../elements/AuxIP/Bar/SideBar';
-
+import { Redirect, Route, Switch, Link, useHistory } from 'react-router-dom';
 const User = () => {
+
+
+    let history = useHistory();
+
+    useEffect(() => {
+       if(!localStorage.getItem("auth")){
+           history.push("/login");
+         }
+    }, [])
+
     return (
         <>
             <SEO title="User" />

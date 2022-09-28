@@ -7,9 +7,9 @@ import FooterBottom from '../../../elements/AuxIP/FooterBottom';
 import Separator from '../../../elements/separator/Separator';
 import { Button, Form, InputGroup, Table } from 'react-bootstrap';
 import { TableData } from './TableData';
-import { Link } from 'react-router-dom';
 import SideBar from '../Bar/SideBar';
 import axios from 'axios';
+import { Redirect, Route, Switch, Link, useHistory } from 'react-router-dom';
 
 const Role = () => {
 
@@ -34,25 +34,13 @@ const Role = () => {
         }
     }
 
+    let history = useHistory();
 
-    // const checkUser = async () => {
-    //     const result = await axios.post(`${process.env.REACT_APP_BASEURL}login`);
-    //     console.log("🚀 ~ file: Home.jsx ~ line 16 ~ loadUsers ~ result", result.data);
-    //     setUser(result.data);
-    // }
-
-    // useEffect(() => {
-    //     checkUser();
-    // }, [])
-
-    
-
-    // if(){
-    //    return  
-    // }
-
-
-
+    useEffect(() => {
+       if(!localStorage.getItem("auth")){
+           history.push("/login");
+         }
+    }, [])
 
     useEffect(() => {
         getRolePageData()

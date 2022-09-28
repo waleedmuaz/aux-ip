@@ -33,7 +33,7 @@ let history = useHistory();
                             <div className='col-md-4'>
 
                                 <div className='card-body'>
-                                    <ContactForm formStyle="sign" />
+                                    <ContactForm history={history} formStyle="sign" />
                                 </div>
                             </div>
                             <div className='col-md-4 top-50 start-50 '>

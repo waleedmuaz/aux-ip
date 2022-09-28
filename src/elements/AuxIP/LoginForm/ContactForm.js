@@ -85,7 +85,8 @@ class ContactForm extends Component {
           });
         } else if (response.data.status == 200) {
           localStorage.setItem("auth", JSON.stringify(response.data.data));
-          // history.push("/dashboard");
+          
+          this.props.history.push("/dashboard");
           <Link  to="/dashboard" />
         }
       })

@@ -45,9 +45,6 @@ const ImageTextSlider = ( props ) => {
                             </div> {/* ========= Close This Button On Hover Mouse ========= */}
                         </ul>
                     </div>
-                    {/* {
-                        model === true ? <PopupModel hide={() => setModel(false)} /> : ""
-                    } */}
                 </div>
             </div>
         </div>

@@ -8,7 +8,9 @@ import {
 import Dashboard from '../Dasboard';
 import Home from '../../../pages/AuxIP/Home';
 import { Navigate } from "react-router-dom";
-import {Redirect, Route} from 'react-router-dom';
+import { Redirect,Link,  Route ,useHistory } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -20,16 +22,15 @@ class ContactForm extends Component {
     this.state = {
       email: '',
       password: '',
-      login: true,
+      toast: false,
       validate: {
         emailState: '',
       },
     };
     this.handleChange = this.handleChange.bind(this);
     console.log();
+  
   }
-
- 
 
   handleChange = (event) => {
     const { target } = event;
@@ -40,6 +41,8 @@ class ContactForm extends Component {
       [name]: value,
     });
   };
+
+  
 
   validateEmail(e) {
     const emailRex =
@@ -55,6 +58,8 @@ class ContactForm extends Component {
 
     this.setState({ validate });
   }
+
+
   submitForm(e) {
     e.preventDefault();
     // console.log(`Email: ${this.state.email}`);
@@ -68,16 +73,22 @@ class ContactForm extends Component {
       password: this.state.password,
     })
       .then((response) => {
-          console.log("🚀 ~ file: ContactForm.js ~ line 62 ~ ContactForm ~ .then ~ response", response.data)
-          // storing input name
-           localStorage.setItem("auth", JSON.stringify(response.data.data));
-           this.navigate("../LoginForm", { replace: true });
-          //  if(this.login == true){
-          //   <Route path={`${process.env.PUBLIC_URL + "/dashboard"}`} exact component={Dashboard}/>
-          //  } else{
-          //   return <Redirect to='/ContactForm'  />
-          //  }
-          // window.location.replace("/dashboard");
+        console.log("🚀 ~ file: ContactForm.js ~ line 62 ~ ContactForm ~ .then ~ response", response.data)
+        if (response.data.status == 419) {
+          toast.error('Oppes! You have entered invalid credentials!', {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        } else if (response.data.status == 200) {
+          localStorage.setItem("auth", JSON.stringify(response.data.data));
+          // history.push("/dashboard");
+          <Link  to="/dashboard" />
+        }
       })
       .catch((error) => {
         console.log("🚀 ~ file: ContactForm.js ~ line 64 ~ ContactForm ~ submitForm ~ error", error);
@@ -86,12 +97,12 @@ class ContactForm extends Component {
 
 
   render() {
-  
+
     const { email, password } = this.state;
 
     return (
       <div className="App">
-    
+
         <h2>Sign In</h2>
         <Form className="form" onSubmit={(e) => this.submitForm(e)}>
           <FormGroup>
@@ -129,6 +140,21 @@ class ContactForm extends Component {
             <button type='submit' className='btn-default btn-small'>Login</button>
           </div>
         </Form>
+
+        {/* Toast Login Error Notification show on screen */}
+
+        <ToastContainer
+          theme="dark"
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />     {/* Close Toast Login Error Notification show on screen */}
       </div>
     );
   }

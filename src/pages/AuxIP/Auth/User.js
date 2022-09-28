@@ -18,12 +18,12 @@ const User = () => {
                 <Separator />
                 <main id="mian">
                     <section>
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-md-3 sideBarLine">                 
+                        <div className="container-fluid mt-0">
+                            <div className="row mt-0">
+                                <div className="col-md-2 sideBarLine">                 
                                    <SideBar />
                                 </div>
-                                <div className="col-md-9">
+                                <div className="col-md-10">
                                     <Separator />
                                     <div className="row mb-5">
                                         <div className='col-md-12'>

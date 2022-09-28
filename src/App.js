@@ -23,6 +23,7 @@ import Dashboard from './elements/AuxIP/Dasboard';
 import Role from './elements/AuxIP/RolePermission/Role';
 import AddEditRole from './elements/AuxIP/Role/AddEditRole';
 import User from './pages/AuxIP/Auth/User';
+import DashboardHeader from './common/header/AuxIP/DashboardHeader';
 
 
 const App = () => {
@@ -43,7 +44,7 @@ const App = () => {
                     <Route path={`${process.env.PUBLIC_URL + "/role/edit_create/:id"}`} exact component={AddEditRole}/>
                     <Route path={`${process.env.PUBLIC_URL + "/role/edit_create"}`} exact component={AddEditRole}/>
                     <Route path={`${process.env.PUBLIC_URL + "/user"}`} exact component={User}/>
-
+                    <Route path={`${process.env.PUBLIC_URL + "/DashboardHeader"}`} exact component={DashboardHeader}/>
                 </Switch>
             </PageScrollTop>
         </Router>

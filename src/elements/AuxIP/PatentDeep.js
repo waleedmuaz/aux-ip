@@ -6,6 +6,7 @@ import secondary from '../../assets/images/secondary-transformed1.png';
 import PopupModel from './PopupModel';
 
 const PatentDeep = (props) => {
+    
     const setPatentData = (sliderList) => {
         let slider_key =  Object.keys(sliderList);
         let arrayList=[];

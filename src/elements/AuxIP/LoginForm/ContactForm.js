@@ -5,10 +5,7 @@ import {
   FormGroup,
   FormText,
 } from 'react-bootstrap';
-import Dashboard from '../Dasboard';
-import Home from '../../../pages/AuxIP/Home';
-import { Navigate } from "react-router-dom";
-import { Redirect,Link,  Route ,useHistory } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -64,16 +61,11 @@ class ContactForm extends Component {
     e.preventDefault();
     // console.log(`Email: ${this.state.email}`);
     // console.log(`Password: ${this.state.password}`);
-
-    console.log({ email: this.state.email });
-    console.log({ password: this.state.password });
-
     axios.post(`${process.env.REACT_APP_BASEURL}login`, {
       email: this.state.email,
       password: this.state.password,
     })
       .then((response) => {
-        console.log("🚀 ~ file: ContactForm.js ~ line 62 ~ ContactForm ~ .then ~ response", response.data)
         if (response.data.status == 419) {
           toast.error('Oppes! You have entered invalid credentials!', {
             position: "bottom-right",
@@ -92,7 +84,7 @@ class ContactForm extends Component {
         }
       })
       .catch((error) => {
-        console.log("🚀 ~ file: ContactForm.js ~ line 64 ~ ContactForm ~ submitForm ~ error", error);
+        console.log(error);
       })
   }
 
@@ -144,18 +136,7 @@ class ContactForm extends Component {
 
         {/* Toast Login Error Notification show on screen */}
 
-        <ToastContainer
-          theme="dark"
-          position="bottom-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />     {/* Close Toast Login Error Notification show on screen */}
+            {/* Close Toast Login Error Notification show on screen */}
       </div>
     );
   }

@@ -22,7 +22,7 @@ const PatentDeep = (props) => {
 
         <div className="rwt-about-area about-style-2  rn-section-gap">
             <div className="container">
-                <div className="row row--30 align-items-cente">
+                <div className="row row--30 align-items-center">
                     <div className="col-lg-5">
                         <div className="thumbnail">
                             <img className="w-100" src={data.patent_deep_img[0].content_detail} alt="About Images" />
@@ -50,7 +50,7 @@ const PatentDeep = (props) => {
                                     {/* ========= Edit This Button On Hover Mouse ========= */}
                                     <div className="mydivouter">
                                         <button type="button" className="mybuttonoverlap btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
-                                        {data.patent_deep_description[0].content_detail}
+                                        <div dangerouslySetInnerHTML={{ __html : data.patent_deep_description[0].content_detail}}></div>
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
                                 </ScrollAnimation>

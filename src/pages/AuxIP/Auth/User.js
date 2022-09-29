@@ -7,7 +7,7 @@ import FooterBottom from '../../../elements/AuxIP/FooterBottom';
 import Separator from '../../../elements/separator/Separator';
 import UserForm from '../../../elements/AuxIP/User/UserForm';
 import SideBar from '../../../elements/AuxIP/Bar/SideBar';
-import { Redirect, Route, Switch, Link, useHistory } from 'react-router-dom';
+import {  useHistory } from 'react-router-dom';
 const User = () => {
 
 

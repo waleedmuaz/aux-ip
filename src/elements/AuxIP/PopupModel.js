@@ -26,7 +26,7 @@ const PopupModel = (props) => {
           throw new Error('Data Not!')
         } else {
             return await response.json()
-        }
+        }  
       }
 
     return (

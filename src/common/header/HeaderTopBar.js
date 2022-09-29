@@ -7,7 +7,6 @@ const HeaderTopBar = () => {
 
 const deleteItem = () => {
     localStorage.removeItem("auth");
-    console.log("🚀 ~ file: HeaderTopBar.js ~ line 9 ~ deleteItem ~ localStorage", localStorage);
     <Redirect to="/login" />
 };
 
@@ -36,8 +35,12 @@ const deleteItem = () => {
                     <div className="col-lg-6 col-md-12 col-12">
                         <div className="header-right">
                             <div className="address-content">
-                                <p><FaUser /><Link to="login"><span>Login</span></Link></p>
-                                <p><i className="fa fa-sign-out" aria-hidden="true"></i><Link to="/login" onClick={deleteItem}><span>Logout</span></Link></p>
+                                {
+                                        (!localStorage.getItem('auth'))?<p><FaUser /><Link to="login"><span>Login</span></Link></p>:<p><i className="fa fa-sign-out" aria-hidden="true"></i><Link to="/login" onClick={deleteItem}><span>Logout</span></Link></p>
+                                }
+                                {
+                                        (!localStorage.getItem('auth'))?"":<p><Link to="/dashboard" ><span>Dashboard</span></Link></p>
+                                }
                                 <p><FaGlobe /><span><a href="#">Language : English</a></span></p>
                                 <p><FaSearch /><span>Search</span></p>
                             </div>

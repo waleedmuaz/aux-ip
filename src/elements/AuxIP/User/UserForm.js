@@ -3,6 +3,8 @@ import {
   Form,
   FormGroup,
 } from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const UserForm = () => {
  const [isLoader, setIsLoader] = useState(true);
@@ -24,11 +26,10 @@ const UserForm = () => {
     })
   }
 
- const handleSubmit = (e) => {
+ const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-
-    fetch(`${process.env.REACT_APP_BASEURL}user/create`, {
+    setIsLoader(false)
+    let response = await fetch(`${process.env.REACT_APP_BASEURL}user/create`, {
        method: 'POST',
        body: JSON.stringify({
         "name":formData.name,
@@ -38,16 +39,37 @@ const UserForm = () => {
        headers: {
           'Content-type': 'application/json; charset=UTF-8',
        },
-    })
-       .then((res) => res.json())
-       .catch((err) => {
-          console.log(err.message);
-       });
+    });
+    setIsLoader(true)
+    let res=await response.json();
+    if(res.status===false){
+      toast.error(res.messages, {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }else if(res.status==200){
+      toast.info(res.messages, {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+
+    }
+    console.log(await response.json());
  };
 
 if(!isLoader){
-    return <div>loading data...</div>;
-  }
+  return <div className='loader'><span></span></div>;
+}
     return (
     <div className="">
         <h3>Create User</h3>

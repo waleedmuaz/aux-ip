@@ -53,7 +53,7 @@ const Dashboard = () => {
                                             </InputGroup>
                                         </Form>
                                         <div className="">
-                                        <Table responsive>
+                                        <Table responsive bordered>
                                             <thead>
                                                 <tr>
                                                 <th>Reference</th>

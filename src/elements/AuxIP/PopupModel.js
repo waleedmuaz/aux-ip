@@ -6,6 +6,7 @@ const PopupModel = (props) => {
     let modelStyle = {
         display: 'block',
     }
+    
     const  updateData = async () => {
         let context_id=1;
         let data={

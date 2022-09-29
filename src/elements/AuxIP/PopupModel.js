@@ -1,17 +1,41 @@
 
 import React from 'react';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 
 const PopupModel = (props) => {
+    
+    const [text, setText] = useState();
     let modelStyle = {
         display: 'block',
     }
     
+    // const getContentInformation = async (contentId) =>{
+    //     let contextId=contentId;
+    //     let data={
+    //         'id':contextId,
+    //     }
+    //     const response = await fetch(`${process.env.REACT_APP_BASEURL}content/context`,
+    //     {
+    //         headers: {
+    //           'Accept': 'application/json',
+    //           'Content-Type': 'application/json',
+    //         },
+    //         method: "POST",
+    //         body: JSON.stringify(data),
+    //         })
+    //         if (!response.ok) {
+    //         throw new Error('Data Get!')
+    //         } else {
+    //             return await response.json()
+    //         }  
+    // }
     const  updateData = async () => {
-        let context_id=1;
+        
         let data={
-            'id':context_id,
-            'content_detail':"Global Intellectual Property Management."
+            'id':props.contentId,
+            'content_detail':text
         }
         const response = await fetch(`${process.env.REACT_APP_BASEURL}content/update`,
         {
@@ -21,11 +45,25 @@ const PopupModel = (props) => {
             },
             method: "POST",
             body: JSON.stringify(data),
-            })
+        });
         if (!response.ok) {
           throw new Error('Data Not!')
         } else {
-            return await response.json()
+            let res= await response.json();
+            console.log(res);
+            if(res.status===false){
+                toast.error(res.errors.content_detail, {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            }
+            // return await response.json()
+
         }  
       }
 
@@ -40,7 +78,7 @@ const PopupModel = (props) => {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={props.hide}> <i className="fa fa-times" aria-hidden="true"></i></button>
                         </div>
                         <div className="modal-body">
-                            <textarea name='context' rows={10} col={50}>
+                            <textarea name='context' onChange={e => setText(e.target.value)} value={text} rows={10} col={50}>
 
                             </textarea>
                         </div>

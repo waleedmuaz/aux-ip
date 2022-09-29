@@ -44,7 +44,7 @@ const ImageTextSlider = ( props ) => {
                                     <div className="mydivouter m-0">
                                         <button type="button" className="mybuttonoverlap btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                         <li className="separator text-white ">
-                                            {data.blog_list_title[0].content_detail}
+                                            {data.blog_list_description[0].content_detail}
                                         </li>
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                 </ul>

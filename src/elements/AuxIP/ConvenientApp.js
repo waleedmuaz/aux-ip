@@ -42,14 +42,14 @@ const ConvenientApp = (props) => {
                                     {/* ========= Edit This Button On Hover Mouse ========= */}
                                     <div className="mydivouter">
                                         <button type="button" className="mybuttonoverlap btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
-                                        { data.convenient_app_description[0].content_detail}
+                                        <span dangerouslySetInnerHTML={{ __html:data.convenient_app_description[0].content_detail}}></span>
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
                                 </ScrollAnimation>
                                 <ScrollAnimation
                                     animateIn="fadeInUp"
                                     animateOut="fadeInOut"
-                                    animateOnce={true}>
+                                    animateOnce={true}> 
                                     <div className="read-more-btn mt--40">
                                         {/* ========= Edit This Button On Hover Mouse ========= */}
                                         <div className="mydivouters">

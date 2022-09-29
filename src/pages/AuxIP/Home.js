@@ -50,7 +50,7 @@ const Home = () => {
     }, []);    
      
     if(!isLoader){
-        return <div>loading data...</div>;
+        return <div className='loader'><span></span></div>;
     }
 
 
@@ -66,7 +66,8 @@ const Home = () => {
                 <HeaderTwo btnStyle="btn-small" />
 
                 {/* Start Slider Area  */}
-                    <SliderData  content={content} getData={getData}/>                {/* End Slider Area  */}
+                    <SliderData  content={content} getData={getData}/>
+                                    {/* End Slider Area  */}
                 {/* First Home 3 Div */}
                 <div className="blog-area my-5">
                     <div className="container">

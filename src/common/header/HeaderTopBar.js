@@ -37,7 +37,9 @@ const deleteItem = () => {
                             <div className="address-content">
                                 {
                                         (!localStorage.getItem('auth'))?<p><FaUser /><Link to="login"><span>Login</span></Link></p>:<p><i className="fa fa-sign-out" aria-hidden="true"></i><Link to="/login" onClick={deleteItem}><span>Logout</span></Link></p>
-
+                                }
+                                {
+                                        (!localStorage.getItem('auth'))?"":<p><Link to="/dashboard" ><span>Dashboard</span></Link></p>
                                 }
                                 <p><FaGlobe /><span><a href="#">Language : English</a></span></p>
                                 <p><FaSearch /><span>Search</span></p>

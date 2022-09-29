@@ -9,6 +9,7 @@ import TimeLine from './AuxIP/TimeLine';
 import HeaderTopBar from '../common/header/HeaderTopBar';
 import PopupModel from '../elements/AuxIP/PopupModel';
 import { useEffect } from 'react';
+import FooterBottom from '../elements/AuxIP/FooterBottom';
 
 //   Question and parargraph
 
@@ -47,7 +48,7 @@ const About = () => {
         return arrayList;
     }
     if(!isLoader){
-        return <div>loading data...</div>;
+        return <div className='loader'><span></span></div>;
     }
     return (
         <>
@@ -163,7 +164,9 @@ const About = () => {
                     </div>
                 </div>  {/* ====== End Luxembourg_section ==== */}
 
-                <Copyright />
+                {/* <Copyright /> */}
+               <FooterBottom />
+
             </main>
            
             {

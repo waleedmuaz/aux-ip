@@ -5,11 +5,14 @@ import Slider from 'react-slick';
 
 const TheIpGroup = (props) => {
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 2,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        centerMode: true,
+        centerPadding: '100px',
+        
       };
     const setGlobalIntellectualData = (sliderList) => {
         let slider_key =  Object.keys(sliderList);
@@ -21,10 +24,10 @@ const TheIpGroup = (props) => {
     }
     return (
         <>
-        <div className="rwt-about-area about-style-2 mt-0 rn-section-gap">
+        <div className="rwt-about-area about-style-2 globalSlider mt-0 rn-section-gap mt_sm--0">
             <div className="container">
                 <div className="row row--30 align-items-center">
-                    <div className="col-lg-6 mt_md--30 mt_sm--30">
+                    <div className="col-lg-6 mt_md--30 mt_sm--0">
                         <div className="content">
 
                         {setGlobalIntellectualData(props.content.GlobalIntellectual).map((data, index) => (
@@ -48,7 +51,7 @@ const TheIpGroup = (props) => {
                                     {/* ========= Edit This Button On Hover Mouse ========= */}
                                     <div className="mydivouter">
                                         <button type="button" className="mybuttonoverlap btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
-                                        {data.global_intellectual_description[0].content_detail}
+                                        <span dangerouslySetInnerHTML={{__html:data.global_intellectual_description[0].content_detail}}></span>
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
                                 </ScrollAnimation>
@@ -76,31 +79,28 @@ const TheIpGroup = (props) => {
                             </div>
                     </div>
                     <div className="col-lg-6">
-                    <Slider className="slider-area slider-style-4 slider-dot rn-slick-dot rn-slick-arrow" {...settings}>
-                    {setGlobalIntellectualData(props.content.GlobalIntellectualSlider).map((data, index) => (
-                        <div className="thumbnail">
-
-                            <div className='row justify-content-center'>
-                                <div className='col-8'>
-                                    <div className='card shadow-lg rounded'>
-
+                        <Slider className="slider-area slider-style-4 slider-dot rn-slick-dot rn-slick-arrow" {...settings}>
+                        {setGlobalIntellectualData(props.content.GlobalIntellectualSlider).map((data, index) => (
+                            <div className="thumbnail">
+                                <div className='card shadow-lg rounded'>
                                     <div className='img-box'>
                                     <img className="w-100 mt-0" src={data.global_intellectual_img[0].content_detail} alt="About Images" />
                                     </div>
                                     <div className='text-box p-4 pb-5 mb-5'>
-                                        <h4>{data.global_intellectual_title[0].content_detail}</h4>
-                                        <p>{data.global_intellectual_description[0].content_detail}</p>
+                                        <div className="position-relative">
+                                            <button type="button" className="mybuttonoverlaps btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                            <h4>{data.global_intellectual_title[0].content_detail}</h4>
+                                        </div>
+                                        <div className="position-relative">
+                                            <button type="button" className="mybuttonoverlaps btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                            <p dangerouslySetInnerHTML={{ __html:data.global_intellectual_description[0].content_detail}}></p>
+                                        </div>
                                     </div>
                                 </div>
-
-                                </div>
-
                             </div>
-                        </div>
-                    ))}
-                    </Slider>
-
-                        </div>
+                        ))}
+                        </Slider>
+                    </div>
                 </div>
             </div>
         </div>

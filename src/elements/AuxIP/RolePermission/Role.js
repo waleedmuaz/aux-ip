@@ -56,7 +56,7 @@ const Role = () => {
 
 
     if (!isLoader) {
-        return <div>loading data...</div>;
+        return <div className='loader'><span></span></div>;
     }
 
 

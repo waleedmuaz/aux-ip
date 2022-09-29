@@ -23,6 +23,7 @@ const Home = () => {
     const [model, setModel] = useState(false);
     const [content,setContent]=useState();
     const [isLoader,setIsLoader]=useState(false);
+    const [contetId,setContetId ]=useState(false);
 
     const getData = (data=0) => {
         return setModel(true);
@@ -66,13 +67,13 @@ const Home = () => {
                 <HeaderTwo btnStyle="btn-small" />
 
                 {/* Start Slider Area  */}
-                    <SliderData  content={content} getData={getData}/>
+                    <SliderData setContetId={setContetId} content={content} getData={getData}/>
                                     {/* End Slider Area  */}
                 {/* First Home 3 Div */}
                 <div className="blog-area my-5">
                     <div className="container">
                         <div className="row row--15">
-                            <ImageTextSlider  content={content} getData={getData} StyleVar="box-card-style-default"
+                            <ImageTextSlider setContetId={setContetId}   content={content} getData={getData} StyleVar="box-card-style-default"
                             />
                         </div>
                     </div>
@@ -81,13 +82,13 @@ const Home = () => {
                 <Separator />
                 <BrandsBar />
                 <Separator />
-                    <PatentDeep content={content} getData={getData} />  
+                    <PatentDeep  setContetId={setContetId}  content={content} getData={getData} />  
                 <Separator />
                 {/* ========= Start Latest-insights ========= */}
                 <div className="latest_insight">
                     <div className="container">
                         <div className="row">
-                            <LatestCard StyleVar="box-card-style-default" content={content}   getData={getData} />
+                            <LatestCard setContetId={setContetId}  StyleVar="box-card-style-default" content={content}   getData={getData} />
                         </div>
                     </div>
                 </div> {/* ========= End Latest-insights ========= */}
@@ -97,7 +98,7 @@ const Home = () => {
                     <div className="container">
                         <div className="row">
                                 <ModuleBanner
-                                    content={content}   getData={getData}
+                                  setContetId={setContetId}   content={content}   getData={getData}
                                 />
                         </div>
                     </div>
@@ -105,20 +106,20 @@ const Home = () => {
                 <Separator />
 
                 {/* ========= Start ConvenientApp ========= */}
-                <ConvenientApp  content={content}   getData={getData} />
+                <ConvenientApp setContetId={setContetId}  content={content}   getData={getData} />
                 <Separator />
                 {/* ========= End ConvenientApp ========= */}
 
 
                 {/* ========= Slider ========= */}
-                <TheIpGroup  content={content}   getData={getData}  />
+                <TheIpGroup setContetId={setContetId}   content={content}   getData={getData}  />
                 <Separator />
                 {/* ========= Slider End  ========= */}
                 <Separator />
                <FooterBottom />
             </main>
             {
-                model === true ?   <PopupModel hide={()=> setModel(false)} /> : ""
+                model === true ?   <PopupModel contentId={contetId} hide={()=> setModel(false)} /> : ""
             }
         </>
     )

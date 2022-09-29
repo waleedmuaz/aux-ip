@@ -44,7 +44,7 @@ const App = () => {
                     <Route path={`${process.env.PUBLIC_URL + "/role/edit_create/:id"}`} exact component={AddEditRole}/>
                     <Route path={`${process.env.PUBLIC_URL + "/role/edit_create"}`} exact component={AddEditRole}/>
                     <Route path={`${process.env.PUBLIC_URL + "/user"}`} exact component={User}/>
-                    <Route path={`${process.env.PUBLIC_URL + "/DashboardHeader"}`} exact component={DashboardHeader}/>
+                    {/* <Route path={`${process.env.PUBLIC_URL + "/DashboardHeader"}`} exact component={DashboardHeader}/> */}
                 </Switch>
             </PageScrollTop>
         </Router>

@@ -1,6 +1,8 @@
 /*------------------------
     Banner Styles  
 -------------------------*/
+
+
 // Slider Dot 
 .slider-dot {
     &.rn-slick-dot {
@@ -1187,3 +1189,16 @@ table.dataTable thead .sorting_desc_disabled:before {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+
+
+  .table-bordered thead td, .table-bordered thead th {
+    width: 157px !important;
+    border-bottom-width: 11px !important;
+    /* padding-right: 45px !important; */
+}
+
+
+.overflow{
+    overflow-x: scroll !important;
+}

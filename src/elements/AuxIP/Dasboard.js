@@ -10,11 +10,152 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { TableData } from './TableData';
 import { Redirect, Route, Switch, Link, useHistory } from 'react-router-dom';
+import BootstrapTable  from 'react-bootstrap-table-next';
+import filterFactory, { textFilter, dateFilter  } from 'react-bootstrap-table2-filter';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import 'react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css';
 
 const Dashboard = () => {
 
     const [contacts, setContacts] = useState(TableData);
     const [search, setSearch] = useState('');
+
+   
+
+    let nameFilter;
+    let priceFilter;
+    let stockDateFilter;
+
+
+    const products = [
+        { id: 1, Reference: "referring ", price: 2101,'inStockDate':122},
+      ];
+
+
+
+ const emptyDataMessage = () => { 
+    return 'No Data to Display';
+}
+
+const columns = [{
+  dataField: 'id',
+  text: 'ID'
+}, {
+  dataField: 'Reference',
+  text: 'Reference',
+  filter: textFilter({
+    getFilter: (filter) => {
+      nameFilter = filter;
+    }
+  })
+}, {
+    dataField: 'name',
+    text: 'IP Type',
+    filter: textFilter({
+      getFilter: (filter) => {
+        nameFilter = filter;
+      }
+    })
+  },{
+    dataField: 'name',
+    text: 'Application',
+    filter: textFilter({
+      getFilter: (filter) => {
+        nameFilter = filter;
+      }
+    })
+  },{
+    dataField: 'name',
+    text: 'Application Numbers',
+    filter: textFilter({
+      getFilter: (filter) => {
+        nameFilter = filter;
+      }
+    })
+  },{
+    dataField: 'name',
+    text: 'Application Filing Date',
+    filter: textFilter({
+      getFilter: (filter) => {
+        nameFilter = filter;
+      }
+    })
+  },{
+    dataField: 'name',
+    text: 'Patent Numbers',
+    filter: textFilter({
+      getFilter: (filter) => {
+        nameFilter = filter;
+      }
+    })
+  },{
+    dataField: 'name',
+    text: 'Grant Date',
+    filter: textFilter({
+      getFilter: (filter) => {
+        nameFilter = filter;
+      }
+    })
+  },{
+    dataField: 'name',
+    text: 'Country',
+    filter: textFilter({
+      getFilter: (filter) => {
+        nameFilter = filter;
+      }
+    })
+  },{
+    dataField: 'name',
+    text: 'Due Date',
+    filter: textFilter({
+      getFilter: (filter) => {
+        nameFilter = filter;
+      }
+    })
+  },{
+    dataField: 'name',
+    text: 'Last Instruction Date',
+    filter: textFilter({
+      getFilter: (filter) => {
+        nameFilter = filter;
+      }
+    })
+  },{
+    dataField: 'name',
+    text: 'Action Type',
+    filter: textFilter({
+      getFilter: (filter) => {
+        nameFilter = filter;
+      }
+    })
+  },{
+    dataField: 'name',
+    text: 'Estimated Cost',
+    filter: textFilter({
+      getFilter: (filter) => {
+        nameFilter = filter;
+      }
+    })
+  }, {
+  dataField: 'inStockDate',
+  text: 'InStock Date',
+  formatter: cell => cell.toString(),
+  filter: dateFilter({
+    getFilter: (filter) => {
+      stockDateFilter = filter;
+    }
+  })
+}];
+
+
+
+
+const handleClick = () => {
+  nameFilter('');
+  priceFilter('');
+  stockDateFilter();
+};
+    
 
 
     let history = useHistory();
@@ -38,14 +179,25 @@ const Dashboard = () => {
                             <div className="col-md-2 sideBarLine">
                                 <SideBar/>
                             </div>
-                            <div className="col-md-10">
+                            <div className="col-md-10 overflow">
                                 <Separator />
                                 <div className="dashboard_section my-5">
                                     <div className="full">
-                                        <Form>
+
+
+                                            <button className="btn btn-lg btn-primary my-3"  onClick={handleClick}> Clear all filters </button>
+                                            <BootstrapTable
+                                                keyField="id"
+                                                data={products}
+                                                columns={columns}
+                                                filter={filterFactory()}
+                                                noDataIndication={emptyDataMessage}
+                                            />
+
+
+                                        {/* <Form>
                                             <InputGroup className='my-3'>
 
-                                                {/* onChange for search */}
                                                 <Form.Control
                                                     onChange={(e) => setSearch(e.target.value)}
                                                     placeholder='Search contacts'
@@ -94,12 +246,12 @@ const Dashboard = () => {
                                                     ))}
                                             </tbody>
                                         </Table>
-                                        </div>
+                                        </div> */}
 
                                         
                                     </div>
                                 </div>
-                                <Separator />
+                                {/* <Separator /> */}
                             </div>
                         </div>
                         </div>

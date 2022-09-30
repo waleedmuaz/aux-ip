@@ -23,6 +23,13 @@ const BrandsBar = () => {
         slidesToShow: 6,
         slidesToScroll: 1
       };
+
+    //   const showPopUp = (id) => {
+    //     props.setContetId(id);
+    //     props.getData();
+    // }
+
+
     return (
         <>
         <Slider {...settings}>

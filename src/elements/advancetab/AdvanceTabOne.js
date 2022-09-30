@@ -13,6 +13,11 @@ const AdvanceTabOne = (props) => {
     }
 
 
+    const showPopUp = (id) => {
+        props.setContetId(id);
+        props.getData();
+    }
+
     return (
         <div>
             <Tabs>
@@ -26,10 +31,15 @@ const AdvanceTabOne = (props) => {
                                     <div className="tab-button">
                                         {/* ========= Edit This Button On Hover Mouse ========= */}
                                         <div className="mydivouter">
-                                            <button type="button" className="mybuttonoverlap btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                            <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.complementary_service_tabs_title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                             <h4 className="title mb-0 ">{ data.complementary_service_tabs_title[0].content_detail}</h4>
-                                            <p className="description">{ data.complementary_service_tabs_title[0].content_detail}</p>
                                         </div> {/* ========= Close This Button On Hover Mouse ========= */}
+                                        <div className="mydivouter">
+                                            <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.complementary_service_tabs_title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                            <p className="description">{ data.complementary_service_tabs_description[0].content_detail}</p>
+                                        </div> {/* ========= Close This Button On Hover Mouse ========= */}
+                                   
+                                        
                                     </div>
                                 </Tab>
                             ))}
@@ -46,7 +56,7 @@ const AdvanceTabOne = (props) => {
                                         <div className="title">
                                             {/* ========= Edit This Button On Hover Mouse ========= */}
                                             <div className="mydivouter">
-                                                <button type="button" className="mybuttonoverlap btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.complementary_service_tabs_content_title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                                 <h4>{ data.complementary_service_tabs_content_title[0].content_detail}</h4>
                                             </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
@@ -54,7 +64,7 @@ const AdvanceTabOne = (props) => {
                                         <div className="para">
                                             {/* ========= Edit This Button On Hover Mouse ========= */}
                                             <div className="mydivouter">
-                                                <button type="button" className="mybuttonoverlap btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.complementary_service_tabs_content_description[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                                 <p>{ data.complementary_service_tabs_content_description[0].content_detail}</p>
 
                                             </div> {/* ========= Close This Button On Hover Mouse ========= */}

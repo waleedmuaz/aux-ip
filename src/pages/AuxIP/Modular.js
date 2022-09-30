@@ -12,6 +12,12 @@ const Modular = (props) => {
         return arrayList;
     }
 
+
+    const showPopUp = (id) => {
+        props.setContetId(id);
+        props.getData();
+    }
+
     return (
         
         <div className="rwt-about-area about-style-2 mt-0 rn-section-gap">
@@ -28,7 +34,7 @@ const Modular = (props) => {
                                     animateOnce={true}>
                                     {/* ========= Edit This Button On Hover Mouse ========= */}
                                     <div className="mydivouter">
-                                        <button type="button" className="mybuttonoverlap btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                        <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.scalable_ip_title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                         <h3 className="title mt--10">{ data.scalable_ip_title[0].content_detail}</h3>
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
@@ -40,7 +46,7 @@ const Modular = (props) => {
                                     animateOnce={true}>
                                     {/* ========= Edit This Button On Hover Mouse ========= */}
                                     <div className="mydivouter">
-                                        <button type="button" className="mybuttonoverlap btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                        <button type="button" className="mybuttonoverlap btn btn-primary"  onClick={() => showPopUp(data.scalable_ip_description[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                         { data.scalable_ip_description[0].content_detail}
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                 </ScrollAnimation>

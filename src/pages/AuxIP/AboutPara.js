@@ -9,8 +9,16 @@ const AboutPara = (props) => {
             arrayList[i]=sliderList[slider_key[i]]
         }
         return arrayList;
+
     }
-    
+
+     
+    const showPopUp = (id) => {
+        props.setContetId(id);
+        props.getData();
+    }
+
+
     return (
         <>
         {setData(props.content.CompanyPara).map((data, index) => (
@@ -19,7 +27,7 @@ const AboutPara = (props) => {
                     <div className="title">
                         {/* ========= Edit This Button On Hover Mouse ========= */}
                         <div className="mydivouter">
-                            <button type="button" className="mybuttonoverlap btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                            <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.company_description_6_col_title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                             <h4>
                                 { data.company_description_6_col_title[0].content_detail}
                             </h4>
@@ -28,7 +36,7 @@ const AboutPara = (props) => {
                     <div className="para">
                         {/* ========= Edit This Button On Hover Mouse ========= */}
                         <div className="mydivouter">
-                            <button type="button" className="mybuttonoverlap btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true" ></i></button>
+                            <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.company_description_6_col_description[0].id)}><i className="fa fa-pencil" aria-hidden="true" ></i></button>
                             <p>
                                 { data.company_description_6_col_description[0].content_detail}
                             </p>

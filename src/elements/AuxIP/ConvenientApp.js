@@ -13,6 +13,11 @@ const ConvenientApp = (props) => {
         return arrayList;
     }
 
+    const showPopUp = (id) => {
+        props.setContetId(id);
+        props.getData();
+    }
+
     return (
         <>
     {setConvenientAppData(props.content.ConvenientApp).map((data, index) => (
@@ -29,7 +34,7 @@ const ConvenientApp = (props) => {
                                     animateOnce={true}>
                                     {/* ========= Edit This Button On Hover Mouse ========= */}
                                     <div className="mydivouter">
-                                        <button type="button" className="mybuttonoverlap btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                        <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.convenient_app_title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                         <h3 className="title mt--10">{ data.convenient_app_title[0].content_detail}</h3>
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                 </ScrollAnimation>
@@ -41,7 +46,7 @@ const ConvenientApp = (props) => {
                                     animateOnce={true}>
                                     {/* ========= Edit This Button On Hover Mouse ========= */}
                                     <div className="mydivouter">
-                                        <button type="button" className="mybuttonoverlap btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                        <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.convenient_app_description[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                         <span dangerouslySetInnerHTML={{ __html:data.convenient_app_description[0].content_detail}}></span>
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
@@ -53,7 +58,7 @@ const ConvenientApp = (props) => {
                                     <div className="read-more-btn mt--40">
                                         {/* ========= Edit This Button On Hover Mouse ========= */}
                                         <div className="mydivouters">
-                                            <button type="button" className="mybuttonoverlaps btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                            <button type="button" className="mybuttonoverlaps btn btn-primary" onClick={() => showPopUp(data.convenient_app_btn[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                             <Link className="btn-default btn-icon mb-4" to="#">
                                             { data.convenient_app_btn[0].content_detail}
                                                 </Link>
@@ -66,7 +71,11 @@ const ConvenientApp = (props) => {
                     </div>
                     <div className="col-lg-6">
                         <div className="thumbnail">
+                        {/* ========= Whole BgImage Edit This Button On Hover Mouse ========= */}
+                    <div className="mydivouter">
+                        <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.convenient_app_img[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                             <img className="w-100" src={ data.convenient_app_img[0].content_detail} alt="About Images" />
+                        </div>  {/* ========= Whole Close This Button On Hover Mouse ========= */}
                         </div>
                     </div>
                 </div>

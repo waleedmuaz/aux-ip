@@ -25,7 +25,7 @@ const ServiceList = [
     },
 ]
 
-const ServiceFour = ({ textAlign, serviceStyle, getData,content }) => {
+const ServiceFour = ({ textAlign, serviceStyle, getData, setContetId ,content }) => {
     const setData = (sliderList) => {
         let slider_key =  Object.keys(sliderList);
         let arrayList=[];
@@ -34,6 +34,12 @@ const ServiceFour = ({ textAlign, serviceStyle, getData,content }) => {
         }
         return arrayList;
     }
+
+    const showPopUp = (id) => {
+        setContetId(id);
+        getData();
+    }
+
     return (
 
         <div className="row row--15 service-wrapper mt-4">
@@ -49,7 +55,7 @@ const ServiceFour = ({ textAlign, serviceStyle, getData,content }) => {
                                 <div className="line"></div>
                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                 <div className="mydivouter">
-                                    <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <button type="button" className="mybuttonoverlap btn btn-primary"  onClick={() => showPopUp(data.service_provide_service_icon[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                     { data.service_provide_service_icon[0].content_detail}
                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
@@ -57,12 +63,12 @@ const ServiceFour = ({ textAlign, serviceStyle, getData,content }) => {
                             <div className="content">
                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                 <div className="mydivouter">
-                                    <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.service_provide_service_title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                     <h4 className="title"><Link to="#service" dangerouslySetInnerHTML={{ __html: data.service_provide_service_title[0].content_detail }}></Link></h4>
                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                 <div className="mydivouter">
-                                    <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.service_provide_service_description[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                     <p className="description b1 color-gray mb--0" dangerouslySetInnerHTML={{ __html: data.service_provide_service_description[0].content_detail }}></p>
                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
 

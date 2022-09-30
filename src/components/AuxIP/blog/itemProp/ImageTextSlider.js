@@ -13,8 +13,6 @@ const ImageTextSlider = (props) => {
         }
         return arrayList;
     }
-
-
     const showPopUp = (id) => {
         props.setContetId(id);
         props.getData();
@@ -36,6 +34,7 @@ const ImageTextSlider = (props) => {
                                             backgroundRepeat: "no-repeat",
                                             backgroundSize: "cover",
                                             height: "250px"
+
 
                                         }}>
 

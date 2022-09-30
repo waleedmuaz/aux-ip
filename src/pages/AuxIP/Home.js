@@ -39,18 +39,17 @@ const Home = () => {
     }
 
     useEffect(() => {
-
-        getHomePageData()
-            .then((res) => {
-                setContent(res.data)
-                setIsLoader(true);
-            })
-            .catch((e) => {
-                console.log(e.message)
-            })
-    }, []);
-
-    if (!isLoader) {
+        
+        getHomePageData().then((res) => {
+        setContent(res.data)
+        setIsLoader(true);
+        })
+        .catch((e) => {
+        console.log(e.message)
+        })
+    }, []);    
+     
+    if(!isLoader){
         return <div className='loader'><span></span></div>;
     }
 

@@ -5,17 +5,14 @@ import HeaderTwo from '../../../common/header/HeaderTwo';
 import SEO from '../../../common/SEO';
 import FooterBottom from '../../../elements/AuxIP/FooterBottom';
 import Separator from '../../../elements/separator/Separator';
-import { Button, Form, InputGroup, Table } from 'react-bootstrap';
-import { TableData } from './TableData';
+import { Button, Table } from 'react-bootstrap';
 import SideBar from '../Bar/SideBar';
-import axios from 'axios';
-import { Redirect, Route, Switch, Link, useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const Role = () => {
 
     const [content, setContent] = useState();
     const [isLoader, setIsLoader] = useState(false);
-    const [user, setUser] = useState([]);
 
     const getRolePageData = async () => {
         const response = await fetch(`${process.env.REACT_APP_BASEURL}user/roles`,
@@ -23,7 +20,7 @@ const Role = () => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer 29|TJ9x4T0FndtUmt8Z9xBu6J9vjF7xgTG7J5WdTUuC'
+                    'Authorization': localStorage.getItem('auth')
                 },
                 method: "GET",
             })

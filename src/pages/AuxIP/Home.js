@@ -40,8 +40,7 @@ const Home = () => {
 
     useEffect(() => {
         
-    getHomePageData()
-        .then((res) => {
+        getHomePageData().then((res) => {
         setContent(res.data)
         setIsLoader(true);
         })

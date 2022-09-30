@@ -7,6 +7,7 @@ const HeaderTopBar = () => {
 
 const deleteItem = () => {
     localStorage.removeItem("auth");
+    localStorage.removeItem("user");
     <Redirect to="/login" />
 };
 

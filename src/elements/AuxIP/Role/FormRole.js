@@ -23,7 +23,7 @@ const FormRole = () => {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer 29|TJ9x4T0FndtUmt8Z9xBu6J9vjF7xgTG7J5WdTUuC'
+          'Authorization': localStorage.getItem('auth')
         },
         method: "GET",
         })

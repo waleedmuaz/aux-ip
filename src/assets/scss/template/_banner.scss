@@ -1202,3 +1202,25 @@ table.dataTable thead .sorting_desc_disabled:before {
 .overflow{
     overflow-x: scroll !important;
 }
+
+.uploadForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.custom-file-upload {
+    display: block;
+    width: 100%;
+    font-size: 16px;
+
+    
+    .form-control{
+        display: block;
+        width: 100%;
+        padding: 0;
+        height: 50px;
+        line-height: 48px;
+    }
+}

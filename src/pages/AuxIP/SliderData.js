@@ -15,7 +15,6 @@ const SliderData = (props) => {
         }
         return arrayList;
     }
-    
     const showPopUp = (id) => {
         props.setContetId(id);
         props.getData();

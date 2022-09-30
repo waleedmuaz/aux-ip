@@ -76,9 +76,9 @@ class ContactForm extends Component {
             draggable: true,
             progress: undefined,
           });
-        } else if (response.data.status == 200) {
-          localStorage.setItem("auth", JSON.stringify(response.data.data));
-          
+        } else if (response.data.status === 200) {
+          localStorage.setItem("user", JSON.stringify(response.data.data));
+          localStorage.setItem("auth", "Bearer "+JSON.stringify(response.data.data.token).replaceAll('"', ''));
           this.props.history.push("/dashboard");
           <Link  to="/dashboard" />
         }

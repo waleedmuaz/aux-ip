@@ -20,8 +20,10 @@ import HelpSection from './IpService/HelpSection';
 
 const IPSoftware = (props) => {
     const [model, setModel] = useState(false);
-    const [content,setContent]=useState();
-    const [isLoader,setIsLoader]=useState(false);
+    const [content, setContent]=useState();
+    const [isLoader, setIsLoader]=useState(false);
+    const [contetId, setContetId ]=useState(false);
+
     const getData = () => {
         return setModel(true);
     }
@@ -48,6 +50,13 @@ const IPSoftware = (props) => {
         return <div className='loader'><span></span></div>;
     }
 
+
+    const showPopUp = (id) => {
+        props.setContetId(id);
+        props.getData();
+    }
+
+
     return (
         <>
 
@@ -59,21 +68,21 @@ const IPSoftware = (props) => {
 
 
                 {/* Start Slider Area  */}
-                    <Banner content={content} getData={getData} />
+                    <Banner setContetId={setContetId}  content={content}   getData={getData} />
                 {/* End Slider Area  */}
 
                 {/* ========= Start Module_banner ========= */}
                 <div className="module_banner my-5">
                     <div className="container">
                         <div className="row">
-                            <ModuleBanner content={content} getData={getData} />
+                            <ModuleBanner setContetId={setContetId}   content={content}   getData={getData} />
                         </div>
                     </div>
                 </div> {/* ========= End Module_banner ========= */}
                 <Separator />
                 <br /> <br />
                 {/* ========= Start Help_section ========= */}
-                    <HelpSection content={content} getData={getData}/>
+                    <HelpSection setContetId={setContetId}   content={content}   getData={getData}/>
                 {/* ========= End Help_section ========= */}
                 <br /><br />
                 {/* Start Elements Area  */}
@@ -83,10 +92,11 @@ const IPSoftware = (props) => {
                             <div className="col-lg-12">
                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                 <div className="mydivouter">
-                                    <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                
                                     <SectionTitle
                                         textAlign="text-center"
                                         radiusRounded=""
+                                        setContetId={setContetId}
                                         content={content.ComplementaryService}
                                         getData={getData}
                                     />
@@ -94,14 +104,14 @@ const IPSoftware = (props) => {
 
                             </div>
                         </div>
-                        <AdvanceTabOne content={content} getData={getData} />
+                        <AdvanceTabOne setContetId={setContetId}   content={content}   getData={getData} />
                     </div>
                 </div> {/* End Elements Area  */}
                 <Separator />
                 <br /> <br />
 
                 {/* ========= Start ConvenientApp ========= */}
-                <Modular  content={content} getData={getData}  />
+                <Modular  setContetId={setContetId}   content={content}   getData={getData}  />
                 <Separator />
                 {/* ========= End ConvenientApp ========= */}
 
@@ -112,18 +122,19 @@ const IPSoftware = (props) => {
                             <div className="col-lg-12">
                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                 <div className="mydivouter">
-                                    <button type="button" className="mybuttonoverlap btn btn-primary" onClick={getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                   
                                     <SectionTitle className="mb-4"
                                         textAlign="text-center"
                                         radiusRounded=""
+                                        getData={getData}
+                                        setContetId={setContetId}
                                         content={content.ServiceProvideForYou}
                                     />
                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
                             </div>
                         </div>
                         <ServiceFour 
-                            getData={getData} 
-                            content={content}
+                           setContetId={setContetId}   content={content}   getData={getData}
                             serviceStyle="service__style--1 icon-circle-style with-working-process"
                             textAlign="text-center"
                         />
@@ -138,7 +149,7 @@ const IPSoftware = (props) => {
 
 
             {
-                model === true ? <PopupModel hide={() => setModel(false)} /> : ""
+                model === true ?   <PopupModel contentId={contetId} hide={()=> setModel(false)} /> : ""
             }
         </>
     )

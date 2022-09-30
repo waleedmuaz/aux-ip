@@ -1202,3 +1202,32 @@ table.dataTable thead .sorting_desc_disabled:before {
 .overflow{
     overflow-x: scroll !important;
 }
+
+.slider-area .sliders::before {
+    width: 100vw;
+    margin-top: -34px !important;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.slider-area .sliders::before {
+    width: 100vw;
+    margin-top: -34px !important;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
+    height: -webkit-fill-available !important;
+}
+.area_bg .sliders::before {
+    width: 100vw;
+    margin-top: -34px !important;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
+    height: -webkit-fill-available !important;
+}
+

@@ -13,6 +13,12 @@ const HelpSection = (props) => {
         return arrayList;
     }
 
+    const showPopUp = (id) => {
+        props.setContetId(id);
+        props.getData();
+    }
+
+
     return (
         <>
                 {setData(props.content.HelpSection).map((data, index) => (
@@ -24,7 +30,7 @@ const HelpSection = (props) => {
                                     <div className="title text-white">
                                         {/* ========= Edit This Button On Hover Mouse ========= */}
                                         <div className="mydivouter">
-                                            <button type="button" className="mybuttonoverlap btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                            <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.help_section_title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                             <h3 className="text-white">{ data.help_section_title[0].content_detail}</h3>
                                         </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
@@ -32,7 +38,7 @@ const HelpSection = (props) => {
                                     <div className="btn_help">
                                         {/* ========= Edit This Button On Hover Mouse ========= */}
                                         <div className="mydivouter">
-                                            <button type="button" className="mybuttonoverlap btn btn-primary" onClick={props.getData}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                            <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.help_section_btn[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                             <NavLink to="#" className="white-pill-outline-button normal-button  js_hubspotdlg" data-hubspotid="93b8811a-3244-4fa4-9a4d-5b3fa050bf9a">
                                             { data.help_section_btn[0].content_detail}
                                         </NavLink>

@@ -16,9 +16,14 @@ import paginationFactory, {
     PaginationProvider,
     PaginationListStandalone,
 } from 'react-bootstrap-table2-paginator';
-import { FaAmazonPay } from 'react-icons/fa';
 import { FiRefreshCcw } from 'react-icons/fi';
 import { Button } from 'react-bootstrap';
+import cellEditFactory, { Type } from 'react-bootstrap-table2-editor';
+
+
+
+
+
 const Dashboard = () => {
     let history = useHistory();
 
@@ -28,9 +33,9 @@ const Dashboard = () => {
     const [isLoader, setIsLoader] = useState(false);
 
 
-    let reference, stockDateFilter, ip_type, application, application_numbers, application_filing_date, patent_numbers, grant_date, country, due_date, last_instruction_date, action_type,estimated_cost;
+    let reference, ip_type, application, application_numbers, application_filing_date, patent_numbers, grant_date, country, due_date, last_instruction_date, action_type,estimated_cost,instruction;
     //API
-    const getIpServicePageData = async (data) => {
+    const getIpServicePageData = async () => {
         setIsLoader(true);
         const response = await fetch(`${process.env.REACT_APP_BASEURL}company/detail`,
             {
@@ -38,7 +43,6 @@ const Dashboard = () => {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                     'Authorization': localStorage.getItem('auth'),
-                    'filter':JSON.stringify(data)
                 },
                 method: "GET",
             })
@@ -51,6 +55,12 @@ const Dashboard = () => {
         }
     }
     //Table Setting
+    const typeOfInstruction = [
+        { value: "Pay", label: "Pay" },
+        { value: "Abandon", label: "Abandon" },
+        { value: "Third party", label: "Third party" },
+        
+      ];
     const filter = (e) => {
         var d = new Date();
         if(e.target.value==="1m"){
@@ -70,109 +80,207 @@ const Dashboard = () => {
         }
         console.log(filterConstraints);
     }
+    const selectRow = {
+        mode: 'checkbox',
+        clickToSelect: true,
+        clickToEdit: true  
+      };
+
     const columns = [{
-        dataField: 'id',
-        text: 'ID'
-    }, {
         dataField: 'reference',
         text: 'Reference',
+        sort: true,
+        editable: false,
         filter: textFilter({
             getFilter: (filter) => {
                 reference = filter;
             }
-        })
+        }),
+        footer: "Reference",
+        footerClasses: 'font-weight-bold'
+
+
     }, {
         dataField: 'ip_type',
         text: 'IP Type',
+        editable: false,
+        sort: true,
         filter: textFilter({
             getFilter: (filter) => {
                 ip_type = filter;
             }
-        })
+        }),
+        footer: "IP Type",
+        footerClasses: 'font-weight-bold'
+
+
     }, {
         dataField: 'application',
         text: 'Application',
+        editable: false,
+        sort: true,
         filter: textFilter({
             getFilter: (filter) => {
                 application = filter;
             }
-        })
+        }),
+        footer: "Application",
+        footerClasses: 'font-weight-bold'
+
+        
     }, {
         dataField: 'application_numbers',
         text: 'Application Numbers',
+        sort: true,
+        editable: false,
         filter: textFilter({
             getFilter: (filter) => {
                 application_numbers = filter;
             }
-        })
+        }),
+        footer: "Application Numbers",
+        footerClasses: 'font-weight-bold'
+
+
     }, {
         dataField: 'application_filing_date',
         text: 'Application Filing Date',
+        editable: false,
+        sort: true,
         filter: textFilter({
             getFilter: (filter) => {
                 application_filing_date = filter;
             }
-        })
+        }),
+        footer: "Application Filing Date",
+        footerClasses: 'font-weight-bold'
+
+
     }, {
         dataField: 'patent_numbers',
         text: 'Patent Numbers',
+        sort: true,
+        editable: false,
         filter: textFilter({
             getFilter: (filter) => {
                 patent_numbers = filter;
             }
-        })
+        }),
+        footer: "Patent Numbers",
+        footerClasses: 'font-weight-bold'
+
+
     }, {
         dataField: 'grant_date',
         text: 'Grant Date',
+        sort: true,
+        editable: false,
         filter: textFilter({
             getFilter: (filter) => {
                 grant_date = filter;
             }
-        })
+        }),
+        footer: "Grant Date",
+        footerClasses: 'font-weight-bold'
+
+
     }, {
         dataField: 'country',
         text: 'Country',
+        sort: true,
+        editable: false,
         filter: textFilter({
             getFilter: (filter) => {
                 country = filter;
             }
-        })
+        }),
+        footer: "Country",
+        footerClasses: 'font-weight-bold'
+
+
     }, {
         dataField: 'due_date',
         text: 'Due Date',
+        sort: true,
+        editable: false,
         filter: textFilter({
             getFilter: (filter) => {
                 due_date = filter;
             }
-        })
+        }),
+        footer: "Due Date",
+        footerClasses: 'font-weight-bold'
+
+
     }, {
         dataField: 'last_instruction_date',
         text: 'Last Instruction Date',
+        sort: true,
+        editable: false,
         filter: textFilter({
             getFilter: (filter) => {
                 last_instruction_date = filter;
             }
-        })
-    }, {
-        dataField: 'estimated_cost',
-        text: 'Estimated Cost',
-        filter: textFilter({
-            getFilter: (filter) => {
-                estimated_cost = filter;
-            }
-        })
+        }),
+        footer: "Last Instruction Date",
+        footerClasses: 'font-weight-bold'
+
+
     },{
         dataField: 'action_type',
         text: 'Action Type',
+        editable: false,
+        sort: true,
         filter: textFilter({
             getFilter: (filter) => {
                 action_type = filter;
             }
-        })
-    }];
+        }),
+        footer: "Action Type",
+        footerClasses: 'font-weight-bold'
+    }, {
+        dataField: 'estimated_cost',
+        text: 'Estimated Cost',
+        editable: false,
+        sort: true,
+        filter: textFilter({
+            getFilter: (filter) => {
+                estimated_cost = filter;
+            }            
+        }),
+        
+        footer: "Estimated Cost",
+        footerClasses: 'font-weight-bold'
+    },{
+        dataField: "instruction",
+        text: "Instruction",
+        editor: {
+          type: Type.SELECT,
+          options: typeOfInstruction
+        },
+        footer: "Instruction",
+        footerClasses: 'font-weight-bold'
+
+      }];
+      async function  beforeSaveCell(oldValue, newValue, row, column, done) {
+        setIsLoader(true);
+        let data={
+            "content":newValue,
+            'id':row.id
+        };
+        await fetch(`${process.env.REACT_APP_BASEURL}company/detail`,
+            {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': localStorage.getItem('auth'),
+                },
+                body: JSON.stringify(data),
+                method: "POST",
+            })
+      }
     const handleClick = () => {
         reference('');
-        stockDateFilter('');
         ip_type('');
         application('');
         application_numbers('');
@@ -183,7 +291,8 @@ const Dashboard = () => {
         due_date('');
         last_instruction_date('');
         action_type('');
-        estimated_cost("")
+        estimated_cost("");
+        instruction("");
     };
     const paginationOption = {
         custom: true,
@@ -198,7 +307,7 @@ const Dashboard = () => {
             history.push("/login");
             setIsLoader(true);
         }
-        getIpServicePageData({"month":"all"});
+        getIpServicePageData();
         setIsLoader(true);
 
     }, [])
@@ -251,7 +360,7 @@ const Dashboard = () => {
                                                     }) => (
                                                         <div>
                                                             <BootstrapTable
-                                                                bordered={false}
+                                                                // bordered={false}
                                                                 bootstrap4
                                                                 keyField="id"
                                                                 data={  content ?   filterConstraints ?    content.filter((itm)=>{
@@ -262,7 +371,15 @@ const Dashboard = () => {
                                                                 filter={filterFactory()}
                                                                 noDataIndication="No Data to Display"
                                                                 {...paginationTableProps}
-                                                            />
+                                                                selectRow={ selectRow }
+                                                                headerClasses="header-class"
+                                                                cellEdit={cellEditFactory({ 
+                                                                    mode: "click",
+                                                                    blurToSave: true,
+                                                                    beforeSaveCell
+                                                                })}
+                                                                
+                                                                />
                                                             <PaginationListStandalone
                                                                 {...paginationProps}
                                                             />

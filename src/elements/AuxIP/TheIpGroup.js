@@ -2,6 +2,7 @@ import React from 'react';
 import ScrollAnimation from "react-animate-on-scroll";
 import { Link } from "react-router-dom";
 import Slider from 'react-slick';
+import { authenticiation } from '../../utils/AuxIP/helper';
 
 const TheIpGroup = (props) => {
     const settings = {
@@ -44,7 +45,10 @@ const TheIpGroup = (props) => {
                                             animateOnce={true}>
                                             {/* ========= Edit This Button On Hover Mouse ========= */}
                                             <div className="mydivouter">
+                                            {(authenticiation() === true) ?
                                                 <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.global_intellectual_title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                : ""}
+                                             
                                                 <h3 className="title mt--10">{data.global_intellectual_title[0].content_detail}</h3>
                                             </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
@@ -56,7 +60,9 @@ const TheIpGroup = (props) => {
                                             animateOnce={true}>
                                             {/* ========= Edit This Button On Hover Mouse ========= */}
                                             <div className="mydivouter">
+                                            {(authenticiation() === true) ?
                                                 <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.global_intellectual_description[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                : ""}
                                                 <span dangerouslySetInnerHTML={{ __html: data.global_intellectual_description[0].content_detail }}></span>
                                             </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
@@ -68,14 +74,17 @@ const TheIpGroup = (props) => {
                                             <div className="read-more-btn mt--40">
                                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                                 <div className="mydivouters">
+                                            {(authenticiation() === true) ?
                                                     <button type="button" className="mybuttonoverlaps btn btn-primary" onClick={() => showPopUp(data.global_intellectual_help_text[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                    : ""}
                                                     <h4>{data.global_intellectual_help_text[0].content_detail}</h4>
 
                                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                                 <div className="mydivouters">
-
+                                            {(authenticiation() === true) ?
                                                     <button type="button" className="mybuttonoverlaps btn btn-primary" onClick={() => showPopUp(data.global_intellectual_button[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                    : ""}
                                                     <Link className="btn-default btn-icon mb-4" to="#">{data.global_intellectual_button[0].content_detail}</Link>
                                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
@@ -94,7 +103,9 @@ const TheIpGroup = (props) => {
                                             <div className='img-box'>
                                                 {/* =========  BgImage Edit This Button On Hover Mouse ========= */}
                                                 <div className="mydivouter">
+                                            {(authenticiation() === true) ?
                                                     <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.global_intellectual_img[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                    : ""}
                                                     <img className="w-100 mt-0" src={data.global_intellectual_img[0].content_detail} alt="About Images" />
                                                    
                                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
@@ -103,16 +114,19 @@ const TheIpGroup = (props) => {
                                                 <div className="position-relative">
                                                     {/* ========= Edit This Button On Hover Mouse ========= */}
                                                     <div className="mydivouters">
+                                                    {(authenticiation() === true) ?
 
                                                         <button type="button" className="mybuttonoverlaps btn btn-primary" onClick={() => showPopUp(data.global_intellectual_title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                        : ""}
                                                         <h4>{data.global_intellectual_title[0].content_detail}</h4>
                                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                                 </div>
                                                 <div className="position-relative">
                                                     {/* ========= Edit This Button On Hover Mouse ========= */}
                                                     <div className="mydivouters">
-
+                                                    {(authenticiation() === true) ?
                                                         <button type="button" className="mybuttonoverlaps btn btn-primary" onClick={() => showPopUp(data.global_intellectual_description[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                        : ""}
                                                         <p dangerouslySetInnerHTML={{ __html: data.global_intellectual_description[0].content_detail }}></p>
                                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                                 </div>

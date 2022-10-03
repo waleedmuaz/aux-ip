@@ -241,14 +241,12 @@ const Dashboard = () => {
     }, {
         dataField: 'estimated_cost',
         text: 'Estimated Cost',
-        editable: false,
         sort: true,
         filter: textFilter({
             getFilter: (filter) => {
                 estimated_cost = filter;
             }            
         }),
-        
         footer: "Estimated Cost",
         footerClasses: 'font-weight-bold'
     },{
@@ -263,9 +261,11 @@ const Dashboard = () => {
 
       }];
       async function  beforeSaveCell(oldValue, newValue, row, column, done) {
+        console.log(column)
         setIsLoader(true);
         let data={
-            "content":newValue,
+            "text":newValue,
+            "col":column.dataField,
             'id':row.id
         };
         await fetch(`${process.env.REACT_APP_BASEURL}company/detail`,
@@ -325,9 +325,7 @@ const Dashboard = () => {
                     <section>
                         <div className="container-fluid">
                             <div className="row">
-                                <div className="col-md-2 sideBarLine">
                                     <SideBar />
-                                </div>
                                 <div className="col-md-10 overflow">
                                     <Separator />
                                     <div className="dashboard_section my-5">

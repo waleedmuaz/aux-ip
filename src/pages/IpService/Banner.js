@@ -1,5 +1,6 @@
 import React from 'react';
 import aboutBg from '../../assets/images/apsoftware.webp';
+import { authenticiation } from '../../utils/AuxIP/helper';
 
 const Banner = (props) => {
 
@@ -35,13 +36,17 @@ const Banner = (props) => {
                                     <div className="inner text-center">
                                         {/* ========= Edit This Button On Hover Mouse ========= */}
                                         <div className="mydivouter">
+                                            {(authenticiation())?
                                             <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.ip_serivce_title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                            : ""}
                                             <h6 className="title display-one property">
                                                 {data.ip_serivce_title[0].content_detail}</h6>
                                         </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                         {/* ========= Edit This Button On Hover Mouse ========= */}
                                         <div className="mydivouter">
+                                        {(authenticiation())?
                                             <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.ip_serivce_description[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                            : ""}
                                             <p className="description description1">{data.ip_serivce_description[0].content_detail}</p>
                                         </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                     </div>

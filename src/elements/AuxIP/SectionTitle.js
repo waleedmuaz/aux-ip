@@ -1,5 +1,6 @@
 import React from 'react';
 import ScrollAnimation from "react-animate-on-scroll";
+import { authenticiation } from '../../utils/AuxIP/helper';
 
 
 const SectionTitle = (props) => {
@@ -20,7 +21,9 @@ const SectionTitle = (props) => {
         <>
         {setData(props.content).map((data, index) => (
                 <div className={`section-title text-center`}>
-                <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                {(authenticiation()) ?
+                    <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                : ""}
                     <ScrollAnimation 
                     animateIn="fadeInUp"
                     animateOut="fadeInOut"

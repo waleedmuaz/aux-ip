@@ -241,8 +241,7 @@ const Dashboard = () => {
     }, {
         dataField: 'estimated_cost',
         text: 'Estimated Cost',
-        editable: false,
-        sort: true,
+        editable: true,
         filter: textFilter({
             getFilter: (filter) => {
                 estimated_cost = filter;

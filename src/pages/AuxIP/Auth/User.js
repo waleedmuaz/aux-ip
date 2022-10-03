@@ -16,6 +16,7 @@ const User = () => {
 
     const [content, setContent] = useState([]);
     const [isLoader, setIsLoader] = useState(false);
+    const [company, setCompany] = useState([]);
 
     const getIpServicePageData = async () => {
         setIsLoader(true);
@@ -26,14 +27,14 @@ const User = () => {
                     'Content-Type': 'application/json',
                     'Authorization': localStorage.getItem('auth'),
                 },
-                method: "GET",
+                method: "POST",
             })
         if (!response.ok) {
             throw new Error('Data coud not be fetched!')
         } else {
             let res = await response.json();
-            setContent(res.data);
-            console.log(res.data);
+            setContent(res.data['users']);
+            setCompany(res.data['company']);
             return res;
         }
     }
@@ -42,9 +43,9 @@ const User = () => {
 
 
     useEffect(() => {
-        if (!localStorage.getItem("auth")) {
+        if (!localStorage.getItem("auth")) { 
             history.push("/login");
-        }
+        } 
         getIpServicePageData();
         setIsLoader(true);
     }, [])
@@ -79,7 +80,7 @@ const User = () => {
                                             {/* <div className='col-md-4'> */}
 
                                             <div className='card-body'>
-                                                <UserForm formStyle="formRegister" />
+                                                <UserForm formStyle="formRegister" company={company} />
                                             </div>
                                             {/* </div> */}
                                             <div className='col-md-4 top-50 start-50 '>
@@ -100,6 +101,7 @@ const User = () => {
                                                         <th>ID</th>
                                                         <th>Name</th>
                                                         <th>Email</th>
+                                                        <th>Company</th>
                                                         <th>Created_at</th>
                                                     </tr>
                                                 </thead>
@@ -111,6 +113,17 @@ const User = () => {
                                                                     <td>{data.id}</td>
                                                                     <td>{data.name}</td>
                                                                     <td>{data.email}</td>
+                                                                    <td>
+                                                                        {(data.companies.length > 0) ?
+                                                                            data.companies.map((d) => {
+                                                                                return (
+                                                                                    <span>
+                                                                                        {d.company.name},
+                                                                                    </span>
+                                                                                )
+                                                                            })
+                                                                            : ""}
+                                                                    </td>
                                                                     <td>{data.created_at}</td>
                                                                 </tr>
                                                             )

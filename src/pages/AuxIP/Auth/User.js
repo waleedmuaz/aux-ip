@@ -1,4 +1,4 @@
-import React, { useEffect , useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import HeaderTopBar from '../../../common/header/HeaderTopBar';
 import HeaderTwo from '../../../common/header/HeaderTwo';
@@ -14,7 +14,7 @@ const User = () => {
 
     let history = useHistory();
 
-    const [content, setContent]=useState([]);
+    const [content, setContent] = useState([]);
     const [isLoader, setIsLoader] = useState(false);
 
     const getIpServicePageData = async () => {
@@ -48,13 +48,13 @@ const User = () => {
         getIpServicePageData();
         setIsLoader(true);
     }, [])
-    
+
 
 
     if (!isLoader || content.length <= 0)
         return <div className='loader'><span></span></div>;
 
-        
+
     return (
         <>
             <SEO title="User" />
@@ -68,7 +68,7 @@ const User = () => {
                             <div className="row mt-0">
 
 
-                                   <SideBar />
+                                <SideBar />
                                 <div className="col-md-10">
                                     <Separator />
                                     <div className="row mb-5">
@@ -104,20 +104,20 @@ const User = () => {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                {
-                                                    content.map((data , index)=>{
-                                                     return(
-                                                    <tr key={index}>
-                                                        <td>{data.id}</td>
-                                                        <td>{data.name}</td>
-                                                        <td>{data.email}</td>
-                                                        <td>{data.created_at}</td>
-                                                    </tr>
-                                                     )
-                                                   
-                                                    })
-                                                }
-                                                
+                                                    {
+                                                        content.map((data, index) => {
+                                                            return (
+                                                                <tr key={index}>
+                                                                    <td>{data.id}</td>
+                                                                    <td>{data.name}</td>
+                                                                    <td>{data.email}</td>
+                                                                    <td>{data.created_at}</td>
+                                                                </tr>
+                                                            )
+
+                                                        })
+                                                    }
+
                                                 </tbody>
                                             </Table>
                                         </div>

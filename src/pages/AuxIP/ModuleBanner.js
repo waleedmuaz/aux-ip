@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { authenticiation } from '../../utils/AuxIP/helper';
 
 const ModuleBanner = (props) => {
 
@@ -26,7 +27,9 @@ const ModuleBanner = (props) => {
 
                     {/* ========= Whole BgImage Edit This Button On Hover Mouse ========= */}
                     <div className="mydivouter">
+                    {(authenticiation()===true)?
                         <button type="button" className="mybuttonoverlap btn btn-primary mt-5" onClick={() => showPopUp(data.module_banner_img[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                        : "" }
                         <h4 className="text-white">{data.module_banner_img[0].content_detail}</h4>
 
 
@@ -34,7 +37,9 @@ const ModuleBanner = (props) => {
                             <div className="title">
                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                 <div className="mydivouter">
+                                {(authenticiation()===true)?
                                     <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.module_banner_title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                    : "" }
                                     <h4 className="text-white">{data.module_banner_title[0].content_detail}</h4>
                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
@@ -42,7 +47,9 @@ const ModuleBanner = (props) => {
                             <div className="des text-white">
                                 {/* ========= Edit This Button On Hover Mouse ========= */}
                                 <div className="mydivouter">
+                                {(authenticiation()===true)?
                                     <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.module_banner_description[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                    : "" }
                                     <p className="text-white">{data.module_banner_description[0].content_detail}</p>
                                 </div> {/* ========= Close This Button On Hover Mouse ========= */}
 

@@ -64,7 +64,6 @@ const Home = () => {
             <main className="page-wrapper">
                 <HeaderTopBar />
                 <HeaderTwo btnStyle="btn-small" />
-
                 {/* Start Slider Area  */}
                 <SliderData setContetId={setContetId} content={content} getData={getData} />
                 {/* End Slider Area  */}

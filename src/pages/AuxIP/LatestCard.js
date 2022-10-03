@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import PopupModel from '../../elements/AuxIP/PopupModel';
+import { authenticiation } from '../../utils/AuxIP/helper';
 
 const LatestCard = (props) => {
 
@@ -27,7 +28,11 @@ const LatestCard = (props) => {
                     <div className="title">
                         {/* ========= Edit This Button On Hover Mouse ========= */}
                         <div className="mydivouter">
+                        {(authenticiation()===true)?
+
                             <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.card_title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                            : "" }
+
                             <NavLink to="/">
                                 <h4>{ data.card_title[0].content_detail }</h4>
                             </NavLink>
@@ -37,7 +42,9 @@ const LatestCard = (props) => {
                     <div className="calender">
                         {/* ========= Edit This Button On Hover Mouse ========= */}
                         <div className="mydivouter">
+                            {(authenticiation()===true)?
                             <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.card_calender[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                            : "" }
                             <NavLink to="/">
                                 <i className="fa fa-calendar" aria-hidden="true"></i>
                        &nbsp;{ data.card_calender[0].content_detail }

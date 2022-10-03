@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ScrollAnimation from "react-animate-on-scroll";
+import { authenticiation } from '../../utils/AuxIP/helper';
 
 const Modular = (props) => {
 
@@ -34,8 +35,12 @@ const Modular = (props) => {
                                     animateOnce={true}>
                                     {/* ========= Edit This Button On Hover Mouse ========= */}
                                     <div className="mydivouter">
+                                    {(authenticiation()) ?
+
                                         <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.scalable_ip_title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                        : ""}
                                         <h3 className="title mt--10">{ data.scalable_ip_title[0].content_detail}</h3>
+                                        
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
 
                                 </ScrollAnimation>
@@ -46,7 +51,9 @@ const Modular = (props) => {
                                     animateOnce={true}>
                                     {/* ========= Edit This Button On Hover Mouse ========= */}
                                     <div className="mydivouter">
+                                    {(authenticiation()) ?
                                         <button type="button" className="mybuttonoverlap btn btn-primary"  onClick={() => showPopUp(data.scalable_ip_description[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                        : ""}
                                         { data.scalable_ip_description[0].content_detail}
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                 </ScrollAnimation>

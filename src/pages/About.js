@@ -10,6 +10,7 @@ import HeaderTopBar from '../common/header/HeaderTopBar';
 import PopupModel from '../elements/AuxIP/PopupModel';
 import { useEffect } from 'react';
 import FooterBottom from '../elements/AuxIP/FooterBottom';
+import { authenticiation } from '../utils/AuxIP/helper';
 
 //   Question and parargraph
 
@@ -75,12 +76,17 @@ const About = () => {
                                         <div className="inner text-center">
                                             {/* ========= Edit This Button On Hover Mouse ========= */}
                                             <div className="mydivouter">
-                                                <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.company_title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                {(authenticiation()) ?
+                                                    <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.company_title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                    : ""}
+
                                                 <h6 className="title display-one">{data.company_title[0].content_detail}<br /></h6>
                                             </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                             {/* ========= Edit This Button On Hover Mouse ========= */}
                                             <div className="mydivouter">
-                                                <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.company_description[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                {(authenticiation()) ?
+                                                    <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.company_description[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                    : ""}
                                                 <p className="description">
                                                     {data.company_description[0].content_detail}
                                                 </p>
@@ -107,7 +113,9 @@ const About = () => {
                                     <div className="full">
                                         {/* ========= Edit This Button On Hover Mouse ========= */}
                                         <div className="mydivouter">
-                                            <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.company_description_12_col_1[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                            {(authenticiation()) ?
+                                                <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.company_description_12_col_1[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                : ""}
                                             <p>
                                                 {data.company_description_12_col_1[0].content_detail}
                                             </p>
@@ -141,7 +149,10 @@ const About = () => {
                                         <div className="title">
                                             {/* ========= Edit This Button On Hover Mouse ========= */}
                                             <div className="mydivouters">
-                                                <button type="button" className="mybuttonoverlaps btn btn-primary" onClick={() => showPopUp(data.company_description_12_col_2_title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                {(authenticiation()) ?
+
+                                                    <button type="button" className="mybuttonoverlaps btn btn-primary" onClick={() => showPopUp(data.company_description_12_col_2_title[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                    : ""}
                                                 <h4>
                                                     {data.company_description_12_col_2_title[0].content_detail}
                                                 </h4>
@@ -150,7 +161,9 @@ const About = () => {
                                         </div>
                                         {/* ========= Edit This Button On Hover Mouse ========= */}
                                         <div className="mydivouter">
-                                            <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.company_description_12_col_2_desctiption[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                            {(authenticiation()) ?
+                                                <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.company_description_12_col_2_desctiption[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                                                : ""}
                                             {data.company_description_12_col_2_desctiption[0].content_detail}
                                         </div> {/* ========= Close This Button On Hover Mouse ========= */}
 

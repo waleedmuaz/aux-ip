@@ -31,9 +31,9 @@ const User = () => {
                     <section>
                         <div className="container-fluid mt-0">
                             <div className="row mt-0">
-                                <div className="col-md-2 sideBarLine">
-                                    <SideBar />
-                                </div>
+
+
+                                   <SideBar />
                                 <div className="col-md-10">
                                     <Separator />
                                     <div className="row mb-5">

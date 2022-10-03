@@ -72,9 +72,7 @@ const Role = () => {
                     <section>
                         <div className="container-fluid">
                             <div className="row mb-5">
-                                <div className="col-md-2 sideBarLine">
                                    <SideBar />  
-                                </div>
                                 <div className="col-md-10">
 
                                     <Separator />

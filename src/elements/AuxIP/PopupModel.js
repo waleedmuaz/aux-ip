@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -11,26 +11,33 @@ const PopupModel = (props) => {
         display: 'block',
     }
     
-    // const getContentInformation = async (contentId) =>{
-    //     let contextId=contentId;
-    //     let data={
-    //         'id':contextId,
-    //     }
-    //     const response = await fetch(`${process.env.REACT_APP_BASEURL}content/context`,
-    //     {
-    //         headers: {
-    //           'Accept': 'application/json',
-    //           'Content-Type': 'application/json',
-    //         },
-    //         method: "POST",
-    //         body: JSON.stringify(data),
-    //         })
-    //         if (!response.ok) {
-    //         throw new Error('Data Get!')
-    //         } else {
-    //             return await response.json()
-    //         }  
-    // }
+    const getContentInformation = async () =>{
+        let contextId=props.contentId;
+        let data={
+            'id':contextId,
+        }
+        const response = await fetch(`${process.env.REACT_APP_BASEURL}content/context`,
+        {
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+            method: "POST",
+            body: JSON.stringify(data),
+            })
+            if (!response.ok) {
+            throw new Error('Data Get!')
+            } else {
+                let textData =await response.json();
+                setText(textData.data.content_detail);
+                return textData
+            }  
+    }
+
+    useEffect(() => {
+        getContentInformation()
+    }, []);    
+
     const  updateData = async () => {
         
         let data={

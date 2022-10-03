@@ -46,7 +46,7 @@ const UserForm = (props) => {
        body: JSON.stringify({
         "name":formData.name,
         "email":formData.email,
-        'company_id':formData.comany_id
+        'company_id':formData.company_id
        }),
        mode: 'cors', 
        headers: {
@@ -114,7 +114,7 @@ if(!isLoader){
                <FormGroup>
                 <select multiple required
                 onChange={handleChangeselect}
-                name="comany_id[]"
+                name="company_id[]"
                 >
                 {(props.company.length!=null)?                
                   props.company.map((d) => {

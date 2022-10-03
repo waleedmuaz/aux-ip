@@ -39,8 +39,11 @@ const SideBar = () => {
             <div className="sidebar-content">
               <div className="sidebar-menu">
                 <ul>
-                  <li className="header-menu">
+                <li className="header-menu">
                     <NavLink to="/dashboard" exact ><span>Dashboard</span></NavLink>
+                  </li>
+                  <li className="header-menu">
+                    <NavLink to="/profile" exact ><span>Profile</span></NavLink>
                   </li>
                 </ul>
               </div>

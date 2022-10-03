@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect , useState } from 'react';
 
 import HeaderTopBar from '../../../common/header/HeaderTopBar';
 import HeaderTwo from '../../../common/header/HeaderTwo';
@@ -14,12 +14,47 @@ const User = () => {
 
     let history = useHistory();
 
+    const [content, setContent]=useState([]);
+    const [isLoader, setIsLoader] = useState(false);
+
+    const getIpServicePageData = async () => {
+        setIsLoader(true);
+        const response = await fetch(`${process.env.REACT_APP_BASEURL}users`,
+            {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': localStorage.getItem('auth'),
+                },
+                method: "GET",
+            })
+        if (!response.ok) {
+            throw new Error('Data coud not be fetched!')
+        } else {
+            let res = await response.json();
+            setContent(res.data);
+            console.log(res.data);
+            return res;
+        }
+    }
+
+
+
+
     useEffect(() => {
         if (!localStorage.getItem("auth")) {
             history.push("/login");
         }
+        getIpServicePageData();
+        setIsLoader(true);
     }, [])
+    
 
+
+    if (!isLoader || content.length <= 0)
+        return <div className='loader'><span></span></div>;
+
+        
     return (
         <>
             <SEO title="User" />
@@ -62,30 +97,27 @@ const User = () => {
                                             <Table striped responsive bordered hover>
                                                 <thead>
                                                     <tr>
-                                                        <th>#</th>
-                                                        <th>First Name</th>
-                                                        <th>Last Name</th>
-                                                        <th>Username</th>
+                                                        <th>ID</th>
+                                                        <th>Name</th>
+                                                        <th>Email</th>
+                                                        <th>Created_at</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
+                                                {
+                                                    content.map((data , index)=>{
+                                                     return(
+                                                    <tr key={index}>
+                                                        <td>{data.id}</td>
+                                                        <td>{data.name}</td>
+                                                        <td>{data.email}</td>
+                                                        <td>{data.created_at}</td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td colSpan={2}>Larry the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
+                                                     )
+                                                   
+                                                    })
+                                                }
+                                                
                                                 </tbody>
                                             </Table>
                                         </div>

@@ -7,6 +7,7 @@ import FooterBottom from '../../../elements/AuxIP/FooterBottom';
 import Separator from '../../../elements/separator/Separator';
 import { Button, Table } from 'react-bootstrap';
 import SideBar from '../Bar/SideBar';
+import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
 
 const Role = () => {
@@ -14,42 +15,30 @@ const Role = () => {
     const [content, setContent] = useState();
     const [isLoader, setIsLoader] = useState(false);
 
-    const getRolePageData = async () => {
-        const response = await fetch(`${process.env.REACT_APP_BASEURL}user/roles`,
-            {
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization': localStorage.getItem('auth')
-                },
-                method: "GET",
-            })
-        if (!response.ok) {
-            throw new Error('Data coud not be fetched!')
-        } else {
-            return await response.json()
+    async function fetchData() {
+        try {
+          const response = await axios.get(`${process.env.REACT_APP_BASEURL}users`)
+          setContent(response.data)
+          console.log("Data has been successfully", response.data);
+        } catch (error) {
+          console.log("Data coud not be fetched!", error);
         }
-    }
+      }
+    
+      useEffect(() => {
+        fetchData();
+      },[])
+      
+      
 
     let history = useHistory();
 
-    useEffect(() => {
-       if(!localStorage.getItem("auth")){
-           history.push("/login");
-         }
-    }, [])
 
     useEffect(() => {
-        getRolePageData()
-            .then((res) => {
-                setContent(res.data);
-                setIsLoader(true);
-            })
-            .catch((e) => {
-                console.log(e.message)
-            })
-    }, []);
-
+        if(!localStorage.getItem("auth")){
+            history.push("/login");
+          }
+     }, [])
 
 
     if (!isLoader) {

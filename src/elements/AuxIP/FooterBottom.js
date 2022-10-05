@@ -37,7 +37,7 @@ const FooterBottom = () => {
                 <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div className="copyright-right text-center text-md-right">
                         <p className="copyright-text">
-                            © SA 2022
+                            © IP Auxiliary LLC 2022 
                         </p>
                     </div>
                 </div>

@@ -32,7 +32,7 @@ const HeaderTwo = ({btnStyle, HeaderSTyle}) => {
             <header ref={ref} className={`rn-header header-default header-left-align bg-white ${HeaderSTyle} ${headerClasses}`}>
                 <div className="container position-relative">
                     <div className="row align-items-center">
-                        <div className="col-lg-9 col-md-6 col-4 position-static">
+                        <div className="col-lg-12 col-md-6 col-4 position-static">
                             <div className="header-left d-flex">
                                 <Logo 
                                     image={`${process.env.PUBLIC_URL}/images/logo/logo.png`}

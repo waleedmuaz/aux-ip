@@ -25,7 +25,7 @@ import AddEditRole from './elements/AuxIP/Role/AddEditRole';
 import User from './pages/AuxIP/Auth/User';
 import Profile from './pages/AuxIP/Auth/Profile';
 import DashboardHeader from './common/header/AuxIP/DashboardHeader';
-import AdminLogin from './common/header/AuxIP/AdminLogin';
+import AdminLogin from './pages/AuxIP/Auth/AdminLogin';
     
 
 const App = () => {

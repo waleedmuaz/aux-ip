@@ -80,8 +80,6 @@ const UserForm = (props) => {
  };
 
 
-console.log(props);
-
 if(!isLoader){
   return <div className='loader'><span></span></div>;
 }

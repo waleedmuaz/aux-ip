@@ -1367,4 +1367,14 @@ table.dataTable thead .sorting_desc_disabled:before {
 .header-left-align .mainmenu-nav {
     margin-left: 30px;
     width: 100%;
+
+.font-small{
+    font-size: 12px;
+}
+.instructor-btn{
+    border-radius: 20px ;
+}
+.dashboard_section .pagination {
+    float: none !important;
+    justify-content: center;
 }

@@ -82,10 +82,10 @@ const Dashboard = () => {
         mode: 'checkbox',
         clickToSelect: true,
         clickToEdit: true,
-        style: { 
+        style: {  
             background:'#d1ecf1',
-            // color:'#FFF'
-         }
+         },
+         classes:"custom-check-box"
     };
 
     const columns = [{
@@ -265,22 +265,21 @@ const Dashboard = () => {
     async function beforeSaveCell(oldValue, newValue, row, column, done) {
         console.log(column)
         setIsLoader(true);
-
-        // let data = {
-        //     "text": newValue,
-        //     "col": column.dataField,
-        //     'id': row.id
-        // };
-        // await fetch(`${process.env.REACT_APP_BASEURL}company/detail`,
-        //     {
-        //         headers: {
-        //             'Accept': 'application/json',
-        //             'Content-Type': 'application/json',
-        //             'Authorization': localStorage.getItem('auth'),
-        //         },
-        //         body: JSON.stringify(data),
-        //         method: "POST",
-        //     })
+        let data = {
+            "text": newValue,
+            "col": column.dataField,
+            'id': row.id
+        };
+        await fetch(`${process.env.REACT_APP_BASEURL}company/detail`,
+            {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': localStorage.getItem('auth'),
+                },
+                body: JSON.stringify(data),
+                method: "POST",
+            })
     }
     const handleClick = () => {
         reference('');

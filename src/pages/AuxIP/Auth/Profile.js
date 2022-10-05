@@ -16,13 +16,13 @@ const User = () => {
     const [user, setUser] = useState();
     const [isLoader, setIsLoader] = useState(false);
 
-
-
     let history = useHistory();
+
     useEffect(() => {
         if (!localStorage.getItem("auth")) {
             history.push("/login");
         }
+        
         const user = JSON.parse(localStorage.getItem('user'));
         if (user) {
             setIsLoader(true);

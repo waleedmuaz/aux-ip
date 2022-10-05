@@ -16,8 +16,6 @@ import paginationFactory, {
     PaginationProvider,
     PaginationListStandalone,
 } from 'react-bootstrap-table2-paginator';
-import { FiRefreshCcw } from 'react-icons/fi';
-import { Button } from 'react-bootstrap';
 import cellEditFactory, { Type } from 'react-bootstrap-table2-editor';
 
 
@@ -33,7 +31,7 @@ const Dashboard = () => {
     const [isLoader, setIsLoader] = useState(false);
 
 
-    let reference, ip_type, application, application_numbers, application_filing_date, patent_numbers, grant_date, country, due_date, last_instruction_date, action_type,estimated_cost,instruction;
+    let reference, ip_type, application, application_numbers, application_filing_date, patent_numbers, grant_date, country, due_date, last_instruction_date, action_type, estimated_cost, instruction;
     //API
     const getIpServicePageData = async () => {
         setIsLoader(true);
@@ -59,23 +57,23 @@ const Dashboard = () => {
         { value: "Pay", label: "Pay" },
         { value: "Abandon", label: "Abandon" },
         { value: "Third party", label: "Third party" },
-        
-      ];
+
+    ];
     const filter = (e) => {
         var d = new Date();
-        if(e.target.value==="1m"){
-            d.setMonth(d.getMonth() - 1);  
+        if (e.target.value === "1m") {
+            d.setMonth(d.getMonth() - 1);
             setfilterDate("1m");
             setfilterConstraints(d.toLocaleDateString());
-        }else if(e.target.value==="3m"){
-            d.setMonth(d.getMonth() - 3);  
+        } else if (e.target.value === "3m") {
+            d.setMonth(d.getMonth() - 3);
             setfilterDate("3m");
-            setfilterConstraints(d.toLocaleDateString()); 
-        }else if(e.target.value==="6m"){
+            setfilterConstraints(d.toLocaleDateString());
+        } else if (e.target.value === "6m") {
             setfilterDate("6m");
-            d.setMonth(d.getMonth() - 6);  
-            setfilterConstraints(d.toLocaleDateString()); 
-        }else{
+            d.setMonth(d.getMonth() - 6);
+            setfilterConstraints(d.toLocaleDateString());
+        } else {
             setfilterConstraints()
         }
         console.log(filterConstraints);
@@ -83,8 +81,12 @@ const Dashboard = () => {
     const selectRow = {
         mode: 'checkbox',
         clickToSelect: true,
-        clickToEdit: true  
-      };
+        clickToEdit: true,
+        style: { 
+            background:'#d1ecf1',
+            // color:'#FFF'
+         }
+    };
 
     const columns = [{
         dataField: 'reference',
@@ -127,7 +129,7 @@ const Dashboard = () => {
         footer: "Application",
         footerClasses: 'font-weight-bold'
 
-        
+
     }, {
         dataField: 'application_numbers',
         text: 'Application Numbers',
@@ -226,7 +228,7 @@ const Dashboard = () => {
         footerClasses: 'font-weight-bold'
 
 
-    },{
+    }, {
         dataField: 'action_type',
         text: 'Action Type',
         editable: false,
@@ -245,40 +247,41 @@ const Dashboard = () => {
         filter: textFilter({
             getFilter: (filter) => {
                 estimated_cost = filter;
-            }            
+            }
         }),
         footer: "Estimated Cost",
         footerClasses: 'font-weight-bold'
-    },{
+    }, {
         dataField: "instruction",
         text: "Instruction",
         editor: {
-          type: Type.SELECT,
-          options: typeOfInstruction
+            type: Type.SELECT,
+            options: typeOfInstruction
         },
         footer: "Instruction",
         footerClasses: 'font-weight-bold'
 
-      }];
-      async function  beforeSaveCell(oldValue, newValue, row, column, done) {
+    }];
+    async function beforeSaveCell(oldValue, newValue, row, column, done) {
         console.log(column)
         setIsLoader(true);
-        let data={
-            "text":newValue,
-            "col":column.dataField,
-            'id':row.id
-        };
-        await fetch(`${process.env.REACT_APP_BASEURL}company/detail`,
-            {
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization': localStorage.getItem('auth'),
-                },
-                body: JSON.stringify(data),
-                method: "POST",
-            })
-      }
+
+        // let data = {
+        //     "text": newValue,
+        //     "col": column.dataField,
+        //     'id': row.id
+        // };
+        // await fetch(`${process.env.REACT_APP_BASEURL}company/detail`,
+        //     {
+        //         headers: {
+        //             'Accept': 'application/json',
+        //             'Content-Type': 'application/json',
+        //             'Authorization': localStorage.getItem('auth'),
+        //         },
+        //         body: JSON.stringify(data),
+        //         method: "POST",
+        //     })
+    }
     const handleClick = () => {
         reference('');
         ip_type('');
@@ -325,7 +328,7 @@ const Dashboard = () => {
                     <section>
                         <div className="container-fluid">
                             <div className="row">
-                                    <SideBar />
+                                <SideBar />
                                 <div className="col-md-10 overflow">
                                     <Separator />
                                     <div className="dashboard_section my-5">
@@ -337,7 +340,7 @@ const Dashboard = () => {
                                                         <FiRefreshCcw></FiRefreshCcw>
                                                     </Button> */}
                                                 </div>
-                                            
+
                                                 <div>
                                                     <select onChange={filter} value={filterDate}>
                                                         <option value="all">All</option>
@@ -361,23 +364,23 @@ const Dashboard = () => {
                                                                 // bordered={false}
                                                                 bootstrap4
                                                                 keyField="id"
-                                                                data={  content ?   filterConstraints ?    content.filter((itm)=>{
-                                                                        return itm.due_date >= filterConstraints
-                                                                      }) :content : "No Data"
-                                                                    }
+                                                                data={content ? filterConstraints ? content.filter((itm) => {
+                                                                    return itm.due_date >= filterConstraints
+                                                                }) : content : "No Data"
+                                                                }
                                                                 columns={columns}
                                                                 filter={filterFactory()}
                                                                 noDataIndication="No Data to Display"
                                                                 {...paginationTableProps}
-                                                                selectRow={ selectRow }
+                                                                selectRow={selectRow}
                                                                 headerClasses="header-class"
-                                                                cellEdit={cellEditFactory({ 
+                                                                cellEdit={cellEditFactory({
                                                                     mode: "click",
                                                                     blurToSave: true,
                                                                     beforeSaveCell
                                                                 })}
-                                                                
-                                                                />
+
+                                                            />
                                                             <PaginationListStandalone
                                                                 {...paginationProps}
                                                             />
@@ -385,11 +388,26 @@ const Dashboard = () => {
                                                     )
                                                 }
                                             </PaginationProvider>
-
                                         </div>
                                     </div>
                                     {/* <Separator /> */}
+                                    <div>
+                                        <table className='alert alert-info'>
+                                            <tr>
+                                                <td>
+                                                    <span className='font-small'>10 Items(s) Selected for Instruction</span>
+                                                </td>
+                                                <td className='text-right'>
+                                                    <span className='mx-5 font-small' >Total Estimated Cost: <b>555.33 USD</b> (10)</span>
+                                                    <button className='btn btn-default instructor-btn'>
+                                                        Instruct
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
 

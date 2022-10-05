@@ -25,8 +25,8 @@ import AddEditRole from './elements/AuxIP/Role/AddEditRole';
 import User from './pages/AuxIP/Auth/User';
 import Profile from './pages/AuxIP/Auth/Profile';
 import DashboardHeader from './common/header/AuxIP/DashboardHeader';
-import AdminLogin from './pages/AuxIP/Auth/AdminLogin';
-    
+import ContactUs from './pages/AuxIP/ContactUs';
+import AdminLogin from './pages/AuxIP/Auth/AdminLogin';    
 
 const App = () => {
     return (
@@ -49,6 +49,7 @@ const App = () => {
                     <Route path={`${process.env.PUBLIC_URL + "/user"}`} exact component={User}/>
                     <Route path={`${process.env.PUBLIC_URL + "/profile"}`} exact component={Profile}/>
                     <Route path={`${process.env.PUBLIC_URL + "/admin"}`} exact component={AdminLogin}/>
+                    <Route path={`${process.env.PUBLIC_URL + "/contact-us"}`} exact component={ContactUs}/>
                     
                     {/* <Route path={`${process.env.PUBLIC_URL + "/DashboardHeader"}`} exact component={DashboardHeader}/> */}
                 </Switch>

@@ -1303,6 +1303,66 @@ table.dataTable thead .sorting_desc_disabled:before {
     .admin_section  .card-header{
      border-top: 2px solid #3F32F5;
     }
+
+    // contact_section
+
+    .contact_section{
+        width: 100%;
+        // height: 100vh;
+        padding-top: 30px !important;
+        padding-bottom: 40px !important;
+        // background-color: #F3F6F9;
+        background-color: #F3F6F9;
+    }
+    .contact_section .row{
+        padding: 18px;
+        border-radius: 8px;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      background-color: #fff;
+    }
+    .contact_section .row{
+       max-width: 750px;
+       margin: auto;
+    }
+    .contact_section input[type="text"]{
+      height: 33px;
+      border-radius: 0px;
+    //   outline: none;
+    border: none;
+    border-bottom: 1px solid gray !important;
+    }
+    .contact_section input[type="email"]{
+      height: 33px;
+      border-radius: 0px;
+      border: none;
+      border-bottom: 1px solid gray !important;
+    }
+    .contact_section .form-select {
+      height: 33px;
+      border-radius: 0px;
+      border: none;
+      font-size: 15px;
+      border-bottom: 1px solid gray !important;
+    }
+    .contact_section .form-check {
+     line-height: 40px;
+    }
+    .contact_section  textarea {
+        width: 100%;
+        font-size: 15px;
+        border: none;
+        border-bottom: 1px solid gray !important;
+      }
+    input[type=checkbox], input[type=radio] {
+        box-sizing: border-box;
+        padding: 0;
+        display: none;
+    }
+.mainmenu .btn{
+    padding: 7px 25px !important;
+    font-size: 16px;
+}
+
 .font-small{
     font-size: 12px;
 }

@@ -16,21 +16,27 @@ const Role = () => {
     const [isLoader, setIsLoader] = useState(false);
 
     async function fetchData() {
-        try {
-          const response = await axios.get(`${process.env.REACT_APP_BASEURL}users`)
-          setContent(response.data)
-          console.log("Data has been successfully", response.data);
-        } catch (error) {
-          console.log("Data coud not be fetched!", error);
-        }
+            const response = await fetch(`${process.env.REACT_APP_BASEURL}user/roles`,
+            {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': localStorage.getItem('auth'),
+                },
+                method: "GET", 
+            });
+            if (!response.ok) {
+                throw new Error('Data coud not be fetched!')
+            } else {
+
+                let res = await response.json();
+                setContent(res.data);
+                setIsLoader(true)
+                console.log(res.data);
+                return res;
+            }
       }
     
-      useEffect(() => {
-        fetchData();
-      },[])
-      
-      
-
     let history = useHistory();
 
 
@@ -38,7 +44,8 @@ const Role = () => {
         if(!localStorage.getItem("auth")){
             history.push("/login");
           }
-     }, [])
+          fetchData();
+        }, [])
 
 
     if (!isLoader) {

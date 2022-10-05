@@ -333,9 +333,9 @@ const Dashboard = () => {
                                             <div>
                                                 <div>
                                                     <FileUpload />
-                                                    <Button className="btn btn-lg btn-warning my-3" onClick={handleClick}>
+                                                    {/* <Button className="btn btn-lg btn-warning my-3" onClick={handleClick}>
                                                         <FiRefreshCcw></FiRefreshCcw>
-                                                    </Button>
+                                                    </Button> */}
                                                 </div>
                                             
                                                 <div>

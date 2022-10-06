@@ -24,7 +24,6 @@ let history = useHistory();
                 <HeaderTopBar />
                 <HeaderTwo btnStyle="btn-small" />
                 <Separator />
-
                 <div className="row">
                     <div className='col-md-12'>
                         <div className='row'>
@@ -32,7 +31,7 @@ let history = useHistory();
                             </div>
                             <div className='col-md-4'>
 
-                                <div className='card-body'>
+                                <div className='card-body loginHeight'>
                                     <ContactForm history={history} formStyle="sign" />
                                 </div>
                             </div>

@@ -67,7 +67,7 @@ class ContactForm extends Component {
     })
       .then((response) => {
         if (response.data.status == 419) {
-          toast.error('Oppes! You have entered invalid credentials!', {
+          toast.error('Oops! You have entered wrong credentials', {
             position: "bottom-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -96,7 +96,9 @@ class ContactForm extends Component {
     return (
       <div className="App">
 
-        <h2>Sign In</h2>
+        <div className="my-5 card-header">
+          <span className='signInText'>Sign In</span>
+        </div>
         <Form className="form" onSubmit={(e) => this.submitForm(e)}>
           <FormGroup>
             <label>Email</label>
@@ -127,8 +129,13 @@ class ContactForm extends Component {
               placeholder="********"
               value={password}
               onChange={(e) => this.handleChange(e)}
+              
             />
+            <FormText><Link>Forgot your password?</Link></FormText>
           </FormGroup>
+          <div>
+          </div>
+
           <div className="header-btn">
             <button type='submit' className='btn-default btn-small'>Login</button>
           </div>

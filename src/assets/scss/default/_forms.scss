@@ -303,11 +303,18 @@ input[type="submit"] {
 .selection-cell-header input[type="checkbox"]{
     // height: 40px;
     padding: 0 15px !important;
+    display: block;
     height:15px !important;
 }
 .selection-cell input[type="checkbox"]{
     // height: 40px;
+    display: block;
     padding: 0 15px !important;
     height:15px !important;
 }
-
+.selection-cell {
+    vertical-align: middle !important;
+}
+.selection-cell-header {
+    vertical-align: middle  !important;
+}

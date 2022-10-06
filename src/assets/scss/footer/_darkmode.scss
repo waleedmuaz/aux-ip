@@ -246,7 +246,13 @@ body.light .timeline-dot::after {
 
 
 body.light .header-top-bar {
-    background-color: var(--color-light);
+    background-color: #0b0556;
+    a span{
+        color: #FFF;
+    }
+    p{
+        color: #FFF;
+    }
 }
 
 body.light .single-timeline .single-content,
@@ -297,7 +303,10 @@ body.light .bg-color-blackest {
 
 body.light .footer-style-default,
 body.light .copyright-style-one {
-    background: #f5f8fa;
+    background: #0b0556 ;
+    a{
+        color:#fff !important;
+    }
 }
 
 body.light .slider-style-2 .list-icon li .icon {

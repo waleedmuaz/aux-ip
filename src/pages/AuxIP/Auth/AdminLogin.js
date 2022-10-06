@@ -96,7 +96,7 @@ const AdminLogin = () => {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="full">
-                                <div className="mx-auto d-block">
+                                <div className="pmx-auto d-block">
                                     <Link to={"/"}>
                                         <img src={logo_light} width="100%" className='mx-auto d-block my-3' alt=""/>
                                     </Link>

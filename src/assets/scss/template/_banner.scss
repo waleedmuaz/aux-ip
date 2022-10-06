@@ -1359,7 +1359,7 @@ table.dataTable thead .sorting_desc_disabled:before {
         display: none;
     }
 .mainmenu .btn{
-    padding: 7px 25px !important;
+    padding: 7px 20px !important;
     font-size: 16px;
 }
 
@@ -1377,4 +1377,18 @@ table.dataTable thead .sorting_desc_disabled:before {
 .dashboard_section .pagination {
     float: none !important;
     justify-content: center;
+}
+.contactUsBtn{
+    background-color: #1200ff   ;
+    &:hover{
+        background-color: #1200ff   ;
+    }
+}
+.signInText{
+    font-size: 34px;
+    font-weight: 400;
+    color: #0b0556;
+}
+.loginHeight{
+    height: 800px;
 }

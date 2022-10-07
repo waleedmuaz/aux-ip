@@ -26,18 +26,19 @@ import User from './pages/AuxIP/Auth/User';
 import Profile from './pages/AuxIP/Auth/Profile';
 import DashboardHeader from './common/header/AuxIP/DashboardHeader';
 import ContactUs from './pages/AuxIP/ContactUs';
-import AdminLogin from './pages/AuxIP/Auth/AdminLogin';    
+import AdminLogin from './pages/AuxIP/Auth/AdminLogin';       
+import ParentDashboard from './pages/AuxIP/Auth/ParentDashboard';
 
 const App = () => {
     return (
         <Router>
-      
+          
             <PageScrollTop>
                 <Switch>
                     <Route path={`${process.env.PUBLIC_URL + "/"}`} exact component={Home}/>
                     <Route path={`${process.env.PUBLIC_URL + "/business-consulting"}`} exact component={HomeDefault}/>
                     <Route path={`${process.env.PUBLIC_URL + "/company"}`} exact component={Company}/>
-                    <Route path={`${process.env.PUBLIC_URL + "/dashboard"}`} exact component={Dashboard}/>
+                    <Route path={`${process.env.PUBLIC_URL + "/dashboard"}`} exact component={ParentDashboard}/>
                     <Route path={`${process.env.PUBLIC_URL + "/pending"}`} exact component={Dashboard}/>
                     <Route path={`${process.env.PUBLIC_URL + "/previous"}`} exact component={Dashboard}/>
                     <Route path={`${process.env.PUBLIC_URL + "/ip-software"}`} exact component={IPSoftware}/>
@@ -49,10 +50,12 @@ const App = () => {
                     <Route path={`${process.env.PUBLIC_URL + "/role/edit_create"}`} exact component={AddEditRole}/>
 
                     <Route path={`${process.env.PUBLIC_URL + "/user"}`} exact component={User}/>
+                    <Route path={`${process.env.PUBLIC_URL + "/parent-dashboard/:id?"}`} exact component={Dashboard}/>
+                    {/* <Route path={`${process.env.PUBLIC_URL + '/parent-dashboard/:id'}`} exact component={ParentDashboard}/> */}
                     <Route path={`${process.env.PUBLIC_URL + "/profile"}`} exact component={Profile}/>
                     <Route path={`${process.env.PUBLIC_URL + "/admin"}`} exact component={AdminLogin}/>
                     <Route path={`${process.env.PUBLIC_URL + "/contact-us"}`} exact component={ContactUs}/>
-                    
+                  
                     {/* <Route path={`${process.env.PUBLIC_URL + "/DashboardHeader"}`} exact component={DashboardHeader}/> */}
                 </Switch>
             </PageScrollTop>

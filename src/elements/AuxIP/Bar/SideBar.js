@@ -40,7 +40,7 @@ const SideBar = () => {
                       </NavLink>
                     </li>
                     <li className="header-menu">
-                      <NavLink to="/user" exact >
+                      <NavLink to="/parent-dashboard" exact >
                         <span><i className="fa fa-table mr-2" aria-hidden="true"></i>Datatable</span>
                       </NavLink>
                     </li>

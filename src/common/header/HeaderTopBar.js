@@ -42,7 +42,7 @@ const deleteItem = () => {
                                         </p>
                                 }
                                 {
-                                        (!localStorage.getItem('auth'))?"":<p><Link to="/dashboard" ><span>Dashboard</span></Link></p>
+                                        (!localStorage.getItem('auth'))?"":<p><Link to="/parent-dashboard" ><span>Dashboard</span></Link></p>
                                 }
                                         <p><Link to="admin"><span>Admin</span></Link></p>
                                 

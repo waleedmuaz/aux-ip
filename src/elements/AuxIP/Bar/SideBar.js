@@ -70,7 +70,7 @@ const SideBar = () => {
               <div className="sidebar-menu">
                 <ul>
                   <li className="header-menu">
-                    <NavLink to="/dashboard" exact ><i className="fa fa-columns mr-2" aria-hidden="true"></i><span>Dashboard</span></NavLink>
+                    <NavLink to="/parent-dashboard" exact ><i className="fa fa-columns mr-2" aria-hidden="true"></i><span>Dashboard</span></NavLink>
                   </li>
                   <li className="header-menu">
                     <NavLink to="/profile" exact ><i className="fa fa-user mr-2" aria-hidden="true"></i><span>Profile</span></NavLink>

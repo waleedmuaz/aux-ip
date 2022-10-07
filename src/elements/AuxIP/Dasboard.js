@@ -24,8 +24,28 @@ const Dashboard = () => {
     const [isLoader, setIsLoader] = useState(false);
     const [selectedData, setSelectedData] = useState([]);
     const [filterConstraints, setfilterConstraints] = useState();
+    // const [instructionDetial, setInstructionDetial] = useState();
 
     //API
+    const submitInstruction = async () => {
+        setIsLoader(true);
+        const response = await fetch(`${process.env.REACT_APP_BASEURL}instruction/store`,
+            {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': localStorage.getItem('auth'),
+                },
+                method: "POST",
+                body: JSON.stringify(selectedData),
+            })
+        if (!response.ok) {
+            throw new Error('Data coud not be fetched!')
+        } else {
+            console.log('done')
+        }
+    }
+
     const getIpServicePageData = async () => {
         setIsLoader(true);
         const response = await fetch(`${process.env.REACT_APP_BASEURL}company/detail`,
@@ -68,7 +88,13 @@ const Dashboard = () => {
 
     ///file upload
 
-
+    const estimatedCost = (selectedData) => {
+        let sum = 0;
+        selectedData.forEach(element => {
+          sum += parseInt(element.estimated_cost);
+        });
+        return sum;
+    }
 
     useEffect(() => {
         if (!localStorage.getItem("auth")) {
@@ -116,31 +142,47 @@ const Dashboard = () => {
                                                 </div>
 
                                             </div>
-                                            <CustomTable 
+                                            <CustomTable
                                                 content={content}
                                                 isLoader={isLoader}
                                                 setIsLoader={setIsLoader}
+                                                selectedData={selectedData}
                                                 setSelectedData={setSelectedData}
+                                                filterConstraints={filterConstraints}
+                                                setfilterConstraints={setfilterConstraints}
                                             />
 
                                         </div>
                                     </div>
                                     {/* <Separator /> */}
-                                    <div>
-                                        <table className='alert alert-info'>
-                                            <tr>
-                                                <td>
-                                                    <span className='font-small'>{(selectedData) ? selectedData.length : ""} Items(s) Selected for Instruction</span>
-                                                </td>
-                                                <td className='text-right'>
-                                                    <span className='mx-5 font-small' >Total Estimated Cost: <b>555.33 USD</b> (10)</span>
-                                                    <button className='btn btn-default instructor-btn'>
-                                                        Instruct
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
+                                    {(selectedData.length > 0) ?
+                                        <div>
+                                            <table className='alert alert-info'>
+                                                <tr>
+                                                    <td>
+                                                        <span className='font-small'>{(selectedData) ? selectedData.length : ""} Items(s) Selected for Instruction</span>
+                                                    </td>
+                                                    <td className='text-right'>
+                                                        <span className='mx-5 font-small' >Total Estimated Cost:
+                                                            <b className='ml-2'>
+                                                                {estimatedCost(selectedData)}
+                                                            </b>
+                                                            <span className='ml-2'>
+                                                            ({(selectedData) ? selectedData.length : ""})
+                                                            </span>
+
+                                                        </span>
+                                                        <button className='btn btn-default instructor-btn' onClick={submitInstruction}>
+                                                            Instruct
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        : ""}
+
+
+
                                 </div>
 
                             </div>

@@ -1105,12 +1105,31 @@ table.dataTable thead .sorting_desc_disabled:before {
 .sidebar-wrapper ul li{
     line-height: 44px;
 }
-.sidebar-wrapper ul{
-   margin-top: 44px;
+.sidebar-wrapper{
+    ul{
+        margin-top: 44px;
+        li{
+            line-height: 30px;
+            &:hover{
+                ul{
+                    display: block;
+                }
+            }
+            ul{
+                display: none;
+                margin: 0;
+                padding: 0;
+                li{
+                    padding-left: 15px;
+                }
+            }
+        }
+
+    }
 }
 .sidebar-wrapper ul li a{
    color: white;
-
+   font-size: 15PX;
    font-family: sans-serif;
 }
 .sidebar-wrapper ul  .active_class{
@@ -1124,31 +1143,38 @@ table.dataTable thead .sorting_desc_disabled:before {
   border-right: 2px solid #eee !important;
   background-color: #283341 !important;
   margin-top: -2px !important;
-  height: 100vh !important;
+//   height: 100vh !important;
 }
 .sideBarLineUser{
     border-right: 2px solid #283341 !important;
-    background-color: #fff !important;
-    margin-top: -2px !important;
-    height: 100vh !important;
+    margin-top: -2px !important; 
+    background-color: #0b0556 ;
+    // height: 100vh !important;
 }
 .sideBarLineUser ul li a{
-    color: #000 !important;
+    color: #fff !important;
 }
+.sideBarLineUser ul li{
+    border-bottom: #fff 1px solid;
+    color: #fff !important;
+}
+
 @media only screen and (max-width: 767px) {
     .sideBarLine{
         border-right: 2px solid #eee !important;
-        background-color: #283341 !important;
+        background-color: #0b0556 ;
         margin-top: -2px !important;
-        height: 50vh !important;
-      
+        height: auto !important;
     }.sideBarLineUser {
         border-right: 2px solid #000 !important;
-        background-color: #fff !important;
+        background-color: #0b0556 ;
         margin-top: -2px !important;
-        height: 100vh !important;
+        height: auto !important;
     }.sideBarLineUser ul li a{
-        color: #000 !important;
+        color: #fff !important;
+    }.sideBarLineUser ul li{
+        border-bottom: #fff 1px solid;
+        color: #fff !important;
     }
 }
 
@@ -1389,6 +1415,17 @@ table.dataTable thead .sorting_desc_disabled:before {
     font-weight: 400;
     color: #0b0556;
 }
+.textColorAux{
+    h5{
+        color: #fff !important;
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 0px;
+    }
+}
 .loginHeight{
     height: 800px;
+}
+.barColor{
+    background-color: #1200ff;
 }

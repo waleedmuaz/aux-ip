@@ -9,5 +9,12 @@ function authenticiation() {
     }
     return false;
 }
+function roleUser(){
+    let role = JSON.parse(localStorage.getItem('user'));
+    if(role!==null){
+        return role=role.role[0];
+    }
+    return false;
+}
   
-export {authenticiation}
+export {authenticiation,roleUser}

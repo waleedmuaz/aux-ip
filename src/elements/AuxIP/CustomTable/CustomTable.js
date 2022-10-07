@@ -13,15 +13,31 @@ import { roleUser } from '../../../utils/AuxIP/helper';
 
 
 const CustomTable = (props) => {
-
     let reference, ip_type, application, application_numbers, application_filing_date, patent_numbers, grant_date, country, due_date, last_instruction_date, action_type, estimated_cost, instruction;
-    const onRowSelect  = (row, isSelect, rowIndex, e) => {
-        console.log(row, isSelect)
+
+    const onRowSelect = (row, isSelect, rowIndex, e) => {
+        if (isSelect) {
+            let prev = props.selectedData;
+            props.setSelectedData(prev => [...prev, row]);
+        } else {
+            let prev = props.selectedData.filter(function (obj) {
+                return obj.id !== row.id;
+            });
+            props.setSelectedData(prev);
+        }
     }
-    const onSelectAll  = (isSelect, rows, e) => {
-        console.log(isSelect);
-        console.log(rows);
+    const onSelectAll = (isSelect, rows, e) => {
+        if (isSelect) {
+            let prev = props.selectedData;
+            props.setSelectedData(rows);
+        } else {
+            props.setSelectedData([]);
+        }
     }
+
+    
+
+
     const typeOfInstruction = [
         { value: "Pay", label: "Pay" },
         { value: "Abandon", label: "Abandon" },
@@ -35,8 +51,8 @@ const CustomTable = (props) => {
             background: '#d1ecf1',
         },
         classes: "custom-check-box",
-        onSelect: onRowSelect,
-        onSelectAll: onSelectAll
+        onSelect: (roleUser() === "User") ? onRowSelect : () => { },
+        onSelectAll: (roleUser() === "User") ? onSelectAll : () => { }
     }
 
     const columns = [{
@@ -98,7 +114,7 @@ const CustomTable = (props) => {
         dataField: 'estimated_cost',
         text: 'Estimated Cost',
         sort: true,
-        editable: (roleUser() === "User") ? false : true,
+        editable: (roleUser() === "Admin") ? false : true,
     }, {
         dataField: "instruction",
         text: "Instruction",
@@ -106,38 +122,14 @@ const CustomTable = (props) => {
             type: Type.SELECT,
             options: typeOfInstruction
         },
-        editable: (roleUser() === "User") ? false : true,
+        editable: (roleUser() === "Admin") ? false : true,
 
     }];
-    async function beforeSaveCell(oldValue, newValue, row, column, done) {
-        console.log(oldValue, newValue, row, column, done)
-        props.setIsLoader(true);
 
-        // SelectedData()
-        // let data = {
-        //     "text": newValue,
-        //     "col": column.dataField,
-        //     'id': row.id
-        // };
-        // await fetch(`${process.env.REACT_APP_BASEURL}company/detail`,
-        //     {
-        //         headers: {
-        //             'Accept': 'application/json',
-        //             'Content-Type': 'application/json',
-        //             'Authorization': localStorage.getItem('auth'),
-        //         },
-        //         body: JSON.stringify(data),
-        //         method: "POST",
-        //     })
-    }
     const paginationOption = {
         custom: true,
         totalSize: props.content.length
     };
-
-    const  duplicate = () => {
-
-    } 
     return (
         <>
             <PaginationProvider
@@ -166,7 +158,6 @@ const CustomTable = (props) => {
                                 cellEdit={cellEditFactory({
                                     mode: "click",
                                     blurToSave: true,
-                                    beforeSaveCell
                                 })}
 
                             />

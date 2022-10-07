@@ -78,8 +78,6 @@ const AdminLogin = () => {
             localStorage.setItem("user", JSON.stringify(res.data));
             localStorage.setItem("auth", "Bearer " + JSON.stringify(res.data.token).replaceAll('"', ''));
             history.push("/dashboard");
-            <Link to="/dashboard" />
-
         }
     };
 

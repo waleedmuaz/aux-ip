@@ -97,7 +97,7 @@ const Dashboard = () => {
     }
 
     useEffect(() => {
-        if (!localStorage.getItem("auth")) {
+        if (!localStorage.getItem("auth") ) {
             history.push("/login");
             setIsLoader(true);
         }

@@ -13,7 +13,7 @@ let history = useHistory();
 
  useEffect(() => {
     if(localStorage.getItem("auth")){
-        history.push("/dashboard");
+        history.push("/parent-dashboard");
       }
  }, [])
  

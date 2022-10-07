@@ -41,7 +41,7 @@ const User = () => {
             <main className="page-wrapper">
                 <HeaderTopBar />
                 <HeaderTwo btnStyle="btn-small" />
-                <Separator />
+                {/* <Separator /> */}
                 <main id="mian">
                     <section>
                         <div className="container-fluid mt-0">
@@ -53,22 +53,23 @@ const User = () => {
                                     <Separator />
                                     <div className="row mb-5">
                                         <div className='col-md-12'>
+                                            <div className='card-header barColor'><span className='textColorAux'><h5>Profile</h5></span></div>
                                             <div className='card-body'>
                                                 <table>
                                                     <tr>
-                                                        <td>Name</td>
+                                                        <td><b>Name</b></td>
                                                         <td>{user.name}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Email</td>
+                                                        <td><b>Email</b></td>
                                                         <td>{user.email}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Role</td>
+                                                        <td><b>Role</b></td>
                                                         <td>{user.roles[0].name}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Created At</td>
+                                                        <td><b>Created At</b></td>
                                                         <td>{user.created_at}</td>
                                                     </tr>
                                                 </table>

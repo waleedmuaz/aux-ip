@@ -38,6 +38,8 @@ const App = () => {
                     <Route path={`${process.env.PUBLIC_URL + "/business-consulting"}`} exact component={HomeDefault}/>
                     <Route path={`${process.env.PUBLIC_URL + "/company"}`} exact component={Company}/>
                     <Route path={`${process.env.PUBLIC_URL + "/dashboard"}`} exact component={Dashboard}/>
+                    <Route path={`${process.env.PUBLIC_URL + "/pending"}`} exact component={Dashboard}/>
+                    <Route path={`${process.env.PUBLIC_URL + "/previous"}`} exact component={Dashboard}/>
                     <Route path={`${process.env.PUBLIC_URL + "/ip-software"}`} exact component={IPSoftware}/>
                     <Route path={`${process.env.PUBLIC_URL + "/about-us"}`} exact component={AboutUs}/>
                     {/* Auth */}

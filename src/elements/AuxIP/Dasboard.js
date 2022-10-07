@@ -6,18 +6,12 @@ import Separator from "../../elements/separator/Separator";
 import FooterBottom from '../../elements/AuxIP/FooterBottom';
 import SideBar from './Bar/SideBar'
 import { useHistory } from 'react-router-dom';
-import BootstrapTable from 'react-bootstrap-table-next';
-import filterFactory, { textFilter } from 'react-bootstrap-table2-filter';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import 'react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css';
 import FileUpload from './FileUpload';
 import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
-import paginationFactory, {
-    PaginationProvider,
-    PaginationListStandalone,
-} from 'react-bootstrap-table2-paginator';
-import cellEditFactory, { Type } from 'react-bootstrap-table2-editor';
-
+import { roleUser } from '../../utils/AuxIP/helper';
+import CustomTable from './CustomTable/CustomTable';
 
 
 
@@ -25,13 +19,12 @@ import cellEditFactory, { Type } from 'react-bootstrap-table2-editor';
 const Dashboard = () => {
     let history = useHistory();
 
-    const [filterConstraints, setfilterConstraints] = useState();
     const [filterDate, setfilterDate] = useState();
     const [content, setContent] = useState([]);
     const [isLoader, setIsLoader] = useState(false);
+    const [selectedData, setSelectedData] = useState([]);
+    const [filterConstraints, setfilterConstraints] = useState();
 
-
-    let reference, ip_type, application, application_numbers, application_filing_date, patent_numbers, grant_date, country, due_date, last_instruction_date, action_type, estimated_cost, instruction;
     //API
     const getIpServicePageData = async () => {
         setIsLoader(true);
@@ -53,12 +46,6 @@ const Dashboard = () => {
         }
     }
     //Table Setting
-    const typeOfInstruction = [
-        { value: "Pay", label: "Pay" },
-        { value: "Abandon", label: "Abandon" },
-        { value: "Third party", label: "Third party" },
-
-    ];
     const filter = (e) => {
         var d = new Date();
         if (e.target.value === "1m") {
@@ -78,228 +65,7 @@ const Dashboard = () => {
         }
         console.log(filterConstraints);
     }
-    const selectRow = {
-        mode: 'checkbox',
-        clickToSelect: true,
-        clickToEdit: true,
-        style: {  
-            background:'#d1ecf1',
-         },
-         classes:"custom-check-box"
-    };
 
-    const columns = [{
-        dataField: 'reference',
-        text: 'Reference',
-        sort: true,
-        editable: false,
-        filter: textFilter({
-            getFilter: (filter) => {
-                reference = filter;
-            }
-        }),
-        footer: "Reference",
-        footerClasses: 'font-weight-bold'
-
-
-    }, {
-        dataField: 'ip_type',
-        text: 'IP Type',
-        editable: false,
-        sort: true,
-        filter: textFilter({
-            getFilter: (filter) => {
-                ip_type = filter;
-            }
-        }),
-        footer: "IP Type",
-        footerClasses: 'font-weight-bold'
-
-
-    }, {
-        dataField: 'application',
-        text: 'Application',
-        editable: false,
-        sort: true,
-        filter: textFilter({
-            getFilter: (filter) => {
-                application = filter;
-            }
-        }),
-        footer: "Application",
-        footerClasses: 'font-weight-bold'
-
-
-    }, {
-        dataField: 'application_numbers',
-        text: 'Application Numbers',
-        sort: true,
-        editable: false,
-        filter: textFilter({
-            getFilter: (filter) => {
-                application_numbers = filter;
-            }
-        }),
-        footer: "Application Numbers",
-        footerClasses: 'font-weight-bold'
-
-
-    }, {
-        dataField: 'application_filing_date',
-        text: 'Application Filing Date',
-        editable: false,
-        sort: true,
-        filter: textFilter({
-            getFilter: (filter) => {
-                application_filing_date = filter;
-            }
-        }),
-        footer: "Application Filing Date",
-        footerClasses: 'font-weight-bold'
-
-
-    }, {
-        dataField: 'patent_numbers',
-        text: 'Patent Numbers',
-        sort: true,
-        editable: false,
-        filter: textFilter({
-            getFilter: (filter) => {
-                patent_numbers = filter;
-            }
-        }),
-        footer: "Patent Numbers",
-        footerClasses: 'font-weight-bold'
-
-
-    }, {
-        dataField: 'grant_date',
-        text: 'Grant Date',
-        sort: true,
-        editable: false,
-        filter: textFilter({
-            getFilter: (filter) => {
-                grant_date = filter;
-            }
-        }),
-        footer: "Grant Date",
-        footerClasses: 'font-weight-bold'
-
-
-    }, {
-        dataField: 'country',
-        text: 'Country',
-        sort: true,
-        editable: false,
-        filter: textFilter({
-            getFilter: (filter) => {
-                country = filter;
-            }
-        }),
-        footer: "Country",
-        footerClasses: 'font-weight-bold'
-
-
-    }, {
-        dataField: 'due_date',
-        text: 'Due Date',
-        sort: true,
-        editable: false,
-        filter: textFilter({
-            getFilter: (filter) => {
-                due_date = filter;
-            }
-        }),
-        footer: "Due Date",
-        footerClasses: 'font-weight-bold'
-
-
-    }, {
-        dataField: 'last_instruction_date',
-        text: 'Last Instruction Date',
-        sort: true,
-        editable: false,
-        filter: textFilter({
-            getFilter: (filter) => {
-                last_instruction_date = filter;
-            }
-        }),
-        footer: "Last Instruction Date",
-        footerClasses: 'font-weight-bold'
-
-
-    }, {
-        dataField: 'action_type',
-        text: 'Action Type',
-        editable: false,
-        sort: true,
-        filter: textFilter({
-            getFilter: (filter) => {
-                action_type = filter;
-            }
-        }),
-        footer: "Action Type",
-        footerClasses: 'font-weight-bold'
-    }, {
-        dataField: 'estimated_cost',
-        text: 'Estimated Cost',
-        sort: true,
-        filter: textFilter({
-            getFilter: (filter) => {
-                estimated_cost = filter;
-            }
-        }),
-        footer: "Estimated Cost",
-        footerClasses: 'font-weight-bold'
-    }, {
-        dataField: "instruction",
-        text: "Instruction",
-        editor: {
-            type: Type.SELECT,
-            options: typeOfInstruction
-        },
-        footer: "Instruction",
-        footerClasses: 'font-weight-bold'
-
-    }];
-    async function beforeSaveCell(oldValue, newValue, row, column, done) {
-        console.log(column)
-        setIsLoader(true);
-        let data = {
-            "text": newValue,
-            "col": column.dataField,
-            'id': row.id
-        };
-        await fetch(`${process.env.REACT_APP_BASEURL}company/detail`,
-            {
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization': localStorage.getItem('auth'),
-                },
-                body: JSON.stringify(data),
-                method: "POST",
-            })
-    }
-    const handleClick = () => {
-        reference('');
-        ip_type('');
-        application('');
-        application_numbers('');
-        application_filing_date('');
-        patent_numbers('');
-        grant_date('');
-        country('');
-        due_date('');
-        last_instruction_date('');
-        action_type('');
-        estimated_cost("");
-        instruction("");
-    };
-    const paginationOption = {
-        custom: true,
-        totalSize: content.length
-    };
     ///file upload
 
 
@@ -334,11 +100,11 @@ const Dashboard = () => {
                                         <div className="full">
                                             <div>
                                                 <div>
-                                                    <FileUpload />
-                                                    {/* <Button className="btn btn-lg btn-warning my-3" onClick={handleClick}>
-                                                        <FiRefreshCcw></FiRefreshCcw>
-                                                    </Button> */}
+                                                    {(roleUser() && roleUser() === "Admin") ?
+                                                        <FileUpload />
+                                                        : ""}
                                                 </div>
+
 
                                                 <div>
                                                     <select onChange={filter} value={filterDate}>
@@ -350,43 +116,13 @@ const Dashboard = () => {
                                                 </div>
 
                                             </div>
-                                            <PaginationProvider
-                                                pagination={paginationFactory(paginationOption)}
-                                            >
-                                                {
-                                                    ({
-                                                        paginationProps,
-                                                        paginationTableProps
-                                                    }) => (
-                                                        <div>
-                                                            <BootstrapTable
-                                                                // bordered={false}
-                                                                bootstrap4
-                                                                keyField="id"
-                                                                data={content ? filterConstraints ? content.filter((itm) => {
-                                                                    return itm.due_date >= filterConstraints
-                                                                }) : content : "No Data"
-                                                                }
-                                                                columns={columns}
-                                                                filter={filterFactory()}
-                                                                noDataIndication="No Data to Display"
-                                                                {...paginationTableProps}
-                                                                selectRow={selectRow}
-                                                                headerClasses="header-class"
-                                                                cellEdit={cellEditFactory({
-                                                                    mode: "click",
-                                                                    blurToSave: true,
-                                                                    beforeSaveCell
-                                                                })}
+                                            <CustomTable 
+                                                content={content}
+                                                isLoader={isLoader}
+                                                setIsLoader={setIsLoader}
+                                                setSelectedData={setSelectedData}
+                                            />
 
-                                                            />
-                                                            <PaginationListStandalone
-                                                                {...paginationProps}
-                                                            />
-                                                        </div>
-                                                    )
-                                                }
-                                            </PaginationProvider>
                                         </div>
                                     </div>
                                     {/* <Separator /> */}
@@ -394,7 +130,7 @@ const Dashboard = () => {
                                         <table className='alert alert-info'>
                                             <tr>
                                                 <td>
-                                                    <span className='font-small'>10 Items(s) Selected for Instruction</span>
+                                                    <span className='font-small'>{(selectedData) ? selectedData.length : ""} Items(s) Selected for Instruction</span>
                                                 </td>
                                                 <td className='text-right'>
                                                     <span className='mx-5 font-small' >Total Estimated Cost: <b>555.33 USD</b> (10)</span>

@@ -12,6 +12,7 @@ import FileUpload from './FileUpload';
 import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
 import { roleUser } from '../../utils/AuxIP/helper';
 import CustomTable from './CustomTable/CustomTable';
+import { toast } from 'react-toastify';
 
 
 
@@ -37,11 +38,20 @@ const Dashboard = () => {
                     'Authorization': localStorage.getItem('auth'),
                 },
                 method: "POST",
-                body: JSON.stringify(selectedData),
+                body: JSON.stringify({data:selectedData}),
             })
         if (!response.ok) {
             throw new Error('Data coud not be fetched!')
         } else {
+            toast.info("Instruction Submit Successfully", {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              });
             console.log('done')
         }
     }

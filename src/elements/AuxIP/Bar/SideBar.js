@@ -17,21 +17,21 @@ const SideBar = () => {
                       <NavLink to="/dashboard" exact ><i className="fa fa-columns mr-2" aria-hidden="true"></i><span>Dashboard</span></NavLink>
                       <ul>
                         <li className="header-menu">
-                          <NavLink to="/role" exact >
+                          <NavLink to="/pending" exact >
                             <span><i className="fa fa-clock-o mr-2" aria-hidden="true"></i>
                               Pending Renewal</span>
                           </NavLink>
                         </li>
                         <li className="header-menu">
-                          <NavLink to="/role" exact >
+                          <NavLink to="/previous" exact >
                             <span><i className="fa fa-exclamation-circle mr-2" aria-hidden="true"></i>Previous Renewal</span>
                           </NavLink>
                         </li>
                       </ul>
                     </li>
                     <li className="header-menu">
-                      <NavLink to="/user" exact >
-                        <span><i className="fa fa-user mr-2" aria-hidden="true"></i>User</span>
+                      <NavLink to="/cms" exact >
+                        <span><i className="fa fa-user mr-2" aria-hidden="true"></i>CMS</span>
                       </NavLink>
                     </li>
                     <li className="header-menu">

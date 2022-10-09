@@ -14,71 +14,62 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useParams } from 'react-router-dom';
 
-export const data = [
-    {
-        id: 1,
-        name: 'Wilmette',
-        last_name: 'Maasz',
-        email: 'wmaasz0@jalbum.net',
-        phone: '130-309-6439',
-    },
-    {
-        id: 2,
-        name: 'Morry',
-        last_name: 'Heater',
-        email: 'mheater1@yale.edu',
-        phone: '814-809-2958',
-    },
-    {
-        id: 3,
-        name: 'Laverne',
-        last_name: 'MacMorland',
-        email: 'lmacmorland2@webnode.com',
-        phone: '271-342-7249',
-    },
-    {
-        id: 4,
-        name: 'Cindee',
-        last_name: 'De Freitas',
-        email: 'cdefreitas3@privacy.gov.au',
-        phone: '617-624-6967',
-    },
-    {
-        id: 5,
-        name: 'Carole',
-        last_name: 'Reffe',
-        email: 'creffe4@nih.gov',
-        phone: '738-966-3137',
-    },
-    {
-        id: 6,
-        name: 'Ansel',
-        last_name: 'Iwanicki',
-        email: 'aiwanicki5@pagesperso-orange.fr',
-        phone: '716-371-2467',
-    },
-    {
-        id: 7,
-        name: 'Herold',
-        last_name: 'Mungham',
-        email: 'hmungham6@goodreads.com',
-        phone: '659-298-5396',
-    },
-    {
-        id: 8,
-        name: 'Sibeal',
-        last_name: 'Andreacci',
-        email: 'sandreacci7@bloomberg.com',
-        phone: '508-876-5450',
-    },
-];
-
 
 const ParentDashboard = () => {
-
-    const [contacts, setContacts] = useState(data);
+    let history = useHistory();
+    const [isLoader, setIsLoader] = useState(false);
     const [search, setSearch] = useState('');
-    // const [user, setUser] = useState([]);
+    const [content, setContent] = useState('');
+    const [formData,setFormData]= useState('');
+    const handleChange = (e) => {
+        console.log(e);
+        setFormData({ [e.target.name]: e.target.value });
+    } 
+    const getInstructionData = async () => {
+        setIsLoader(true);
+        const response = await fetch(`${process.env.REACT_APP_BASEURL}instruction/get`,
+            {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': localStorage.getItem('auth'),
+                },
+                method: "GET",
+            })
+        if (!response.ok) {
+            throw new Error('Data coud not be fetched!')
+        } else {
+            let res = await response.json();
+            setContent(res.data);
+            return res;
+        }
+    }
+    useEffect(() => {
+        if (!localStorage.getItem("auth")) {
+            history.push("/login");
+            setIsLoader(true);
+        }
+        getInstructionData();
+        setIsLoader(true);
+
+    }, [])
+
+
+    if (!isLoader || content.length <= 0)
+        return <div className='loader'><span></span></div>;
+
+
+
+    const formatData = (list) => {
+        let key = Object.keys(list);
+        let arrayList = [];
+        for (let i = 0; i < key.length; i++) {
+            arrayList[i] = list[key[i]]
+        }
+        console.log(arrayList)
+        return arrayList;
+    }
+
 
     return (
 
@@ -100,7 +91,7 @@ const ParentDashboard = () => {
                                             <div className="row mb-4">
                                                 <div className="col-12">
                                                     <div className="full role">
-                                                     <h5>Instruction Received</h5>
+                                                        <h5>Instruction Received</h5>
 
 
                                                         <Form>
@@ -116,60 +107,37 @@ const ParentDashboard = () => {
                                                         <Table striped bordered hover>
                                                             <thead>
                                                                 <tr>
-                                                                    <th>ID</th>
+                                                                    <th>Instruction #</th>
                                                                     <th>Name</th>
                                                                     <th>Email</th>
                                                                     <th>Company</th>
-                                                                    <th>Instruction</th>
-                                                                    <th>Inspect</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                {data
-                                                                    .filter((item) => {
-                                                                        return search.toLowerCase() === ''
-                                                                            ? item
-                                                                            : item.name.
-                                                                            toLowerCase().includes(search);
-                                                                    })
-                                                                    .map((item, index) => (
-                                                                        <tr key={index}>
-                                                                            <td>{item.id}</td>
-                                                                            <td>{item.name}</td>
-                                                                            <td>{item.email}</td>
-                                                                            <td>{item.phone}</td>
-                                                                            <td>{item.phone}</td>
-                                                                            <td>
-                                                                                <Link to={`/parent-dashboard/${item.id}`}><button type='button' className='btn btn-primary'>View</button></Link>
-                                                                            </td>
-                                                                        </tr>
-                                                                    ))}
-                                                            </tbody>
-                                                        </Table>
-
-
-                                                        {/* <Table striped bordered hover>
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Id</th>
-                                                                    <th>Role</th>
-                                                                    <th>Guard Name</th>
+                                                                    {/* <th>Instruction</th> */}
                                                                     <th>Action</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                {content.map((item, index) => (
-                                                                    <tr key={index}>
+                                                                {formatData(content).map((item, index) => (
+                                                                     <tr key={index}> 
                                                                         <td>{item.id}</td>
                                                                         <td>{item.name}</td>
-                                                                        <td>{item.guard_name}</td>
+                                                                        <td>{item.email}</td>
+                                                                         <td> {(item.companies.length > 0) ?
+                                                                            item.companies.map((d) => {
+                                                                                return (
+                                                                                    <span>
+                                                                                        {d.company.name},
+                                                                                    </span>
+                                                                                )
+                                                                            })
+                                                                            : ""}
+                                                                        </td>
                                                                         <td>
-                                                                            <Link to={`/role/edit_create/${item.id}`} className='btn btn-success'>Edit</Link>
+                                                                            <Link to={`/pending/${item.id}`}><button type='button' className='btn btn-primary'>View</button></Link>
                                                                         </td>
                                                                     </tr>
-                                                                ))}
+                                                                ))} 
                                                             </tbody>
-                                                        </Table> */}
+                                                        </Table>
                                                     </div>
                                                 </div>
                                             </div>

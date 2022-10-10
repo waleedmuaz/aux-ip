@@ -43,7 +43,7 @@ const Dashboard = () => {
         if (!response.ok) {
             throw new Error('Data coud not be fetched!')
         } else {
-            toast.info("Instruction Submit Successfully", {
+            toast.success("Instruction Submit Successfully", {
                 position: "bottom-right",
                 autoClose: 5000,
                 hideProgressBar: false,

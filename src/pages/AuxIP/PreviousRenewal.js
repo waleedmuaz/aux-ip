@@ -14,6 +14,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useParams } from 'react-router-dom';
 import PendingTable from '../../elements/AuxIP/CustomTable/PendingTable';
+import PreviousTable from '../../elements/AuxIP/CustomTable/PreviousTable';
 
 
 const PreviousRenewal = () => {
@@ -93,7 +94,7 @@ const PreviousRenewal = () => {
                                                                 /> */}
                                                             </InputGroup>
                                                         </Form>
-                                                        <PendingTable
+                                                        <PreviousTable
                                                             content={content}
                                                             isLoader={isLoader}
                                                             setIsLoader={setIsLoader}

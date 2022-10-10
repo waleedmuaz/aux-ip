@@ -65,7 +65,7 @@ const AdminLogin = () => {
                 progress: undefined,
             });
         } else if (res.status == 200) {
-            toast.info(res.messages, {
+            toast.success(res.messages, {
                 position: "bottom-right",
                 autoClose: 5000,
                 hideProgressBar: false,

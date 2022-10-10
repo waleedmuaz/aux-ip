@@ -9,6 +9,7 @@ import UserForm from '../../../elements/AuxIP/User/UserForm';
 import SideBar from '../../../elements/AuxIP/Bar/SideBar';
 import { useHistory } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
+import CompanyForm from '../../../elements/AuxIP/User/CompanyForm';
 const User = () => {
 
 
@@ -43,9 +44,9 @@ const User = () => {
 
 
     useEffect(() => {
-        if (!localStorage.getItem("auth")) { 
+        if (!localStorage.getItem("auth")) {
             history.push("/login");
-        } 
+        }
         getIpServicePageData();
         setIsLoader(true);
     }, [])
@@ -73,21 +74,17 @@ const User = () => {
                                 <div className="col-md-10">
                                     <Separator />
                                     <div className="row mb-5">
-                                        <div className='col-md-12'>
+                                        <div className='col-md-6'>
                                             {/* <div className='row'> */}
-                                            {/* <div className='col-md-4'>
-                                                </div> */}
-                                            {/* <div className='col-md-4'> */}
-
                                             <div className='card-body'>
                                                 <UserForm formStyle="formRegister" company={company} />
                                             </div>
-                                            {/* </div> */}
-                                            <div className='col-md-4 top-50 start-50 '>
-                                            </div>
-                                            {/* </div> */}
                                         </div>
-
+                                        <div className='col-md-6'>
+                                            <div className='card-body'>
+                                                <CompanyForm formStyle="formRegister" company={company} />
+                                            </div>
+                                        </div>
                                     </div>
                                     <Separator />
 

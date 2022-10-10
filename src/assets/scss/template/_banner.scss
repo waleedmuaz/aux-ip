@@ -1143,7 +1143,7 @@ table.dataTable thead .sorting_desc_disabled:before {
   border-right: 2px solid #eee !important;
   background-color: #283341 !important;
   margin-top: -2px !important;
-//   height: 100vh !important;
+  height: 100vh !important;
 }
 .sideBarLineUser{
     border-right: 2px solid #283341 !important;
@@ -1456,7 +1456,7 @@ padding: 12px;
     font-size: 1rem;
     font-size: 15px;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 34px!important;
     color: #495057;
     background-color: #fff;
     /* background-clip: padding-box; */
@@ -1464,3 +1464,4 @@ padding: 12px;
     border-radius: 0.25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+

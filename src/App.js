@@ -28,6 +28,7 @@ import AdminLogin from './pages/AuxIP/Auth/AdminLogin';
 import ParentDashboard from './pages/AuxIP/Auth/ParentDashboard';
 import PendingRenewal from './pages/AuxIP/PendingRenewal';
 import PreviousRenewal from './pages/AuxIP/PreviousRenewal';
+import Cms from './pages/AuxIP/Auth/Cms';
 
 const App = () => {
     return (
@@ -57,7 +58,8 @@ const App = () => {
                     <Route path={`${process.env.PUBLIC_URL + "/profile"}`} exact component={Profile}/>
                     <Route path={`${process.env.PUBLIC_URL + "/admin"}`} exact component={AdminLogin}/>
                     <Route path={`${process.env.PUBLIC_URL + "/contact-us"}`} exact component={ContactUs}/>
-                    <Route path={`${process.env.PUBLIC_URL + "/cms"}`} exact component={ContactUs}/>
+                    <Route path={`${process.env.PUBLIC_URL + "/contact-us"}`} exact component={ContactUs}/>
+                    <Route path={`${process.env.PUBLIC_URL + "/cms"}`} exact component={Cms}/>
                   
                     {/* <Route path={`${process.env.PUBLIC_URL + "/DashboardHeader"}`} exact component={DashboardHeader}/> */}
                 </Switch>

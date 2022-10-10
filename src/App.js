@@ -20,7 +20,7 @@ import './assets/scss/style.scss';
 import Home from './pages/AuxIP/Home';
 import Dashboard from './elements/AuxIP/Dasboard';
 import Role from './elements/AuxIP/RolePermission/Role';
-import AddEditRole from './elements/AuxIP/Role/AddEditRole';
+// import AddEditRole from './elements/AuxIP/Role/AddEditRole';
 import User from './pages/AuxIP/Auth/User';
 import Profile from './pages/AuxIP/Auth/Profile';
 import ContactUs from './pages/AuxIP/ContactUs';

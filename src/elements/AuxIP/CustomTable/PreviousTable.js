@@ -13,7 +13,7 @@ import { roleUser } from '../../../utils/AuxIP/helper';
 import { toast } from 'react-toastify';
 
 
-const PendingTable = (props) => {
+const PreviousTable = (props) => {
     let reference, ip_type, application, application_numbers, application_filing_date, patent_numbers, grant_date, country, due_date, last_instruction_date, action_type, estimated_cost, instruction;
     const statusOfInstruction = [
         { value: "pending", label: "Pending" },
@@ -50,7 +50,7 @@ const PendingTable = (props) => {
         if (!response.ok) {
             throw new Error('Data coud not be fetched!')
         } else {
-            toast.success("Instruction Submit Successfully", {
+            toast.info("Instruction Submit Successfully", {
                 position: "bottom-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -64,8 +64,8 @@ const PendingTable = (props) => {
     }
     const selectRow = {
         mode: 'checkbox',
-        clickToSelect: true,
-        clickToEdit: true,
+        // clickToSelect: true,
+        // clickToEdit: true,
         hideSelectAll: true,
         style: {
             background: '#d1ecf1',
@@ -176,16 +176,9 @@ const PendingTable = (props) => {
                                 filter={filterFactory()}
                                 noDataIndication="No Data to Display"
                                 {...paginationTableProps}
-                                selectRow={selectRow}
+                                // selectRow={selectRow}
                                 headerClasses="header-class"
-                                cellEdit={cellEditFactory({
-                                    mode: "click",
-                                    blurToSave: true,
-                                    afterSaveCell: (oldValue, newValue, row, column) => { 
-                                        updateInstructStatus(oldValue, newValue, row, column)
-                                     }
-
-                                })}
+                                
 
                             />
                             <PaginationListStandalone
@@ -198,4 +191,4 @@ const PendingTable = (props) => {
         </>
     )
 }
-export default PendingTable;
+export default PreviousTable;

@@ -6,24 +6,12 @@ import {
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const UserForm = (props) => {
+const CompanyForm = (props) => {
 
  const [isLoader, setIsLoader] = useState(true);
  const [formData, setFormData] = useState({
     'name':'',
-    'email':''
  });
-
- const handleChangeselect = (e) => {
-  let name = e.target.name;
-  let value = Array.from(e.target.selectedOptions, option => option.value);
-  setFormData((prevalue) => {
-    return {
-      ...prevalue,   // Spread Operator               
-      [name]: value
-    }
-  })
-}
 
  const handleChange = (event) => {
     let value = event.target.value;
@@ -41,12 +29,10 @@ const UserForm = (props) => {
     e.preventDefault();
     console.log(formData)
     setIsLoader(false)
-    let response = await fetch(`${process.env.REACT_APP_BASEURL}user/create`, {
+    let response = await fetch(`${process.env.REACT_APP_BASEURL}create/company`, {
        method: 'POST',
        body: JSON.stringify({
         "name":formData.name,
-        "email":formData.email,
-        'company_id':formData.company_id
        }),
        mode: 'cors', 
        headers: {
@@ -85,7 +71,7 @@ if(!isLoader){
 }
     return (
     <div className="">
-        <h3>Create User</h3>
+        <h3>Create Company</h3>
         <Form className="form" >
           <FormGroup>
             <label>Name</label>
@@ -98,34 +84,6 @@ if(!isLoader){
               placeholder="Enter Name..."
             />
           </FormGroup>
-          <FormGroup>
-            <label for="Email">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              id="Email"
-              placeholder="Enter Email..."
-            />
-            </FormGroup>
-               <FormGroup>
-                <select multiple required
-                onChange={handleChangeselect}
-                name="company_id[]"
-                >
-                {(props.company.length!=null)?                
-                  props.company.map((d) => {
-                    return (
-                        <option value={d.id}>
-                              {d.name}
-                        </option>
-                    )
-                  })
-                :""}
-
-                </select>
-            </FormGroup>
           <div className="header-btn">
             <button onClick={e => {handleSubmit(e)}} className='btn-default btn-small'>Create</button>
           </div>
@@ -134,4 +92,4 @@ if(!isLoader){
     );
 }
 
-export default UserForm;
+export default CompanyForm;

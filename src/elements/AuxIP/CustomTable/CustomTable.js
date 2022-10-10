@@ -107,7 +107,7 @@ const CustomTable = (props) => {
         dataField: 'estimated_cost',
         text: 'Estimated Cost',
         sort: true,
-        editable: (roleUser() === "Admin") ? false : true,
+        editable: false,
     }, {
         dataField: "instruction",
         text: "Instruction",

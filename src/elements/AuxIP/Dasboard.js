@@ -132,11 +132,7 @@ const Dashboard = () => {
                                     <div className="dashboard_section my-5">
                                         <div className="full">
                                             <div>
-                                                <div>
-                                                    {(roleUser() && roleUser() === "Admin") ?
-                                                        <FileUpload />
-                                                        : ""}
-                                                </div>
+                                                
 
 
                                                 <div>

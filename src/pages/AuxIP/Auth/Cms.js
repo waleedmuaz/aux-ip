@@ -5,7 +5,7 @@ import HeaderTwo from '../../../common/header/HeaderTwo';
 import SEO from '../../../common/SEO';
 import FooterBottom from '../../../elements/AuxIP/FooterBottom';
 import Separator from '../../../elements/separator/Separator';
-import { Button, Table } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
 import SideBar from '../../../elements/AuxIP/Bar/SideBar';

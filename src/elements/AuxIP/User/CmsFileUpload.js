@@ -6,7 +6,7 @@ export default function CmsFileUpload() {
   const submitForm = (event) => {
     event.preventDefault();
     const dataArray = new FormData();
-    dataArray.append("csv", uploadFile[0]);
+    dataArray.append("uploadFile", uploadFile[0]);
     axios
       .post(`${process.env.REACT_APP_BASEURL}cms/upload `, dataArray, {
         headers: {

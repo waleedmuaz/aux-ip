@@ -2,6 +2,7 @@ import React from 'react';
 import { FaGlobe, FaSearch, FaUser } from 'react-icons/fa';
 import {Link} from "react-router-dom";
 import {Redirect} from 'react-router-dom';
+import { roleUser } from '../../utils/AuxIP/helper';
 
 const HeaderTopBar = () => {
 
@@ -42,7 +43,7 @@ const deleteItem = () => {
                                         </p>
                                 }
                                 {
-                                        (!localStorage.getItem('auth'))?"":<p><Link to="/parent-dashboard" ><span>Dashboard</span></Link></p>
+                                        (!localStorage.getItem('auth'))?"":<p><Link  to={ (roleUser()==="User") ?  "/parent-dashboard" : "/dashboard"} ><span>Dashboard</span></Link></p>
                                 }
                                         <p><Link to="admin"><span>Admin</span></Link></p>
                                 

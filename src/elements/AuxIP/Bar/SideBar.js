@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 // import '../Bar/sidebar.css';
 
 const SideBar = () => {
@@ -8,13 +8,13 @@ const SideBar = () => {
     if (role === 'Admin')
       return (
         <>
-          <div className="col-md-2 sideBarLine">
+          <div className="col-md-2 sideBarLine heightSideBar">
             <nav id="sidebar" className="sidebar-wrapper toggled">
               <div className="sidebar-content">
                 <div className="sidebar-menu">
                   <ul>
                     <li className="header-menu">
-                      <NavLink to="/dashboard" exact ><i className="fa fa-columns mr-2" aria-hidden="true"></i><span>Dashboard</span></NavLink>
+                      <Link to="/dashboard" exact ><i className="fa fa-columns mr-2" aria-hidden="true"></i><span>Dashboard</span></Link>
                       <ul>
                         <li className="header-menu">
                           <NavLink to="/pending" exact >
@@ -35,7 +35,7 @@ const SideBar = () => {
                       </NavLink>
                     </li>
                     <li className="header-menu">
-                      <NavLink to="/user" exact >
+                      <NavLink to="/add-listing" exact >
                         <span><i className="fa fa-list" aria-hidden="true"></i>Add Listing</span>
                       </NavLink>
                     </li>
@@ -64,7 +64,7 @@ const SideBar = () => {
       );
     return (
       <>
-        <div className="col-md-2 sideBarLineUser">
+        <div className="col-md-2 sideBarLineUser heightSideBar">
           <nav id="sidebar" className="sidebar-wrapper toggled">
             <div className="sidebar-content">
               <div className="sidebar-menu">

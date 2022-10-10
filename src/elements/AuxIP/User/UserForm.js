@@ -11,7 +11,7 @@ const UserForm = (props) => {
  const [isLoader, setIsLoader] = useState(true);
  const [formData, setFormData] = useState({
     'name':'',
-    'email':''
+    'email':'',
  });
 
  const handleChangeselect = (e) => {
@@ -65,7 +65,10 @@ const UserForm = (props) => {
         draggable: true,
         progress: undefined,
       });
-    }else if(res.status==200){
+    }else if(res.status===200){
+      props.setContent(res.data['users']);
+      props.setCompany(res.data['company']);
+
       toast.success(res.messages, {
         position: "bottom-right",
         autoClose: 5000,
@@ -112,7 +115,7 @@ if(!isLoader){
                <FormGroup>
                 <select multiple required
                 onChange={handleChangeselect}
-                name="company_id[]"
+                name="company_id"
                 >
                 {(props.company.length!=null)?                
                   props.company.map((d) => {

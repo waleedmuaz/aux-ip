@@ -25,10 +25,11 @@ const PendingRenewal = () => {
     const [filterConstraints, setfilterConstraints] = useState();
 
     const { id } = useParams();
-
+    
     const getInstructionData = async () => {
         setIsLoader(true);
-        const response = await fetch(`${process.env.REACT_APP_BASEURL}instruction/list/?user_id=${id}`,
+        console.log(id);
+        const response = await fetch(`${process.env.REACT_APP_BASEURL}instruction/list`,
             {
                 headers: {
                     'Accept': 'application/json',
@@ -36,7 +37,7 @@ const PendingRenewal = () => {
                     'Authorization': localStorage.getItem('auth'),
                 },
                 method: "POST",
-                body: JSON.stringify({ user_id: id }),
+                body: (id!=undefined)?JSON.stringify({ user_id: id }): "",
             })
         if (!response.ok) {
             throw new Error('Data coud not be fetched!')
@@ -84,6 +85,8 @@ const PendingRenewal = () => {
                                                 <div className="col-12">
                                                     <div className="full role">
                                                         <h5>Instruction Received</h5>
+                                                        {
+                                                            (content.user)?
                                                         <table>
                                                             <tr>
                                                                 <td><b>Id</b></td>
@@ -98,6 +101,7 @@ const PendingRenewal = () => {
                                                                 <td>{content.user.email}</td>
                                                             </tr>
                                                         </table>
+                                                        : " "}
                                                         <Form>
                                                             <InputGroup className='my-3'>
 

@@ -29,6 +29,7 @@ import ParentDashboard from './pages/AuxIP/Auth/ParentDashboard';
 import PendingRenewal from './pages/AuxIP/PendingRenewal';
 import PreviousRenewal from './pages/AuxIP/PreviousRenewal';
 import Cms from './pages/AuxIP/Auth/Cms';
+import AddListing from './pages/AuxIP/AddListing';
 
 const App = () => {
     return (
@@ -40,9 +41,9 @@ const App = () => {
                     <Route path={`${process.env.PUBLIC_URL + "/business-consulting"}`} exact component={HomeDefault}/>
                     <Route path={`${process.env.PUBLIC_URL + "/company"}`} exact component={Company}/>
                     <Route path={`${process.env.PUBLIC_URL + "/dashboard"}`} exact component={ParentDashboard}/>
-                    pending
-                    <Route path={`${process.env.PUBLIC_URL + "/pending"}`} exact component={Dashboard}/>
-                    <Route path={`${process.env.PUBLIC_URL + "/pending/:id"}`} exact component={PendingRenewal}/>
+                    
+                    {/* <Route path={`${process.env.PUBLIC_URL + "/pending"}`} exact component={Dashboard}/> */}
+                    <Route path={`${process.env.PUBLIC_URL + "/pending/:id?"}`} exact component={PendingRenewal}/>
                     <Route path={`${process.env.PUBLIC_URL + "/previous"}`} exact component={PreviousRenewal}/>                    
                     <Route path={`${process.env.PUBLIC_URL + "/ip-software"}`} exact component={IPSoftware}/>
                     <Route path={`${process.env.PUBLIC_URL + "/about-us"}`} exact component={AboutUs}/>
@@ -58,9 +59,9 @@ const App = () => {
                     <Route path={`${process.env.PUBLIC_URL + "/profile"}`} exact component={Profile}/>
                     <Route path={`${process.env.PUBLIC_URL + "/admin"}`} exact component={AdminLogin}/>
                     <Route path={`${process.env.PUBLIC_URL + "/contact-us"}`} exact component={ContactUs}/>
-                    <Route path={`${process.env.PUBLIC_URL + "/contact-us"}`} exact component={ContactUs}/>
                     <Route path={`${process.env.PUBLIC_URL + "/cms"}`} exact component={Cms}/>
-                  
+                    <Route path={`${process.env.PUBLIC_URL + "/add-listing"}`} exact component={AddListing}/>
+                                      
                     {/* <Route path={`${process.env.PUBLIC_URL + "/DashboardHeader"}`} exact component={DashboardHeader}/> */}
                 </Switch>
             </PageScrollTop>

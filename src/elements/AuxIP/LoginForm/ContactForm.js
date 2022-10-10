@@ -80,7 +80,6 @@ class ContactForm extends Component {
           localStorage.setItem("user", JSON.stringify(response.data.data));
           localStorage.setItem("auth", "Bearer "+JSON.stringify(response.data.data.token).replaceAll('"', ''));
           this.props.history.push("/parent-dashboard");
-          // <Link  to="/dashboard" />
         }
       })
       .catch((error) => {

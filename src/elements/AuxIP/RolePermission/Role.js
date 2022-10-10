@@ -77,7 +77,7 @@ const Role = () => {
                                             <div className="row mb-4">
                                                 <div className="col-12">
                                                     <div className="full role">
-                                                        <Link to="role/edit_create"><Button type="submit" className="btn my-3 btn-primary">Add Role</Button></Link>
+                                                        {/* <Link to="role/edit_create"><Button type="submit" className="btn my-3 btn-primary">Add Role</Button></Link> */}
                                                         <Table striped bordered hover>
                                                             <thead>
                                                                 <tr>

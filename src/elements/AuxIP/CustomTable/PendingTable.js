@@ -143,6 +143,18 @@ const PendingTable = (props) => {
         editable: (roleUser() === "Admin") ? false : true,
     },
     {
+        dataField: 'user_email',
+        text: 'Email',
+        sort: true,
+        // editable: (roleUser() === "Admin") ? false : true,
+    },
+    {
+        dataField: 'user_name',
+        text: 'Name',
+        sort: true,
+        // editable: (roleUser() === "Admin") ? false : true,
+    },
+    {
         dataField: 'status',
         text: 'Status',
         sort: true,

@@ -14,9 +14,6 @@ import { roleUser } from '../../utils/AuxIP/helper';
 import CustomTable from './CustomTable/CustomTable';
 import { toast } from 'react-toastify';
 
-
-
-
 const Dashboard = () => {
     let history = useHistory();
 
@@ -121,7 +118,7 @@ const Dashboard = () => {
 
     return (
         <>
-            <SEO title="Home" />
+            <SEO title="Dashboard" />
             <main className="page-wrapper">
                 <HeaderTopBar />
                 <HeaderTwo btnStyle="btn-small" />

@@ -77,12 +77,12 @@ const User = () => {
                                         <div className='col-md-6'>
                                             {/* <div className='row'> */}
                                             <div className='card-body'>
-                                                <UserForm formStyle="formRegister" company={company} />
+                                                <UserForm formStyle="formRegister" content={setContent} company={company} />
                                             </div>
                                         </div>
                                         <div className='col-md-6'>
                                             <div className='card-body'>
-                                                <CompanyForm formStyle="formRegister" company={company} />
+                                                <CompanyForm formStyle="formRegister" company={company} setCompany={setCompany} />
                                             </div>
                                         </div>
                                     </div>

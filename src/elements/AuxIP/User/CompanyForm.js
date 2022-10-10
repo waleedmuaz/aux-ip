@@ -29,7 +29,7 @@ const CompanyForm = (props) => {
     e.preventDefault();
     console.log(formData)
     setIsLoader(false)
-    let response = await fetch(`${process.env.REACT_APP_BASEURL}create/company`, {
+    let response = await fetch(`${process.env.REACT_APP_BASEURL}company/create`, {
        method: 'POST',
        body: JSON.stringify({
         "name":formData.name,
@@ -37,6 +37,7 @@ const CompanyForm = (props) => {
        mode: 'cors', 
        headers: {
           'Content-type': 'application/json; charset=UTF-8',
+          'Authorization': localStorage.getItem('auth'),
        },
     });
     setIsLoader(true)
@@ -52,6 +53,7 @@ const CompanyForm = (props) => {
         progress: undefined,
       });
     }else if(res.status==200){
+      props.setCompany(res.data);
       toast.success(res.messages, {
         position: "bottom-right",
         autoClose: 5000,

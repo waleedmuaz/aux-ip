@@ -113,7 +113,7 @@ const Dashboard = () => {
 
     }, [])
 
-    if (!isLoader || content.length <= 0)
+    if (!isLoader )
         return <div className='loader'><span></span></div>;
 
     return (

@@ -113,7 +113,8 @@ if(!isLoader){
             />
             </FormGroup>
                <FormGroup>
-                <select multiple required
+                <label for="Company">Company</label>
+                <select id="Company" multiple required
                 onChange={handleChangeselect}
                 name="company_id"
                 >

@@ -59,6 +59,12 @@ const CustomTable = (props) => {
 
     const columns = [
         {
+            dataField: 'user.email',
+            text: 'User Email',
+            sort: true,
+            editable: false,
+            hidden:(roleUser() !== "Admin") ? true : false,
+        }, {
             dataField: 'reference',
             text: 'Reference',
             sort: true,
@@ -128,7 +134,8 @@ const CustomTable = (props) => {
             dataField: 'estimated_cost',
             text: 'Estimated Cost',
             sort: true,
-            editable: (roleUser() === "Admin") ? false : true,
+            editable: false,
+
         }, {
             dataField: "instruction",
             text: "Instruction",

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import HeaderTopBar from '../../common/header/HeaderTopBar';
 import HeaderTwo from '../../common/header/HeaderTwo';
@@ -6,15 +6,25 @@ import SEO from '../../common/SEO';
 import FooterBottom from '../../elements/AuxIP/FooterBottom';
 import Separator from '../../elements/separator/Separator';
 import SideBar from '../../elements/AuxIP/Bar/SideBar';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
 import axios from 'axios';
 import { roleUser } from '../../utils/AuxIP/helper';
 import FileUpload from '../../elements/AuxIP/FileUpload';
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+// import moment from 'moment';
 
 const AddListing = () => {
-    const [formData, setFormData] = useState({});
+    const [formData, setFormData] = useState({
+        // application_filing_date: new Date()
+    });
+
+    const handleChangeDate = (events, name) => {
+        let target = {
+            value: events,
+            name: name,
+        }
+        handleChange({ target })
+    }
 
     const handleChange = (event) => {
         let value = event.target.value;
@@ -69,47 +79,56 @@ const AddListing = () => {
                                                 <div className="row my-5">
                                                     <div className="col-md-6 col-12">
                                                         <div className="form-group">
+                                                            <label>Reference</label>
                                                             <input type="text" className="form-control" name="reference"
                                                                 value={formData.reference}
                                                                 onChange={handleChange}
-                                                                placeholder='Enter reference' />
+                                                                 />
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6 col-12">
                                                         <div className="form-group">
+                                                            <label>Ip Type</label>
                                                             <input type="text" className="form-control" name="ip_type"
                                                                 value={formData.ip_type}
                                                                 onChange={handleChange}
-                                                                placeholder='Enter ip_type' />
+                                                                 />
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6 col-12">
                                                         <div className="form-group">
+                                                            <label>Application</label>
                                                             <input type="text" className="form-control" name="application"
                                                                 value={formData.application}
                                                                 onChange={handleChange}
-                                                                placeholder='Enter application' />
+                                                                />
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6 col-12">
                                                         <div className="form-group">
+                                                            <label>Application Numbers</label>
                                                             <input type="text" className="form-control" name="application_numbers"
                                                                 value={formData.application_numbers}
                                                                 onChange={handleChange}
-                                                                placeholder='Enter application_numbers' />
+                                                                />
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6 col-12">
                                                         <div className="form-group">
-                                                            <input type="text" className="form-control" name="application_filing_date"
-                                                                value={formData.application_filing_date}
-                                                                onChange={handleChange}
-                                                                placeholder='Enter application_filing_date' />
+                                                            <label>Application Filing Date</label>
+                                                            <DatePicker
+                                                                name="application_filing_date"
+                                                                selected={formData.application_filing_date}
+                                                                onChange={(date) => handleChangeDate(date, 'application_filing_date')} //pass name as string
+                                                                dateFormat="MMMM d yyyy"
+                                                                className='form-control'
+                                                            />
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6 col-12">
                                                         <div className="form-group">
-                                                            <input type="text" className="form-control" name="patent_numbers" placeholder='Enter patent_numbers'
+                                                            <label>Patent Numbers</label>
+                                                            <input type="text" className="form-control" name="patent_numbers" 
                                                                 onChange={handleChange}
                                                                 value={formData.patent_numbers}
 
@@ -118,15 +137,20 @@ const AddListing = () => {
                                                     </div>
                                                     <div className="col-md-6 col-12">
                                                         <div className="form-group">
-                                                            <input type="text" className="form-control" name="grant_date" placeholder='Enter grant_date'
-                                                                value={formData.grant_date}
-                                                                onChange={handleChange}
+                                                            <label>Grant Date</label>
+                                                            <DatePicker
+                                                                name="grant_date"
+                                                                selected={formData.grant_date}
+                                                                onChange={(date) => handleChangeDate(date, 'grant_date')} //pass name as string
+                                                                dateFormat="MMMM d yyyy"
+                                                                className='form-control'
                                                             />
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6 col-12">
                                                         <div className="form-group">
-                                                            <input type="text" className="form-control" name="country" placeholder='Enter country'
+                                                            <label>Country</label>
+                                                            <input type="text" className="form-control" name="country"
                                                                 value={formData.country}
                                                                 onChange={handleChange}
 
@@ -135,23 +159,33 @@ const AddListing = () => {
                                                     </div>
                                                     <div className="col-md-6 col-12">
                                                         <div className="form-group">
-                                                            <input type="text" className="form-control" name="due_date" placeholder='Enter due_date'
-                                                                value={formData.due_date}
-                                                                onChange={handleChange}
+                                                        <label>Due Date</label>
+                                                            <DatePicker
+                                                                name="due_date"
+                                                                selected={formData.due_date}
+                                                                onChange={(date) => handleChangeDate(date, 'due_date')} //pass name as string
+                                                                dateFormat="MMMM d yyyy"
+                                                                className='form-control'
                                                             />
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6 col-12">
                                                         <div className="form-group">
-                                                            <input type="datetime-local" className="form-control" name="last_instruction_date" placeholder='Enter last_instruction_date'
-                                                                value={formData.last_instruction_date}
-                                                                onChange={handleChange}
+                                                        <label>Last Instruction Date</label>
+                                                            <DatePicker
+                                                                name="last_instruction_date"
+                                                                selected={formData.last_instruction_date}
+                                                                onChange={(date) => handleChangeDate(date, 'last_instruction_date')} //pass name as string
+                                                                dateFormat="MMMM d yyyy"
+                                                                className='form-control'
                                                             />
+                                                            
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6 col-12">
                                                         <div className="form-group">
-                                                            <input type="text" className="form-control" name="instruction" placeholder='Enter instruction'
+                                                            <label>Instruction</label>
+                                                            <input type="text" className="form-control" name="instruction" 
                                                                 value={formData.instruction}
                                                                 onChange={handleChange}
                                                             />
@@ -159,7 +193,8 @@ const AddListing = () => {
                                                     </div>
                                                     <div className="col-md-6 col-12">
                                                         <div className="form-group">
-                                                            <input type="text" className="form-control" name="action_type" placeholder='Enter action_type'
+                                                        <label>Action Type</label>
+                                                            <input type="text" className="form-control" name="action_type" 
                                                                 value={formData.action_type}
                                                                 onChange={handleChange}
                                                             />
@@ -167,8 +202,18 @@ const AddListing = () => {
                                                     </div>
                                                     <div className="col-md-6 col-12">
                                                         <div className="form-group">
-                                                            <input type="text" className="form-control" name="estimated_cost" placeholder='Enter estimated_cost'
+                                                        <label>Estimated Cost</label>
+                                                            <input type="text" className="form-control" name="estimated_cost"
                                                                 value={formData.estimated_cost}
+                                                                onChange={handleChange}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-6 col-12">
+                                                        <div className="form-group">
+                                                            <label>User Id</label>
+                                                            <input type="number" className="form-control" name="user_id"
+                                                                value={formData.user_id}
                                                                 onChange={handleChange}
                                                             />
                                                         </div>

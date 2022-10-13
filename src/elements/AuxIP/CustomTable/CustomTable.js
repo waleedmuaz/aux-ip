@@ -27,7 +27,7 @@ const CustomTable = (props) => {
         }
     }
 
-    
+
 
 
     const typeOfInstruction = [
@@ -48,76 +48,83 @@ const CustomTable = (props) => {
         // onSelectAll: (roleUser() === "User") ? onSelectAll : () => { }
     }
 
-    const columns = [{
-        dataField: 'reference',
-        text: 'Reference',
-        sort: true,
-        editable: false,
-    }, {
-        dataField: 'ip_type',
-        text: 'IP Type',
-        editable: false,
-        sort: true,
-    }, {
-        dataField: 'application',
-        text: 'Application',
-        editable: false,
-        sort: true,
-    }, {
-        dataField: 'application_numbers',
-        text: 'Application Numbers',
-        sort: true,
-        editable: false,
-    }, {
-        dataField: 'application_filing_date',
-        text: 'Application Filing Date',
-        editable: false,
-        sort: true,
-    }, {
-        dataField: 'patent_numbers',
-        text: 'Patent Numbers',
-        sort: true,
-        editable: false,
-    }, {
-        dataField: 'grant_date',
-        text: 'Grant Date',
-        sort: true,
-        editable: false,
-    }, {
-        dataField: 'country',
-        text: 'Country',
-        sort: true,
-        editable: false,
-    }, {
-        dataField: 'due_date',
-        text: 'Due Date',
-        sort: true,
-        editable: false,
-    }, {
-        dataField: 'last_instruction_date',
-        text: 'Last Instruction Date',
-        sort: true,
-        editable: false,
-    }, {
-        dataField: 'action_type',
-        text: 'Action Type',
-        editable: false,
-        sort: true,
-    }, {
-        dataField: 'estimated_cost',
-        text: 'Estimated Cost',
-        sort: true,
-        editable: false,
-    }, {
-        dataField: "instruction",
-        text: "Instruction",
-        editor: {
-            type: Type.SELECT,
-            options: typeOfInstruction
-        },
-        editable: (roleUser() === "Admin") ? false : true,
+    const columns = [
+        {
+            dataField: 'user.email',
+            text: 'User Email',
+            sort: true,
+            editable: false,
+            hidden:(roleUser() !== "Admin") ? true : false,
+        }, {
+            dataField: 'reference',
+            text: 'Reference',
+            sort: true,
+            editable: false,
+        }, {
+            dataField: 'ip_type',
+            text: 'IP Type',
+            editable: false,
+            sort: true,
+        }, {
+            dataField: 'application',
+            text: 'Application',
+            editable: false,
+            sort: true,
+        }, {
+            dataField: 'application_numbers',
+            text: 'Application Numbers',
+            sort: true,
+            editable: false,
+        }, {
+            dataField: 'application_filing_date',
+            text: 'Application Filing Date',
+            editable: false,
+            sort: true,
+        }, {
+            dataField: 'patent_numbers',
+            text: 'Patent Numbers',
+            sort: true,
+            editable: false,
+        }, {
+            dataField: 'grant_date',
+            text: 'Grant Date',
+            sort: true,
+            editable: false,
+        }, {
+            dataField: 'country',
+            text: 'Country',
+            sort: true,
+            editable: false,
+        }, {
+            dataField: 'due_date',
+            text: 'Due Date',
+            sort: true,
+            editable: false,
+        }, {
+            dataField: 'last_instruction_date',
+            text: 'Last Instruction Date',
+            sort: true,
+            editable: false,
+        }, {
+            dataField: 'action_type',
+            text: 'Action Type',
+            editable: false,
+            sort: true,
+        }, {
+            dataField: 'estimated_cost',
+            text: 'Estimated Cost',
+            sort: true,
+            editable: false,
+        }, {
+            dataField: "instruction",
+            text: "Instruction",
+            editor: {
+                type: Type.SELECT,
+                options: typeOfInstruction
+            },
+            editable: (roleUser() === "Admin") ? false : true,
 
-    }];
+        }];
 
     const paginationOption = {
         custom: true,

@@ -68,31 +68,31 @@ const Home = () => {
                 <SliderData setContetId={setContetId} content={content} getData={getData} />
                 {/* End Slider Area  */}
                 {/* First Home 3 Div */}
-                <div className="blog-area my-5 ">
+                {/* <div className="blog-area my-5 ">
                     <div className="container my-4">
                         <div className="row row--15">
                             <ImageTextSlider setContetId={setContetId} content={content} getData={getData} StyleVar="box-card-style-default"
                             />
                         </div>
                     </div>
-                </div>
+                </div> */}
                 {/* End First Home 3 Div */}
-                <Separator />
-                <BrandsBar setContetId={setContetId} content={content} getData={getData} />
+                {/* <Separator /> */}
+                {/* <BrandsBar setContetId={setContetId} content={content} getData={getData} /> */}
                 <Separator />
                 <PatentDeep setContetId={setContetId} content={content} getData={getData} />
                 <Separator />
                 {/* ========= Start Latest-insights ========= */}
-                <div className="latest_insight">
+                {/* <div className="latest_insight">
                     <div className="container">
                         <div className="row">
                             <LatestCard setContetId={setContetId} StyleVar="box-card-style-default" content={content} getData={getData} />
                         </div>
                     </div>
                 </div> {/* ========= End Latest-insights ========= */}
-                <Separator />
+                {/* <Separator /> */}
                 {/* ========= Start Module_banner ========= */}
-                <div className="module_banner mb-4 mt-2">
+                {/* <div className="module_banner mb-4 mt-2">
                     <div className="container">
                         <div className="row">
                             <ModuleBanner
@@ -100,8 +100,8 @@ const Home = () => {
                             />
                         </div>
                     </div>
-                </div> {/* ========= End Latest-insights ========= */}
-                <Separator />
+                </div> 
+                <Separator /> */}
 
                 {/* ========= Start ConvenientApp ========= */}
                 <ConvenientApp setContetId={setContetId} content={content} getData={getData} />

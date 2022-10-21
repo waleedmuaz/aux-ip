@@ -38,7 +38,7 @@ const PatentDeep = (props) => {
                                         <button type="button" className="mybuttonoverlap btn btn-primary" onClick={() => showPopUp(data.patent_deep_img[0].id)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
                                     : "" }
 
-                                        <img className="w-100" src={data.patent_deep_img[0].content_detail} alt="About Images" />
+                                        <img className="w-100 spinner-img" src={data.patent_deep_img[0].content_detail} alt="About Images" />
                                     </div> {/* ========= Close This Button On Hover Mouse ========= */}
                                  
                                 </div>

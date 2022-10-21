@@ -1478,3 +1478,8 @@ padding: 12px;
 .spinner-img{
     animation:spin 156s linear infinite;
 }
+.react-bootstrap-table table tbody td {
+    word-break: break-all;
+//     white-space: nowrap;
+//     width: 1px;
+}

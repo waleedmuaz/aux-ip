@@ -11,6 +11,7 @@ import { roleUser } from '../../utils/AuxIP/helper';
 import FileUpload from '../../elements/AuxIP/FileUpload';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { toast } from 'react-toastify';
 // import moment from 'moment';
 
 const AddListing = () => {
@@ -46,12 +47,38 @@ const AddListing = () => {
             }
         })
             .then((response) => {
-                console.log(response);
+
+                if (response.data.status === false) {
+                    toast.error('The given data was invalid', {
+                        position: "bottom-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+
+                } else if (response.data.status === 200) {
+                    setFormData("");
+                    event.target.reset();
+                    toast.success('Instructions Submit Successfully!', {
+                        position: "bottom-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                }
+
+                console.log(response.data);
                 // successfully uploaded response
             })
             .catch((error) => {
-                console.log(error)
-                // error response
+                console.log("🚀 ~ file: AddListing.js ~ line 66 ~ submitForm ~ error", error)
+
             });
     };
 
@@ -83,7 +110,8 @@ const AddListing = () => {
                                                             <input type="text" className="form-control" name="reference"
                                                                 value={formData.reference}
                                                                 onChange={handleChange}
-                                                                 />
+                                                                autoComplete="off"
+                                                            />
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6 col-12">
@@ -92,7 +120,8 @@ const AddListing = () => {
                                                             <input type="text" className="form-control" name="ip_type"
                                                                 value={formData.ip_type}
                                                                 onChange={handleChange}
-                                                                 />
+                                                                autoComplete="off"
+                                                            />
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6 col-12">
@@ -101,7 +130,8 @@ const AddListing = () => {
                                                             <input type="text" className="form-control" name="application"
                                                                 value={formData.application}
                                                                 onChange={handleChange}
-                                                                />
+                                                                autoComplete="off"
+                                                            />
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6 col-12">
@@ -110,7 +140,8 @@ const AddListing = () => {
                                                             <input type="text" className="form-control" name="application_numbers"
                                                                 value={formData.application_numbers}
                                                                 onChange={handleChange}
-                                                                />
+                                                                autoComplete="off"
+                                                            />
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6 col-12">
@@ -122,15 +153,17 @@ const AddListing = () => {
                                                                 onChange={(date) => handleChangeDate(date, 'application_filing_date')} //pass name as string
                                                                 dateFormat="MMMM d yyyy"
                                                                 className='form-control'
+                                                                autoComplete="off"
                                                             />
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6 col-12">
                                                         <div className="form-group">
                                                             <label>Patent Numbers</label>
-                                                            <input type="text" className="form-control" name="patent_numbers" 
+                                                            <input type="text" className="form-control" name="patent_numbers"
                                                                 onChange={handleChange}
                                                                 value={formData.patent_numbers}
+                                                                autoComplete="off"
 
                                                             />
                                                         </div>
@@ -144,6 +177,7 @@ const AddListing = () => {
                                                                 onChange={(date) => handleChangeDate(date, 'grant_date')} //pass name as string
                                                                 dateFormat="MMMM d yyyy"
                                                                 className='form-control'
+                                                                autoComplete="off"
                                                             />
                                                         </div>
                                                     </div>
@@ -153,59 +187,65 @@ const AddListing = () => {
                                                             <input type="text" className="form-control" name="country"
                                                                 value={formData.country}
                                                                 onChange={handleChange}
+                                                                autoComplete="off"
 
                                                             />
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6 col-12">
                                                         <div className="form-group">
-                                                        <label>Due Date</label>
+                                                            <label>Due Date</label>
                                                             <DatePicker
                                                                 name="due_date"
                                                                 selected={formData.due_date}
                                                                 onChange={(date) => handleChangeDate(date, 'due_date')} //pass name as string
                                                                 dateFormat="MMMM d yyyy"
                                                                 className='form-control'
+                                                                autoComplete="off"
                                                             />
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6 col-12">
                                                         <div className="form-group">
-                                                        <label>Last Instruction Date</label>
+                                                            <label>Last Instruction Date</label>
                                                             <DatePicker
                                                                 name="last_instruction_date"
                                                                 selected={formData.last_instruction_date}
                                                                 onChange={(date) => handleChangeDate(date, 'last_instruction_date')} //pass name as string
                                                                 dateFormat="MMMM d yyyy"
                                                                 className='form-control'
+                                                                autoComplete="off"
                                                             />
-                                                            
+
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6 col-12">
                                                         <div className="form-group">
                                                             <label>Instruction</label>
-                                                            <input type="text" className="form-control" name="instruction" 
+                                                            <input type="text" className="form-control" name="instruction"
                                                                 value={formData.instruction}
                                                                 onChange={handleChange}
+                                                                autoComplete="off"
                                                             />
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6 col-12">
                                                         <div className="form-group">
-                                                        <label>Action Type</label>
-                                                            <input type="text" className="form-control" name="action_type" 
+                                                            <label>Action Type</label>
+                                                            <input type="text" className="form-control" name="action_type"
                                                                 value={formData.action_type}
                                                                 onChange={handleChange}
+                                                                autoComplete="off"
                                                             />
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6 col-12">
                                                         <div className="form-group">
-                                                        <label>Estimated Cost</label>
+                                                            <label>Estimated Cost</label>
                                                             <input type="text" className="form-control" name="estimated_cost"
                                                                 value={formData.estimated_cost}
                                                                 onChange={handleChange}
+                                                                autoComplete="off"
                                                             />
                                                         </div>
                                                     </div>
@@ -215,6 +255,7 @@ const AddListing = () => {
                                                             <input type="number" className="form-control" name="user_id"
                                                                 value={formData.user_id}
                                                                 onChange={handleChange}
+                                                                autoComplete="off"
                                                             />
                                                         </div>
                                                     </div>

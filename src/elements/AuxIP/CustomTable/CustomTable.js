@@ -25,8 +25,11 @@ const CustomTable = (props) => {
     const [dueDate, setDueDate] = useState(true);
     const [lastInstructionDate, setLastInstructionDate] = useState(true);
     const [actionType, setActionType] = useState(true);
+    // const [colForm,setColForm]=useState([])
 
-
+    // const Cols=[
+    //     colForm.reference,"","",""
+    // ];
     const onRowSelect = (row, isSelect, rowIndex, e) => {
         if (isSelect) {
             let prev = props.selectedData;
@@ -193,6 +196,7 @@ const CustomTable = (props) => {
 
     return (
         <>
+            {(roleUser()==="Admin" ?
             <div className="all_hide_show_button mb-3">
                 <button type='button' className={show ? "btn btn-dark" : "btn btn-primary"} onClick={handleShow1}>{buttonText1} </button>
                 <button type='button' className={ipType ? "btn btn-dark" : "btn btn-primary"} onClick={handleShow2} >{buttonText2} </button>
@@ -206,23 +210,21 @@ const CustomTable = (props) => {
                 <button type='button' className={lastInstructionDate ? "btn btn-dark" : "btn btn-primary"} onClick={handleShow10}>{buttonText10} </button>
                 <button type='button' className={actionType ? "btn btn-dark" : "btn btn-primary"} onClick={handleShow11}>{buttonText11} </button>
             </div>
+            : "")}
 
 
             <PaginationProvider
                 pagination={paginationFactory(paginationOption)}
-
-
-
             >
                 {
                     ({
                         paginationProps,
                         paginationTableProps
                     }) => (
-                        <div>
+                        <div >
                             <BootstrapTable
                                 // bordered={false}
-                                bootstrap4
+                                bootstrap5
                                 keyField="id"
                                 data={props.content ? props.filterConstraints ? props.content.filter((itm) => {
                                     return itm.due_date >= props.filterConstraints

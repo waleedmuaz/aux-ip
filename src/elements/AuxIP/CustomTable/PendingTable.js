@@ -75,7 +75,20 @@ const PendingTable = (props) => {
         // onSelectAll: (roleUser() === "User") ? onSelectAll : () => { }
     }
 
-    const columns = [{
+    const columns = [
+        {
+            dataField: 'user_name',
+            text: 'Name',
+            editable: false ,
+            sort: true,
+        },
+        {
+            dataField: 'user_email',
+            text: 'Email',
+            sort: true,
+            editable: false ,
+        },
+        {
         dataField: 'reference',
         text: 'Reference',
         sort: true,
@@ -142,18 +155,7 @@ const PendingTable = (props) => {
         sort: true,
         editable: (roleUser() === "Admin") ? false : true,
     },
-    {
-        dataField: 'user_email',
-        text: 'Email',
-        sort: true,
-        editable: false ,
-    },
-    {
-        dataField: 'user_name',
-        text: 'Name',
-        editable: false ,
-        sort: true,
-    },
+ 
     {
         dataField: 'status',
         text: 'Status',

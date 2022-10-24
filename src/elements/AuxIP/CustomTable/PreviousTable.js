@@ -75,7 +75,20 @@ const PreviousTable = (props) => {
         // onSelectAll: (roleUser() === "User") ? onSelectAll : () => { }
     }
 
-    const columns = [{
+    const columns = [
+        {
+            dataField: 'user_name',
+            text: 'Name',
+            sort: true,
+            // editable: (roleUser() === "Admin") ? false : true,
+        },
+        {
+            dataField: 'user_email',
+            text: 'Email',
+            sort: true,
+            // editable: (roleUser() === "Admin") ? false : true,
+        },
+        {
         dataField: 'reference',
         text: 'Reference',
         sort: true,
@@ -142,18 +155,7 @@ const PreviousTable = (props) => {
         sort: true,
         editable: (roleUser() === "Admin") ? false : true,
     },
-    {
-        dataField: 'user_email',
-        text: 'Email',
-        sort: true,
-        // editable: (roleUser() === "Admin") ? false : true,
-    },
-    {
-        dataField: 'user_name',
-        text: 'Name',
-        sort: true,
-        // editable: (roleUser() === "Admin") ? false : true,
-    },
+  
     {
         dataField: 'status',
         text: 'Status',

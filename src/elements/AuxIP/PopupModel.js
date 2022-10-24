@@ -8,6 +8,7 @@ const PopupModel = (props) => {
     
   
     const [text, setText] = useState();
+
     
     let modelStyle = {
         display: 'block',
@@ -42,8 +43,6 @@ const PopupModel = (props) => {
 
     const  updateData = async () => {
         
-     
-        
         let data={
             'id':props.contentId,
             'content_detail':text
@@ -62,8 +61,9 @@ const PopupModel = (props) => {
         } else {
             let res= await response.json();
             console.log(res);
+          
             if(res.status===200){
-                toast.success('Updated Successfully! 😊', {
+                toast.success('Updated Successfully! ', {
                     position: "bottom-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -73,7 +73,7 @@ const PopupModel = (props) => {
                     progress: undefined,
                 });
             } else{
-                toast.error('The given data was invalid! 😔', {
+                toast.error('The given data was invalid! ', {
                     position: "bottom-right",
                     autoClose: 5000,
                     hideProgressBar: false,

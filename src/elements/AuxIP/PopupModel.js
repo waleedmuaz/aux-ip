@@ -6,7 +6,9 @@ import { toast } from 'react-toastify';
 
 const PopupModel = (props) => {
     
+  
     const [text, setText] = useState();
+    
     let modelStyle = {
         display: 'block',
     }
@@ -40,6 +42,8 @@ const PopupModel = (props) => {
 
     const  updateData = async () => {
         
+     
+        
         let data={
             'id':props.contentId,
             'content_detail':text
@@ -58,8 +62,18 @@ const PopupModel = (props) => {
         } else {
             let res= await response.json();
             console.log(res);
-            if(res.status===false){
-                toast.error(res.errors.content_detail, {
+            if(res.status===200){
+                toast.success('Updated Successfully! 😊', {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            } else{
+                toast.error('The given data was invalid! 😔', {
                     position: "bottom-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -69,10 +83,11 @@ const PopupModel = (props) => {
                     progress: undefined,
                 });
             }
+            }
             // return await response.json()
-
+            // The given data was invalid
         }  
-      }
+   
 
     return (
         <>
@@ -98,7 +113,6 @@ const PopupModel = (props) => {
             </div>
         </>
     )
-
 
 
 }

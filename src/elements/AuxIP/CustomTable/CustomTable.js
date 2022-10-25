@@ -176,21 +176,27 @@ const CustomTable = (props) => {
     return (
         <>
             {(roleUser()==="Admin" && props.colStruct.length>0 ?
-            <div className="all_hide_show_button mb-3">
+            <div className="all_hide_show_button coumn_button mb-3">
                 <form onSubmit={submitForm}>
-                     <div className="col-md-6 col-12">
+                <div className="row">
+                <div className="col-md-12 col-12">
+                        <div className="d-flex">
                         <div className="form-group">
-                            <label>Add Colum</label>
                             <input type="text" className="form-control" name="column"
                             onChange={handleChange}
                             value={formData.column}
                             autoComplete="off"
+                            placeholder='Enter column name'
                             />
                         </div>
+                        <button type='submit' className="btn btn-default submit">Submit</button>
+                        </div>
                     </div>
-                    <div className="col-md-6 col-12">
+                </div>
+                   
+                    {/* <div className="col-md-6 col-12">
                         <button type='submit' className="btn btn-default">Submit</button>
-                    </div>
+                    </div> */}
                 </form>
 
                 {

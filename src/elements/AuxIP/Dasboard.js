@@ -19,6 +19,8 @@ const Dashboard = () => {
 
     const [filterDate, setfilterDate] = useState();
     const [content, setContent] = useState([]);
+    const [colStruct, setColStruct] = useState([]);
+    const [columns, setColums] = useState([]);
     const [isLoader, setIsLoader] = useState(false);
     const [selectedData, setSelectedData] = useState([]);
     const [filterConstraints, setfilterConstraints] = useState();
@@ -68,7 +70,9 @@ const Dashboard = () => {
             throw new Error('Data coud not be fetched!')
         } else {
             let res = await response.json();
-            setContent(res.data);
+            setContent(res.data.instruction);
+            setColStruct(res.data.colStruct);
+            setColums(res.data.column);
             return res;
         }
     }
@@ -113,7 +117,7 @@ const Dashboard = () => {
 
     }, [])
 
-    if (!isLoader )
+    if (!isLoader)
         return <div className='loader'><span></span></div>;
 
     return (
@@ -132,9 +136,6 @@ const Dashboard = () => {
                                     <div className="dashboard_section my-5">
                                         <div className="full">
                                             <div>
-                                                
-
-
                                                 <div>
                                                     <select onChange={filter} value={filterDate}>
                                                         <option value="all">All</option>
@@ -147,6 +148,11 @@ const Dashboard = () => {
                                             </div>
                                             <CustomTable
                                                 content={content}
+                                                setContent={setContent}
+                                                colStruct={colStruct}
+                                                setColStruct={setColStruct}
+                                                columns={columns}
+                                                setColums={setColums}
                                                 isLoader={isLoader}
                                                 setIsLoader={setIsLoader}
                                                 selectedData={selectedData}

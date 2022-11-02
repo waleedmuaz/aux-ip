@@ -17,6 +17,7 @@ import { toast } from 'react-toastify';
 const CustomTable = (props) => {
 
     const [formData,setFormData]=useState({column:""});
+    
     const handleChange = (event) => {
         let value = event.target.value;
         let name = event.target.name;
@@ -64,6 +65,7 @@ const CustomTable = (props) => {
         editable: false,
         hidden:false,
      }];
+
     props.colStruct.forEach(element => {
         columns.push({
                 dataField: element.field,
@@ -99,12 +101,14 @@ const CustomTable = (props) => {
                 }),
             })
         if (!response.ok) {
-            throw new Error('Data coud not be fetched!')
+            throw new Error('Data could not be fetched!')
         } else {
             getIpServicePageData()
             console.log('done')
         }
     }
+
+    
     const getIpServicePageData = async () => {
         props.setIsLoader(true);
         const response = await fetch(`${process.env.REACT_APP_BASEURL}company/detail`,
